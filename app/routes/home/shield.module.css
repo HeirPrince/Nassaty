@@ -1,0 +1,18 @@
+.shieldWrapper {
+    position: absolute;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.shield img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 768px) {
+    .shield {
+        max-width: 500px;
+    }
+}

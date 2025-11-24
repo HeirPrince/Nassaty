@@ -19,7 +19,8 @@
       --headerNavFontSize: calc((22 / 16) * 1rem);
     }
 
-    @media (--mediaMobile), (--mediaMobileLS) {
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
       bottom: auto;
     }
   }
@@ -43,7 +44,8 @@
     flex: 1 1 auto;
     max-width: var(--space2XL);
 
-    @media (--mediaMobile), (--mediaMobileLS) {
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
       display: none;
     }
   }
@@ -107,7 +109,8 @@
     position: relative;
     z-index: var(--zIndex2);
 
-    @media (--mediaMobile), (--mediaMobileLS) {
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
       flex-direction: row;
       position: absolute;
       bottom: var(--spaceXL);
@@ -161,7 +164,8 @@
     -webkit-backdrop-filter: var(--backdrop);
     backdrop-filter: var(--backdrop);
 
-    @media (--mediaMobile), (--mediaMobileLS) {
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
       display: flex;
     }
 
@@ -198,7 +202,8 @@
       top: auto;
     }
 
-    @media (--mediaMobileS), (max-height: 360px) {
+    @media (--mediaMobileS),
+    (max-height: 360px) {
       --headerNavFontSize: calc((18 / 16) * 1rem);
     }
 

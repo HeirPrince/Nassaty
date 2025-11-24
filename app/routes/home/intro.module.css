@@ -120,7 +120,7 @@
 
   &::after {
     content: '';
-    background: var(--accent);
+    background: rgb(237 155 64);
     animation-duration: 1.5s;
     animation-delay: var(--delay);
     animation-fill-mode: forwards;

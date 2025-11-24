@@ -13,8 +13,8 @@ import config from '~/config.json';
 import { useHydrated } from '~/hooks/useHydrated';
 import styles from './intro.module.css';
 
-const DisplacementSphere = lazy(() =>
-  import('./displacement-sphere').then(module => ({ default: module.DisplacementSphere }))
+const Dots = lazy(() =>
+  import('./dots').then(module => ({ default: module.Dots }))
 );
 
 export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
@@ -65,7 +65,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
           <>
             {isHydrated && (
               <Suspense>
-                <DisplacementSphere />
+                <Dots />
               </Suspense>
             )}
             <header className={styles.text}>
@@ -76,16 +76,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 <VisuallyHidden className={styles.label}>
                   {`${config.role} + ${introLabel}`}
                 </VisuallyHidden>
-                <span aria-hidden className={styles.row}>
-                  <span
-                    className={styles.word}
-                    data-status={status}
-                    style={cssProps({ delay: tokens.base.durationXS })}
-                  >
-                    {config.role}
-                  </span>
-                  <span className={styles.line} data-status={status} />
-                </span>
+
                 <div className={styles.row}>
                   {disciplines.map(item => (
                     <Transition
@@ -99,7 +90,6 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                           aria-hidden
                           ref={nodeRef}
                           className={styles.word}
-                          data-plus={true}
                           data-status={status}
                           style={cssProps({ delay: tokens.base.durationL })}
                         >
