@@ -43,7 +43,7 @@ export const DisplacementSphere = props => {
   const geometry = useRef();
   const sphere = useRef();
   const reduceMotion = useReducedMotion();
-  const isInViewport = useInViewport(canvasRef);
+  const isInViewport = useInViewport(canvasRef); // keep as is
   const windowSize = useWindowSize();
   const rotationX = useSpring(0, springConfig);
   const rotationY = useSpring(0, springConfig);
@@ -183,16 +183,13 @@ export const DisplacementSphere = props => {
   }, [isInViewport, reduceMotion, rotationX, rotationY]);
 
   return (
-    <Transition in timeout={3000} nodeRef={canvasRef}>
-      {({ visible, nodeRef }) => (
-        <canvas
-          aria-hidden
-          className={styles.canvas}
-          data-visible={visible}
-          ref={nodeRef}
-          {...props}
-        />
-      )}
-    </Transition>
+    {/* Directly render canvas without Transition to ensure visibility */}
+    <canvas
+      aria-hidden
+      className={styles.canvas}
+      data-visible="true"
+      ref={canvasRef}
+      {...props}
+    />
   );
 };
