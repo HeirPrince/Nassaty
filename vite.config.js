@@ -18,8 +18,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'three': ['three', 'three-stdlib'],
-          'framer': ['framer-motion'],
+          three: ['three', 'three-stdlib'],
         },
       },
     },
