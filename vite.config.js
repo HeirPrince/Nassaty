@@ -15,6 +15,17 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three': ['three', 'three-stdlib'],
+          'framer': ['framer-motion'],
+        },
+      },
+    },
+  },
+  ssr: {
+    noExternal: ['three', 'three-stdlib'],
   },
   server: {
     port: 7777,
