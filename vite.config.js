@@ -24,7 +24,7 @@ export default defineConfig({
     },
   },
   ssr: {
-    noExternal: ['three', 'three-stdlib'],
+    noExternal: ['three', 'three-stdlib', 'framer-motion'],
   },
   server: {
     port: 7777,
