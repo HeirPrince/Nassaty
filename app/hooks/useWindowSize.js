@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+// Default dimensions for SSR
+const defaultDimensions = { width: 1280, height: 800 };
+
 export function useWindowSize() {
-  const dimensions = useRef(() => ({ w: 1280, h: 800 }));
+  const dimensions = useRef({ w: 1280, h: 800 });
+  const [windowSize, setWindowSize] = useState(defaultDimensions);
 
   const createRuler = useCallback(() => {
+    if (typeof document === 'undefined') return;
+    
     let ruler = document.createElement('div');
 
     ruler.style.position = 'fixed';
@@ -24,6 +30,8 @@ export function useWindowSize() {
 
   // Get the actual height on iOS Safari
   const getHeight = useCallback(() => {
+    if (typeof window === 'undefined') return defaultDimensions.height;
+    
     const isIOS = navigator?.userAgent.match(/iphone|ipod|ipad/i);
 
     if (isIOS) {
@@ -35,13 +43,13 @@ export function useWindowSize() {
   }, [createRuler]);
 
   const getSize = useCallback(() => {
+    if (typeof window === 'undefined') return defaultDimensions;
+    
     return {
       width: window.innerWidth,
       height: getHeight(),
     };
   }, [getHeight]);
-
-  const [windowSize, setWindowSize] = useState(dimensions.current);
 
   useEffect(() => {
     const handleResize = () => {
