@@ -10,6 +10,7 @@ import {
 } from 'react';
 import {
   AmbientLight,
+  CanvasTexture,
   Color,
   DirectionalLight,
   Group,
@@ -193,9 +194,9 @@ export const Model = ({
       shader.fragmentShader = `
         uniform float darkness;
         ${shader.fragmentShader.replace(
-          'gl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );',
-          'gl_FragColor = vec4( vec3( 0.0 ), ( 1.0 - fragCoordZ ) * darkness );'
-        )}
+        'gl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );',
+        'gl_FragColor = vec4( vec3( 0.0 ), ( 1.0 - fragCoordZ ) * darkness );'
+      )}
       `;
     };
     depthMaterial.current.depthTest = false;
@@ -375,12 +376,37 @@ const Device = ({
       texture.anisotropy = renderer.current.capabilities.getMaxAnisotropy();
       texture.generateMipmaps = false;
 
-      // Decode the texture to prevent jank on first render
-      await renderer.current.initTexture(texture);
+      if (model.width && model.height) {
+        const image = texture.image;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = model.width;
+        canvas.height = model.height;
+
+        ctx.filter = 'contrast(1.2)';
+
+        const scale = Math.max(canvas.width / image.width, canvas.height / image.height);
+        const x = (canvas.width - image.width * scale) / 2;
+        const y = (canvas.height - image.height * scale) / 2;
+
+        ctx.drawImage(image, x, y, image.width * scale, image.height * scale);
+
+        const canvasTexture = new CanvasTexture(canvas);
+        canvasTexture.colorSpace = SRGBColorSpace;
+        canvasTexture.flipY = false;
+        canvasTexture.anisotropy = renderer.current.capabilities.getMaxAnisotropy();
+        canvasTexture.generateMipmaps = false;
+
+        await renderer.current.initTexture(canvasTexture);
+        node.material.map = canvasTexture;
+      } else {
+        await renderer.current.initTexture(texture);
+        node.material.map = texture;
+      }
 
       node.material.color = new Color(0xffffff);
       node.material.transparent = true;
-      node.material.map = texture;
     };
 
     // Generate promises to await when ready

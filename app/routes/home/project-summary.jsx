@@ -7,8 +7,9 @@ import { Text } from '~/components/text';
 import { useTheme } from '~/components/theme-provider';
 import { Transition } from '~/components/transition';
 import { Loader } from '~/components/loader';
+import { Image } from '~/components/image';
 import { useWindowSize } from '~/hooks';
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import { cssProps, media } from '~/utils/style';
 import { useHydrated } from '~/hooks/useHydrated';
 import katakana from './katakana.svg';
@@ -42,6 +43,12 @@ export function ProjectSummary({
   const indexText = index < 10 ? `0${index}` : index;
   const phoneSizes = `(max-width: ${media.tablet}px) 30vw, 20vw`;
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
+
+  useEffect(() => {
+    if (model.type === 'laptop-flat') {
+      setModelLoaded(true);
+    }
+  }, [model.type]);
 
   function handleModelLoad() {
     setModelLoaded(true);
@@ -167,6 +174,26 @@ export function ProjectSummary({
                   />
                 </Suspense>
               )}
+            </div>
+          </>
+        )}
+        {model.type === 'laptop-flat' && (
+          <>
+            {renderKatakana('laptop', visible)}
+            <div className={styles.browserFrame} data-visible={visible}>
+              <div className={styles.browserHeader}>
+                <div className={styles.trafficLight} style={{ '--color': '#ff5f56' }} />
+                <div className={styles.trafficLight} style={{ '--color': '#ffbd2e' }} />
+                <div className={styles.trafficLight} style={{ '--color': '#27c93f' }} />
+              </div>
+              <div className={styles.browserContent}>
+                <Image
+                  srcSet={model.textures[0].srcSet}
+                  placeholder={model.textures[0].placeholder}
+                  alt={model.alt}
+                  sizes={laptopSizes}
+                />
+              </div>
             </div>
           </>
         )}

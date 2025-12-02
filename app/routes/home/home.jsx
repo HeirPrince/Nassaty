@@ -107,7 +107,7 @@ export const Home = () => {
         buttonText="View project"
         buttonLink="/projects/smart-sparrow"
         model={{
-          type: 'laptop',
+          type: 'laptop-flat',
           alt: 'Smart Sparrow lesson builder',
           textures: [
             {
@@ -152,7 +152,7 @@ export const Home = () => {
         buttonText="View project"
         buttonLink="/projects/slice"
         model={{
-          type: 'laptop',
+          type: 'laptop-flat',
           alt: 'Annotating a biomedical image in the Slice app',
           textures: [
             {

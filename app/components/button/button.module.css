@@ -29,17 +29,15 @@
       transition-property: opacity, color, background;
       transition-duration: var(--durationM);
       transition-timing-function: var(--bezierFastoutSlowin);
-      background: var(--primary);
+      background: var(--accent);
       position: absolute;
       inset: 0;
       z-index: -1;
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        100% calc(100% - 8px),
-        calc(100% - 8px) 100%,
-        0 100%
-      );
+      clip-path: polygon(0 0,
+          100% 0,
+          100% calc(100% - 8px),
+          calc(100% - 8px) 100%,
+          0 100%);
     }
 
     @media (--mediaUseMotion) {
@@ -56,7 +54,7 @@
 
     &[data-secondary='true'] {
       --buttonSpace: 10px;
-      --buttonTextColor: var(--primary);
+      --buttonTextColor: var(--accent);
 
       background: none;
       padding-left: var(--buttonSpace);
@@ -70,7 +68,7 @@
         height: calc((32 / 16) * 1rem);
         position: absolute;
         inset: 0;
-        background-color: color-mix(in lab, var(--primary) 20%, transparent);
+        background-color: color-mix(in lab, var(--accent) 20%, transparent);
         transform: scale3d(0, 1, 1);
         transform-origin: right;
         clip-path: none;
