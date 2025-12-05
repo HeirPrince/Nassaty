@@ -11,10 +11,29 @@ import {
     Float32BufferAttribute,
     SphereGeometry,
     Vector3,
+    CanvasTexture,
 } from 'three';
 import { throttle } from '~/utils/throttle';
 import { cleanRenderer, cleanScene } from '~/utils/three';
 import styles from './dots.module.css';
+
+// Create a circular particle texture
+const createCircleTexture = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+
+    const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.6)');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 64, 64);
+
+    return new CanvasTexture(canvas);
+};
 
 export const Dots = () => {
     const canvasRef = useRef(null);
@@ -87,13 +106,18 @@ export const Dots = () => {
             });
         }
 
+        const circleTexture = createCircleTexture();
+
         const material = new PointsMaterial({
-            size: 0.3,
+            size: 0.4,
             color: theme === 'light' ? 0x000000 : 0xED9B40,
             transparent: true,
             opacity: 0.8,
             sizeAttenuation: true,
             blending: 2,
+            map: circleTexture,
+            alphaTest: 0.01,
+            depthWrite: false,
         });
 
         points.current = new Points(geometry, material);

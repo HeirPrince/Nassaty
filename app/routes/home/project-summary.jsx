@@ -12,7 +12,12 @@ import { useWindowSize } from '~/hooks';
 import { Suspense, lazy, useState, useEffect } from 'react';
 import { cssProps, media } from '~/utils/style';
 import { useHydrated } from '~/hooks/useHydrated';
-import katakana from './katakana.svg';
+import gng1Dark from '~/assets/gng_1_dark.svg';
+import gng2Dark from '~/assets/gng_2_dark.svg';
+import gng3Dark from '~/assets/gng_3_dark.svg';
+import gng1Light from '~/assets/gng_1_light.svg';
+import gng2Light from '~/assets/gng_2_light.svg';
+import gng3Light from '~/assets/gng_3_light.svg';
 import styles from './project-summary.module.css';
 
 const Model = lazy(() =>
@@ -55,18 +60,31 @@ export function ProjectSummary({
   }
 
   function renderKatakana(device, visible) {
+    // Choose SVG based on project index and theme
+    let svgSrc;
+
+    // Cycle through SVGs based on project index (1, 2, 3)
+    const svgIndex = ((index - 1) % 3) + 1; // Maps any index to 1, 2, or 3
+
+    if (theme === 'dark') {
+      if (svgIndex === 1) svgSrc = gng1Dark;
+      else if (svgIndex === 2) svgSrc = gng2Dark;
+      else if (svgIndex === 3) svgSrc = gng3Dark;
+    } else {
+      if (svgIndex === 1) svgSrc = gng1Light;
+      else if (svgIndex === 2) svgSrc = gng2Light;
+      else if (svgIndex === 3) svgSrc = gng3Light;
+    }
+
     return (
-      <svg
-        type="project"
+      <img
+        src={svgSrc}
+        alt="gng"
+        data-device={device}
         data-visible={visible && modelLoaded}
-        data-light={theme === 'light'}
         style={cssProps({ opacity: svgOpacity })}
         className={styles.svg}
-        data-device={device}
-        viewBox="0 0 751 136"
-      >
-        <use href={`${katakana}#katakana-project`} />
-      </svg>
+      />
     );
   }
 
@@ -179,7 +197,7 @@ export function ProjectSummary({
         )}
         {model.type === 'laptop-flat' && (
           <>
-            {renderKatakana('laptop', visible)}
+            {renderKatakana('laptop-flat', visible)}
             <div className={styles.browserFrame} data-visible={visible}>
               <div className={styles.browserHeader}>
                 <div className={styles.trafficLight} style={{ '--color': '#ff5f56' }} />

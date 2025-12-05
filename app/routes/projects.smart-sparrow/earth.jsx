@@ -501,7 +501,7 @@ export const Earth = ({
           if (name === 'Atmosphere') {
             child.visible = true;
 
-            opacitySpring.set(1);
+            opacitySpring.set(0.5);
           } else if (name === 'Chunk') {
             const chunkTarget = new Vector3(-0.4, 0.4, 0.4);
 

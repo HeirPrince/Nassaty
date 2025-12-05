@@ -37,11 +37,6 @@ export default defineConfig({
     }),
     remix({
       presets: [vercelPreset()],
-      routes(defineRoutes) {
-        return defineRoutes(route => {
-          route('/', 'routes/home/route.js', { index: true });
-        });
-      },
     }),
     jsconfigPaths(),
   ],

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Converter</title>
+    <style>
+        .color-test { width: 100px; height: 100px; }
+        #c1 { background-color: oklch(17.76% 0 0); } /* Dark Bg */
+        #c2 { background-color: oklch(21.78% 0 0); } /* Dark Bg Light */
+        #c3 { background-color: oklch(84.42% 0.19 202.24); } /* Dark Primary */
+        #c4 { background-color: oklch(65.91% 0.249 13.76); } /* Dark Error */
+        #c5 { background-color: oklch(96.12% 0 0); } /* Light Bg */
+        #c6 { background-color: oklch(63.17% 0.259 25.41); } /* Light Error */
+    </style>
+</head>
+<body>
+    <div id="c1" class="color-test"></div>
+    <div id="c2" class="color-test"></div>
+    <div id="c3" class="color-test"></div>
+    <div id="c4" class="color-test"></div>
+    <div id="c5" class="color-test"></div>
+    <div id="c6" class="color-test"></div>
+
+    <script>
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+
+        function getHex(id) {
+            const el = document.getElementById(id);
+            const style = getComputedStyle(el).backgroundColor;
+            const rgb = style.match(/\d+/g).map(Number);
+            return rgbToHex(rgb[0], rgb[1], rgb[2]);
+        }
+
+        const results = {
+            'Dark Background': getHex('c1'),
+            'Dark Background Light': getHex('c2'),
+            'Dark Primary': getHex('c3'),
+            'Dark Error': getHex('c4'),
+            'Light Background': getHex('c5'),
+            'Light Error': getHex('c6')
+        };
+
+        const output = document.createElement('pre');
+        output.id = 'results';
+        output.textContent = JSON.stringify(results, null, 2);
+        document.body.appendChild(output);
+    </script>
+</body>
+</html>
