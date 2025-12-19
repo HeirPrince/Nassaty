@@ -386,9 +386,11 @@ const Device = ({
 
         ctx.filter = 'contrast(1.2)';
 
-        const scale = Math.max(canvas.width / image.width, canvas.height / image.height);
-        const x = (canvas.width - image.width * scale) / 2;
-        const y = (canvas.height - image.height * scale) / 2;
+        // Prioritize horizontal fit - scale to fill width
+        const scale = canvas.width / image.width;
+        const scaledHeight = image.height * scale;
+        const x = 0;
+        const y = (canvas.height - scaledHeight) / 2;
 
         ctx.drawImage(image, x, y, image.width * scale, image.height * scale);
 
