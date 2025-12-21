@@ -98,17 +98,17 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        title="QBot"
+        description="Automate and enhance your customer interactions with our intelligent AI chatbot, designed to respond, support, and grow your business effortlessly."
+        buttonText="Let AI Handle It"
+        buttonLink="/projects/slice"
         model={{
           type: 'laptop-flat',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'QBot AI chatbot interface',
           textures: [
             {
-              srcSet: `${sprTexture} 800w`,
-              placeholder: sprTexturePlaceholder,
+              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+              placeholder: sliceTexturePlaceholder,
             },
           ],
         }}
@@ -119,9 +119,11 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
+        title="CIVIX"
+        description="A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system.
+
+Reduce paperwork. Improve accuracy. Get paid faster."
+        buttonText="Request a Demo"
         buttonLink="https://gamestack.hamishw.com"
         model={{
           type: 'phone',
@@ -143,17 +145,23 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
-        buttonLink="/projects/slice"
+        title="One platform. Your business online."
+        description="A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.
+
+From menus and promotions to ordering and delivery tracking, everything your customers need is in one place."
+        buttonText="Go Digital"
+        buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop-flat',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Nassaty ordering system on desktop and mobile',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${sprTexture} 800w`,
+              placeholder: sprTexturePlaceholder,
+            },
+            {
+              srcSet: `${pro2Texture} 375w`,
+              placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
             },
           ],
         }}

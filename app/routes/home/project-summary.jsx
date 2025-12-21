@@ -206,6 +206,8 @@ export function ProjectSummary({
               </div>
               <div className={styles.browserContent}>
                 <Image
+                  cover
+                  className={styles.image}
                   srcSet={model.textures[0].srcSet}
                   placeholder={model.textures[0].placeholder}
                   alt={model.alt}
@@ -213,6 +215,20 @@ export function ProjectSummary({
                 />
               </div>
             </div>
+            {model.textures.length > 1 && (
+              <div className={styles.phoneFrame} data-visible={visible}>
+                <div className={styles.phoneContent}>
+                  <Image
+                    cover
+                    className={styles.image}
+                    srcSet={model.textures[1].srcSet}
+                    placeholder={model.textures[1].placeholder}
+                    alt={model.alt}
+                    sizes={phoneSizes}
+                  />
+                </div>
+              </div>
+            )}
           </>
         )}
       </div>

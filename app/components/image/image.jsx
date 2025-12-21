@@ -85,6 +85,16 @@ const ImageElements = ({
   const hasMounted = useHasMounted();
 
   useEffect(() => {
+    if (loaded && showPlaceholder) {
+      const timeout = setTimeout(() => {
+        setShowPlaceholder(false);
+      }, 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [loaded, showPlaceholder]);
+
+  useEffect(() => {
     const resolveVideoSrc = async () => {
       const resolvedVideoSrc = await resolveSrcFromSrcSet({ srcSet, sizes });
       setVideoSrc(resolvedVideoSrc);
@@ -145,6 +155,7 @@ const ImageElements = ({
     <div
       className={styles.elementWrapper}
       data-reveal={reveal}
+      data-cover={cover}
       data-visible={inViewport || loaded}
       style={cssProps({ delay: numToMs(delay + 1000) })}
     >

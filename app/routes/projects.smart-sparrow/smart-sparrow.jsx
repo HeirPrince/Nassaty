@@ -70,9 +70,9 @@ const EarthSection = lazy(() =>
   import('./earth').then(module => ({ default: module.EarthSection }))
 );
 
-const title = 'Designing the future of education';
+const title = 'One platform. Your business online.';
 const description =
-  'I worked as the design lead on a major iteration of Smart Sparrow’s product. We took the platform in a bold new direction, focusing on becoming the best tool for learning designers.';
+  'A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.\n\nFrom menus and promotions to ordering and delivery tracking, everything your customers need is in one place.';
 const roles = [
   'Art Direction',
   'UX and UI Design',

@@ -66,6 +66,10 @@
     &[data-visible='true'] {
       opacity: 1;
     }
+
+    &[data-cover='true'] {
+      height: 100%;
+    }
   }
 
   .placeholder,

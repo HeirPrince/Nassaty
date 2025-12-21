@@ -40,9 +40,9 @@ import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './slice.module.css';
 
-const title = 'Biomedical image collaboration';
+const title = 'QBot';
 const description =
-  'This project involved designing a better way for biomedical educators and learners to annotate digital slides together.';
+  'Automate and enhance your customer interactions with our intelligent AI chatbot, designed to respond, support, and grow your business effortlessly.';
 const roles = ['User Research', 'UX Design', 'Interface Design'];
 
 export const meta = () => {
