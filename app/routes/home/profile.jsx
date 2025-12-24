@@ -1,6 +1,5 @@
-import profileImgLarge from '~/assets/profile-large.jpg';
-import profileImgPlaceholder from '~/assets/profile-placeholder.jpg';
-import profileImg from '~/assets/profile.jpg';
+import logoDark from '~/assets/logo_dark.svg';
+import logoLight from '~/assets/logo_light.svg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -11,6 +10,7 @@ import { Section } from '~/components/section';
 import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
 import { Fragment, useState } from 'react';
+import { useTheme } from '~/components/theme-provider';
 import { media } from '~/utils/style';
 import styles from './profile.module.css';
 
@@ -34,6 +34,7 @@ const ProfileText = ({ visible, titleId }) => (
 
 export const Profile = ({ id, visible, sectionRef }) => {
   const [focused, setFocused] = useState(false);
+  const { theme } = useTheme();
   const titleId = `${id}-title`;
 
   return (
@@ -78,12 +79,12 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 <Image
                   reveal
                   delay={100}
-                  placeholder={profileImgPlaceholder}
-                  srcSet={`${profileImg} 480w, ${profileImgLarge} 960w`}
-                  width={960}
-                  height={1280}
+
+                  src={theme === 'dark' ? logoDark : logoLight}
+                  width={480}
+                  height={480}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Nassaty Technologies team workspace"
+                  alt="Nassaty Technologies Logo"
                 />
 
               </div>

@@ -1,6 +1,6 @@
 import { Icon } from '~/components/icon';
-import logoDark from '~/assets/logo_dark.png';
-import logoLight from '~/assets/logo_light.png';
+import logoDark from '~/assets/logo_dark.svg';
+import logoLight from '~/assets/logo_light.svg';
 import { useTheme } from '~/components/theme-provider';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
