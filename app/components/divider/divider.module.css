@@ -39,6 +39,7 @@
     width: var(--notchWidth);
     height: var(--notchHeight);
     top: var(--lineHeight);
+    left: var(--notchOffset, 0);
 
     @media (--mediaUseMotion) {
       transition-property: clip-path, opacity;

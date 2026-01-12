@@ -50,7 +50,7 @@ export function ProjectSummary({
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
 
   useEffect(() => {
-    if (model.type === 'laptop-flat') {
+    if (model.type === 'laptop-flat' || model.type === 'image') {
       setModelLoaded(true);
     }
   }, [model.type]);
@@ -229,6 +229,21 @@ export function ProjectSummary({
                 </div>
               </div>
             )}
+          </>
+        )}
+        {model.type === 'image' && (
+          <>
+            {renderKatakana('image', visible)}
+            <div className={styles.imageFrame} data-visible={visible}>
+              <Image
+                cover
+                className={styles.image}
+                srcSet={model.textures[0].srcSet}
+                placeholder={model.textures[0].placeholder}
+                alt={model.alt}
+                sizes={laptopSizes}
+              />
+            </div>
           </>
         )}
       </div>

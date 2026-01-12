@@ -47,77 +47,77 @@ export const Portfolio = () => {
       {/* Hero Section */}
       <Section className={styles.hero}>
         <div className={styles.heroContent}>
-            <div className={styles.introLabel}>MY NAME IS</div>
-            <Heading level={0} className={styles.name}>
-             <span style={{ display: 'block' }}>NTIYAMIRA</span>
-             <span style={{ display: 'block' }}>PRINCE</span>
-            </Heading>
-            <div>
-                 <span className={styles.roleHighlight}>I'M A UI DEVELOPER</span>
-            </div>
+          <div className={styles.introLabel}>MY NAME IS</div>
+          <Heading level={0} className={styles.name}>
+            <span style={{ display: 'block' }}>NTIYAMIRA</span>
+            <span style={{ display: 'block' }}>PRINCE</span>
+          </Heading>
+          <div>
+            <span className={styles.roleHighlight}>UI DEVELOPER x GRAPHIC DESIGNER</span>
+          </div>
         </div>
         <div className={styles.heroImageSection}>
-             <img src={sliceTextureLarge} alt="Prince Profile" className={styles.heroImage} />
+          <img src={sliceTextureLarge} alt="Prince Profile" className={styles.heroImage} />
         </div>
       </Section>
 
       {/* About Section */}
       <Section className={styles.about}>
         <div className={styles.aboutImageContainer}>
-            <img src={pro2ListTexture} alt="About Me" className={styles.aboutImage} />
+          <img src={pro2ListTexture} alt="About Me" className={styles.aboutImage} />
         </div>
         <div className={styles.aboutContent}>
-            <span className={styles.whoAmI}>who am i</span>
-            <div className={styles.helloHeading}>
-                <Heading level={2} as="h2">HELLO</Heading>
-            </div>
-            <div className={styles.aboutText}>
-                <Text as="p" size="l" style={{ marginBottom: '20px' }}>
-                    I am a UI Developer. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.
-                </Text>
-                <Text as="p" size="l">
-                    It is a fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.
-                </Text>
-            </div>
+          <span className={styles.whoAmI}>who am i</span>
+          <div className={styles.helloHeading}>
+            <Heading level={2} as="h2">HELLO</Heading>
+          </div>
+          <div className={styles.aboutText}>
+            <Text as="p" size="l" style={{ marginBottom: '20px' }}>
+              I am a UI Developer. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.
+            </Text>
+            <Text as="p" size="l">
+              It is a fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.
+            </Text>
+          </div>
         </div>
       </Section>
 
       {/* Work Section */}
       <Section className={styles.work}>
         <div className={styles.workHeadingContainer}>
-            <Heading level={2} align="center">MY WORK</Heading>
-            <div className={styles.workSubHeading}>
-                <span className={styles.workHighlight}>awesome</span> projects
-            </div>
+          <Heading level={2} align="center">MY WORK</Heading>
+          <div className={styles.workSubHeading}>
+            <span className={styles.workHighlight}>awesome</span> projects
+          </div>
         </div>
 
         <div className={styles.filters}>
-            {filters.map(filter => (
-                <button 
-                    key={filter} 
-                    className={`${styles.filterBtn} ${activeFilter === filter ? styles.filterBtnActive : ''}`}
-                    onClick={() => setActiveFilter(filter)}
-                >
-                    {filter}
-                </button>
-            ))}
+          {filters.map(filter => (
+            <button
+              key={filter}
+              className={`${styles.filterBtn} ${activeFilter === filter ? styles.filterBtnActive : ''}`}
+              onClick={() => setActiveFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
         </div>
 
         <div className={styles.grid}>
-             {projects.map((project, index) => (
-                 <div key={index} className={styles.gridItem}>
-                     <img src={project.img} alt={project.title} className={styles.gridImage} />
-                     <div className={styles.gridOverlay}>
-                        <div className={styles.searchIcon}>+</div>
-                        <div className={styles.projectTitle}>{project.title}</div>
-                        <div className={styles.projectCategory}>{project.category}</div>
-                     </div>
-                 </div>
-             ))}
+          {projects.map((project, index) => (
+            <div key={index} className={styles.gridItem}>
+              <img src={project.img} alt={project.title} className={styles.gridImage} />
+              <div className={styles.gridOverlay}>
+                <div className={styles.searchIcon}>+</div>
+                <div className={styles.projectTitle}>{project.title}</div>
+                <div className={styles.projectCategory}>{project.category}</div>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className={styles.loadMoreContainer}>
-            <Button secondary icon="arrow-right">LOAD MORE</Button>
+          <Button secondary icon="arrow-right">LOAD MORE</Button>
         </div>
       </Section>
 

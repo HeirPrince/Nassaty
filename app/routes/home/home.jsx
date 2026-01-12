@@ -1,5 +1,8 @@
 import pro2ListTexture from '~/assets/pro2-list.jpeg';
 import pro2Texture from '~/assets/pro2.jpeg';
+import p1Texture from '~/assets/P1.svg';
+import p1LightTexture from '~/assets/P1_light.svg';
+import civixTexture from '~/assets/civix.png';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
@@ -7,6 +10,7 @@ import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
+import { useTheme } from '~/components/theme-provider';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
@@ -42,6 +46,7 @@ export const meta = () => {
 };
 
 export const Home = () => {
+  const { theme } = useTheme();
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
@@ -103,12 +108,12 @@ export const Home = () => {
         buttonText="Let AI Handle It"
         buttonLink="/projects/slice"
         model={{
-          type: 'laptop-flat',
+          type: 'image',
           alt: 'QBot AI chatbot interface',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${theme === 'light' ? p1LightTexture : p1Texture} 800w`,
+              placeholder: theme === 'light' ? p1LightTexture : p1Texture,
             },
           ],
         }}
@@ -126,16 +131,12 @@ Reduce paperwork. Improve accuracy. Get paid faster."
         buttonText="Request a Demo"
         buttonLink="https://gamestack.hamishw.com"
         model={{
-          type: 'phone',
+          type: 'image',
           alt: 'App login screen',
           textures: [
             {
-              srcSet: `${pro2Texture} 375w`,
-              placeholder: pro2Texture,
-            },
-            {
-              srcSet: `${pro2ListTexture} 375w`,
-              placeholder: pro2ListTexture,
+              srcSet: `${civixTexture} 800w`,
+              placeholder: civixTexture,
             },
           ],
         }}
