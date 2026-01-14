@@ -1,5 +1,7 @@
 import pro2ListTexture from '~/assets/pro2-list.jpeg';
 import pro2Texture from '~/assets/pro2.jpeg';
+import p3Texture from '~/assets/P3_dark.svg';
+import p3LightTexture from '~/assets/P3_light.svg';
 import p1Texture from '~/assets/P1.svg';
 import p1LightTexture from '~/assets/P1_light.svg';
 import civixTexture from '~/assets/civix.png';
@@ -8,6 +10,7 @@ import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
 import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
+import { useHydrated } from '~/hooks/useHydrated';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { useTheme } from '~/components/theme-provider';
@@ -47,6 +50,7 @@ export const meta = () => {
 
 export const Home = () => {
   const { theme } = useTheme();
+  const isHydrated = useHydrated();
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
@@ -112,8 +116,8 @@ export const Home = () => {
           alt: 'QBot AI chatbot interface',
           textures: [
             {
-              srcSet: `${theme === 'light' ? p1LightTexture : p1Texture} 800w`,
-              placeholder: theme === 'light' ? p1LightTexture : p1Texture,
+              srcSet: `${isHydrated && theme === 'light' ? p1LightTexture : p1Texture} 800w`,
+              placeholder: isHydrated && theme === 'light' ? p1LightTexture : p1Texture,
             },
           ],
         }}
@@ -124,28 +128,6 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="CIVIX"
-        description="A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system.
-
-Reduce paperwork. Improve accuracy. Get paid faster."
-        buttonText="Request a Demo"
-        buttonLink="https://gamestack.hamishw.com"
-        model={{
-          type: 'image',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: `${civixTexture} 800w`,
-              placeholder: civixTexture,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
         title="One platform. Your business online."
         description="A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.
 
@@ -163,6 +145,28 @@ From menus and promotions to ordering and delivery tracking, everything your cus
             {
               srcSet: `${pro2Texture} 375w`,
               placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-3"
+        sectionRef={projectThree}
+        visible={visibleSections.includes(projectThree.current)}
+        index={3}
+        title="CIVIX"
+        description="A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system.
+
+Reduce paperwork. Improve accuracy. Get paid faster."
+        buttonText="Request a Demo"
+        buttonLink="https://gamestack.hamishw.com"
+        model={{
+          type: 'image',
+          alt: 'App login screen',
+          textures: [
+            {
+              srcSet: `${isHydrated && theme === 'light' ? p3LightTexture : p3Texture} 800w`,
+              placeholder: isHydrated && theme === 'light' ? p3LightTexture : p3Texture,
             },
           ],
         }}
