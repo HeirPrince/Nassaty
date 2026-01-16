@@ -182,8 +182,8 @@ export const DisplacementSphere = props => {
     };
   }, [isInViewport, reduceMotion, rotationX, rotationY]);
 
+  // Directly render canvas without Transition to ensure visibility
   return (
-    {/* Directly render canvas without Transition to ensure visibility */}
     <canvas
       aria-hidden
       className={styles.canvas}
