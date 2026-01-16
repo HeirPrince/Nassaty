@@ -18,6 +18,12 @@ import gng3Dark from '~/assets/gng_3_dark.svg';
 import gng1Light from '~/assets/gng_1_light.svg';
 import gng2Light from '~/assets/gng_2_light.svg';
 import gng3Light from '~/assets/gng_3_light.svg';
+import gng1MobileDark from '~/assets/gng_1_mobile_dark.svg';
+import gng2MobileDark from '~/assets/gng_2_mobile_dark.svg';
+import gng3MobileDark from '~/assets/gng_3_mobile_dark.svg';
+import gng1MobileLight from '~/assets/gng_1_mobile_light.svg';
+import gng2MobileLight from '~/assets/gng_2_mobile_light.svg';
+import gng3MobileLight from '~/assets/gng_3_mobile_light.svg';
 import styles from './project-summary.module.css';
 
 const Model = lazy(() =>
@@ -67,13 +73,13 @@ export function ProjectSummary({
     const svgIndex = ((index - 1) % 3) + 1; // Maps any index to 1, 2, or 3
 
     if (theme === 'dark') {
-      if (svgIndex === 1) svgSrc = gng1Dark;
-      else if (svgIndex === 2) svgSrc = gng2Dark;
-      else if (svgIndex === 3) svgSrc = gng3Dark;
+      if (svgIndex === 1) svgSrc = isMobile ? gng1MobileDark : gng1Dark;
+      else if (svgIndex === 2) svgSrc = isMobile ? gng2MobileDark : gng2Dark;
+      else if (svgIndex === 3) svgSrc = isMobile ? gng3MobileDark : gng3Dark;
     } else {
-      if (svgIndex === 1) svgSrc = gng1Light;
-      else if (svgIndex === 2) svgSrc = gng2Light;
-      else if (svgIndex === 3) svgSrc = gng3Light;
+      if (svgIndex === 1) svgSrc = isMobile ? gng1MobileLight : gng1Light;
+      else if (svgIndex === 2) svgSrc = isMobile ? gng2MobileLight : gng2Light;
+      else if (svgIndex === 3) svgSrc = isMobile ? gng3MobileLight : gng3Light;
     }
 
     return (
@@ -255,6 +261,7 @@ export function ProjectSummary({
       className={styles.summary}
       data-alternate={alternate}
       data-first={index === 1}
+      data-index={index}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       as="section"
