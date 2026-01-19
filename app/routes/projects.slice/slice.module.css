@@ -110,3 +110,38 @@
     top: -5%;
   }
 }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  background: var(--colorBlack);
+  border: 1px solid var(--colorWhite);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+.featureTitle {
+  color: var(--colorTextBody);
+}
+
+.featureText {
+  opacity: 0.7;
+}

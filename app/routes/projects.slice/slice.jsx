@@ -1,10 +1,12 @@
 import sprBackground from '~/assets/spr-background.jpg';
 import sprBackgroundLarge from '~/assets/spr-background-large.jpg';
 import sprBackgroundPlaceholder from '~/assets/spr-background-placeholder.jpg';
+import qbotHero from '~/assets/qbot-hero.png';
 import qbotInterface from '~/assets/qbot-interface.png';
 import qbotIntegration from '~/assets/qbot-integration.png';
 import qbotAnalytics from '~/assets/qbot-analytics.png';
 import qbotTeam from '~/assets/qbot-team.png';
+import { Button } from '~/components/button';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import {
@@ -38,11 +40,11 @@ export const Slice = () => {
     <Fragment>
       <ProjectContainer className={styles.slice}>
         <ProjectBackground
-          src={sprBackground}
-          srcSet={`${sprBackground} 1280w, ${sprBackgroundLarge} 2560w`}
+          src={qbotHero}
+          srcSet={`${qbotHero} 1280w, ${qbotHero} 2560w`}
           width={1280}
           height={800}
-          placeholder={sprBackgroundPlaceholder}
+          placeholder={qbotHero}
           opacity={0.8}
         />
         <ProjectHeader
@@ -63,15 +65,50 @@ export const Slice = () => {
             />
           </ProjectSectionContent>
         </ProjectSection>
+
+        <ProjectSection>
+          <ProjectSectionContent>
+            <ProjectTextRow center noMargin>
+              <ProjectSectionHeading>Core Capabilities</ProjectSectionHeading>
+              <ProjectSectionText>
+                QBot is more than just a chatbot. It's an intelligent extension of your team,
+                capable of handling complex workflows and delivering personalized experiences.
+              </ProjectSectionText>
+            </ProjectTextRow>
+            <div className={styles.features}>
+              <div className={styles.feature}>
+                <ProjectSectionHeading level={4} className={styles.featureTitle}>24/7 Availability</ProjectSectionHeading>
+                <ProjectSectionText className={styles.featureText}>
+                  Never miss a lead. QBot handles customer queries around the clock,
+                  providing instant responses even when your team is offline.
+                </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <ProjectSectionHeading level={4} className={styles.featureTitle}>Multi-Platform</ProjectSectionHeading>
+                <ProjectSectionText className={styles.featureText}>
+                  Engage customers on their favorite platforms, including WhatsApp,
+                  Telegram, and your own website, with a unified AI brain.
+                </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <ProjectSectionHeading level={4} className={styles.featureTitle}>Smart Learning</ProjectSectionHeading>
+                <ProjectSectionText className={styles.featureText}>
+                  Our NLP engine continuously learns from interactions,
+                  improving its accuracy and helpfulness with every conversation.
+                </ProjectSectionText>
+              </div>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
               <ProjectSectionHeading>Seamless Integration</ProjectSectionHeading>
               <ProjectSectionText>
                 Businesses often struggle to maintain consistent support across multiple
-                platforms like WhatsApp, Telegram, and Web. QBot was designed to
-                bridge this gap, providing a unified AI-driven experience wherever
-                your customers are.
+                platforms. QBot was designed to bridge this gap, providing a unified
+                AI-driven experience wherever your customers are.
               </ProjectSectionText>
               <ProjectSectionText>
                 Our solution uses advanced Natural Language Processing to understand
@@ -100,6 +137,7 @@ export const Slice = () => {
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
+
         <ProjectSection light>
           <ProjectSectionContent>
             <ProjectTextRow>
@@ -121,6 +159,7 @@ export const Slice = () => {
             />
           </ProjectSectionContent>
         </ProjectSection>
+
         <ProjectSection padding="top">
           <ProjectSectionContent className={styles.grid}>
             <div className={styles.gridImage}>
@@ -157,6 +196,7 @@ export const Slice = () => {
             </div>
           </ProjectSectionContent>
         </ProjectSection>
+
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
@@ -175,6 +215,27 @@ export const Slice = () => {
               placeholder={qbotTeam}
               alt="A professional team collaborating with the help of QBot's insights."
             />
+          </ProjectSectionContent>
+        </ProjectSection>
+
+        <ProjectSection>
+          <ProjectSectionContent>
+            <ProjectTextRow center noMargin>
+              <ProjectSectionHeading>Ready to automate your support?</ProjectSectionHeading>
+              <ProjectSectionText>
+                Join hundreds of businesses that use QBot to deliver exceptional
+                customer experiences at scale.
+              </ProjectSectionText>
+              <Button
+                secondary
+                iconHoverShift
+                icon="chevron-right"
+                href="https://qbot.nassaty.com"
+                style={{ marginTop: '20px' }}
+              >
+                Get Started with QBot
+              </Button>
+            </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
       </ProjectContainer>
