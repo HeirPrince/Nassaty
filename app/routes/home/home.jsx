@@ -159,7 +159,7 @@ From menus and promotions to ordering and delivery tracking, everything your cus
 
 Reduce paperwork. Improve accuracy. Get paid faster."
         buttonText="Request a Demo"
-        buttonLink="https://gamestack.hamishw.com"
+        buttonLink="/projects/civix"
         model={{
           type: 'image',
           alt: 'App login screen',

@@ -50,7 +50,7 @@ export function ProjectSummary({
   const isHydrated = useHydrated();
   const titleId = `${id}-title`;
   const isMobile = width <= media.tablet;
-  const svgOpacity = theme === 'light' ? 0.7 : 1;
+  const svgOpacity = theme === 'light' ? 0.5 : 0.7;
   const indexText = index < 10 ? `0${index}` : index;
   const phoneSizes = `(max-width: ${media.tablet}px) 30vw, 20vw`;
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
@@ -83,14 +83,21 @@ export function ProjectSummary({
     }
 
     return (
-      <img
-        src={svgSrc}
-        alt="gng"
-        data-device={device}
-        data-visible={visible && modelLoaded}
-        style={cssProps({ opacity: svgOpacity })}
-        className={styles.svg}
-      />
+      <>
+        <div
+          className={styles.svgGlow}
+          data-device={device}
+          data-visible={visible && modelLoaded}
+        />
+        <img
+          src={svgSrc}
+          alt="gng"
+          data-device={device}
+          data-visible={visible && modelLoaded}
+          style={cssProps({ opacity: svgOpacity })}
+          className={styles.svg}
+        />
+      </>
     );
   }
 

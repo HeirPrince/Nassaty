@@ -1,14 +1,4 @@
-.video {
-  width: 120%;
 
-  @media (--mediaLaptop) {
-    width: 150%;
-  }
-
-  @media (--mediaTablet) {
-    width: 100%;
-  }
-}
 
 .sidebarImages {
   display: grid;
@@ -41,4 +31,39 @@
     position: relative;
     top: -5%;
   }
+}
+
+.phoneFrame {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: var(--surfaceLight);
+  border-radius: 40px;
+  border: 12px solid #111;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.phoneFrame::after {
+  content: "";
+  display: block;
+  padding-bottom: 216.533%; /* 9/19 aspect ratio approx */
+}
+
+.phoneContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  display: grid;
+}
+
+.phoneContent img,
+.phoneContent video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
