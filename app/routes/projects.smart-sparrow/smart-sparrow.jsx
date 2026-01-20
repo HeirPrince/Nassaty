@@ -1,5 +1,11 @@
+import bizDash from '~/assets/biz_dash.svg';
+import bizListing from '~/assets/biz_listing.svg';
+import bizbitCustom from '~/assets/bizbit_custom.svg';
+import bizbitHero from '~/assets/bizbit_hero.svg';
+import bizmobCheckout from '~/assets/bizmob_checkout.svg';
+import bizmobListing from '~/assets/bizmob_listing.svg';
+import bizmobTracking from '~/assets/bizmob_tracking.svg';
 import magicHero from '~/assets/magic_hero.png';
-import magicMenu from '~/assets/magic_menu.png';
 import pro2List from '~/assets/pro2-list.jpeg';
 import pro2 from '~/assets/pro2.jpeg';
 import backgroundSprLarge from '~/assets/spr-background-large.jpg';
@@ -8,45 +14,6 @@ import imageSprBackgroundVolcanismLarge from '~/assets/spr-background-volcanism-
 import imageSprBackgroundVolcanismPlaceholder from '~/assets/spr-background-volcanism-placeholder.jpg';
 import imageSprBackgroundVolcanism from '~/assets/spr-background-volcanism.jpg';
 import backgroundSpr from '~/assets/spr-background.jpg';
-import imageSprComponentsDarkLarge from '~/assets/spr-components-dark-large.png';
-import imageSprComponentsDarkPlaceholder from '~/assets/spr-components-dark-placeholder.png';
-import imageSprComponentsDark from '~/assets/spr-components-dark.png';
-import imageSprComponentsLightLarge from '~/assets/spr-components-light-large.png';
-import imageSprComponentsLightPlaceholder from '~/assets/spr-components-light-placeholder.png';
-import imageSprComponentsLight from '~/assets/spr-components-light.png';
-import imageSprDesignSystemDarkLarge from '~/assets/spr-design-system-dark-large.png';
-import imageSprDesignSystemDarkPlaceholder from '~/assets/spr-design-system-dark-placeholder.png';
-import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
-import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
-import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
-import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
-import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
-import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
-import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
-import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
-import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
-import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
-import videoSprMotion from '~/assets/spr-motion.mp4';
-import imageSprSchema1DarkLarge from '~/assets/spr-schema-1-dark-large.png';
-import imageSprSchema1DarkPlaceholder from '~/assets/spr-schema-1-dark-placeholder.png';
-import imageSprSchema1Dark from '~/assets/spr-schema-1-dark.png';
-import imageSprSchema1LightLarge from '~/assets/spr-schema-1-light-large.png';
-import imageSprSchema1LightPlaceholder from '~/assets/spr-schema-1-light-placeholder.png';
-import imageSprSchema1Light from '~/assets/spr-schema-1-light.png';
-import imageSprSchema2DarkLarge from '~/assets/spr-schema-2-dark-large.png';
-import imageSprSchema2DarkPlaceholder from '~/assets/spr-schema-2-dark-placeholder.png';
-import imageSprSchema2Dark from '~/assets/spr-schema-2-dark.png';
-import imageSprSchema2LightLarge from '~/assets/spr-schema-2-light-large.png';
-import imageSprSchema2LightPlaceholder from '~/assets/spr-schema-2-light-placeholder.png';
-import imageSprSchema2Light from '~/assets/spr-schema-2-light.png';
-import imageSprStoryboarderDarkLarge from '~/assets/spr-storyboarder-dark-large.png';
-import imageSprStoryboarderDarkPlaceholder from '~/assets/spr-storyboarder-dark-placeholder.png';
-import imageSprStoryboarderDark from '~/assets/spr-storyboarder-dark.png';
-import imageSprStoryboarderLightLarge from '~/assets/spr-storyboarder-light-large.png';
-import imageSprStoryboarderLightPlaceholder from '~/assets/spr-storyboarder-light-placeholder.png';
-import imageSprStoryboarderLight from '~/assets/spr-storyboarder-light.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Link } from '~/components/link';
@@ -72,9 +39,9 @@ const title = 'One platform. Your business online.';
 const description =
   'A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.\n\nFrom menus and promotions to ordering and delivery tracking, everything your customers need is in one place.';
 const roles = [
-  'Art Direction',
-  'UX and UI Design',
   'Full Stack Development',
+  'UX and UI Design',
+  'Business Strategy',
   'Brand Identity',
 ];
 
@@ -97,8 +64,8 @@ export const SmartSparrow = () => {
         <ProjectBackground
           opacity={isDark ? 0.5 : 0.8}
           src={magicHero}
-          srcSet={`${magicHero} 1080w`}
-          placeholder={magicHero}
+          srcSet={`${magicHero} 1080w, ${magicHero} 2160w`}
+          placeholder={backgroundSprPlaceholder}
         />
         <ProjectHeader
           title={title}
@@ -111,12 +78,12 @@ export const SmartSparrow = () => {
             <ProjectImage
               raised
               key={theme}
-              srcSet={`${magicMenu} 1280w`}
-              width={1280}
-              height={800}
-              placeholder={magicMenu}
-              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
-              alt="Nassaty magic menu interface"
+              srcSet={`${bizbitHero} 733w, ${bizbitHero} 1466w`}
+              width={733}
+              height={897}
+              placeholder={bizbitHero}
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 600px, 800px`}
+              alt="Nassaty ordering system hero illustration"
             />
           </ProjectSectionContent>
         </ProjectSection>
@@ -133,75 +100,26 @@ export const SmartSparrow = () => {
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
-        <ProjectSection light={isDark}>
-          <ProjectSectionContent>
-            <Image
-              key={theme}
-              srcSet={
-                isDark
-                  ? `${imageSprComponentsDark} 1024w, ${imageSprComponentsDarkLarge} 2048w`
-                  : `${imageSprComponentsLight} 1024w, ${imageSprComponentsLightLarge} 2048w`
-              }
-              width={1024}
-              hright={800}
-              placeholder={
-                isDark
-                  ? imageSprComponentsDarkPlaceholder
-                  : imageSprComponentsLightPlaceholder
-              }
-              alt={`A set of ${theme} themed components for the aero design system`}
-              sizes="100vw"
-            />
-            <ProjectTextRow>
-              <SegmentedControl
-                currentIndex={themes.indexOf(theme)}
-                onChange={handleThemeChange}
-              >
-                <SegmentedControlOption>Dark theme</SegmentedControlOption>
-                <SegmentedControlOption>Light theme</SegmentedControlOption>
-              </SegmentedControl>
-            </ProjectTextRow>
-            <ProjectTextRow>
-              <ProjectSectionHeading>The ordering ecosystem</ProjectSectionHeading>
-              <ProjectSectionText>
-                To streamline the ordering process, we developed a cohesive ecosystem
-                where data flows seamlessly from the customer app to the business
-                dashboard. This required a robust design system that could maintain
-                brand consistency across different screen sizes and user roles, from
-                a customer browsing a menu on their phone to a manager tracking
-                analytics on a desktop.
-              </ProjectSectionText>
-            </ProjectTextRow>
-          </ProjectSectionContent>
-        </ProjectSection>
         <ProjectSection>
           <ProjectSectionContent>
             <Image
               raised
               key={theme}
-              srcSet={
-                isDark
-                  ? `${imageSprDesignSystemDark} 1280w, ${imageSprDesignSystemDarkLarge} 2560w`
-                  : `${imageSprDesignSystemLight} 1280w, ${imageSprDesignSystemLightLarge} 2560w`
-              }
+              srcSet={`${bizDash} 1280w, ${bizDash} 1600w`}
               width={1280}
-              height={800}
-              placeholder={
-                isDark
-                  ? imageSprDesignSystemDarkPlaceholder
-                  : imageSprDesignSystemLightPlaceholder
-              }
-              alt="The homepage of the aero design system docs website linking to principles and components."
+              height={1030}
+              placeholder={bizDash}
+              alt="The Nassaty Merchant Dashboard providing a bird's-eye view of your business operations."
               sizes="100vw"
             />
             <ProjectTextRow>
               <ProjectSectionHeading>Merchant Dashboard</ProjectSectionHeading>
               <ProjectSectionText>
-                Managing a busy restaurant requires speed and clarity. We designed a
-                comprehensive merchant dashboard that allows business owners to update
-                menus in real-time, view live order statuses, and access detailed
-                sales reports. The interface prioritizes critical information to help
-                staff stay organized during peak hours.
+                Managing a growing business requires speed and clarity. Our comprehensive
+                merchant dashboard allows owners to update menus in real-time, monitor
+                live order flows, and access insightful sales reports. The platform is
+                built for high-level customization, allowing you to organize your workspace
+                and workflows to align perfectly with your operational needs.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
@@ -223,12 +141,13 @@ export const SmartSparrow = () => {
             <ProjectSectionColumns width="full">
               <ProjectSectionContent width="full">
                 <ProjectTextRow width="s">
-                  <ProjectSectionHeading>Real-time delivery tracking</ProjectSectionHeading>
+                  <ProjectSectionHeading>Precision Logistics</ProjectSectionHeading>
                   <ProjectSectionText>
-                    Customers can track their orders from the kitchen to their doorstep
-                    with live updates. We integrated mapping services to provide
-                    accurate ETAs and real-time courier positioning, ensuring a
-                    transparent and reliable delivery experience.
+                    Trust is built on visibility. Our integrated tracking system provides
+                    customers with granular, live updates from the moment an order is
+                    confirmed to the second it arrives. By marrying sophisticated
+                    geospatial mapping with an intuitive mobile interface, we transform
+                    delivery into a transparent and reliable journey.
                   </ProjectSectionText>
                 </ProjectTextRow>
               </ProjectSectionContent>
@@ -236,11 +155,11 @@ export const SmartSparrow = () => {
                 <div className={styles.phoneContent}>
                   <Image
                     raised
-                    srcSet={`${pro2List} 1280w`}
-                    width={375}
-                    height={812}
-                    placeholder={pro2List}
-                    alt="Real-time delivery tracking interface."
+                    srcSet={`${bizmobTracking} 1280w`}
+                    width={553}
+                    height={1217}
+                    placeholder={bizmobTracking}
+                    alt="Real-time delivery tracking interface illustration."
                     sizes="320px"
                   />
                 </div>
@@ -251,12 +170,13 @@ export const SmartSparrow = () => {
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Seamless Ordering Experience</ProjectSectionHeading>
+              <ProjectSectionHeading>Fluid Commerce</ProjectSectionHeading>
               <ProjectSectionText>
-                The customer-facing app was designed for high conversion. With features
-                like one-tap reordering, personalized recommendations, and secure
-                payment integrations, the platform makes it easier than ever for users
-                to support their favorite local businesses.
+                Every tap matters. The Nassaty checkout flow is distilled to its most
+                essential elements, eliminating friction and maximizing transaction
+                velocity. With a focus on ergonomic design and speed, the platform
+                ensures that the transition from discovery to purchase is not just fast,
+                but effortless.
               </ProjectSectionText>
             </ProjectTextRow>
             <div className={styles.phoneFrame}>
@@ -264,11 +184,11 @@ export const SmartSparrow = () => {
                 <Image
                   raised
                   key={theme}
-                  srcSet={`${pro2} 1280w`}
-                  width={375}
-                  height={812}
-                  placeholder={pro2}
-                  alt="Seamless ordering experience mobile app."
+                  srcSet={`${bizmobCheckout} 1280w`}
+                  width={706}
+                  height={1600}
+                  placeholder={bizmobCheckout}
+                  alt="Seamless ordering experience mobile interface illustration."
                   sizes="320px"
                 />
               </div>
@@ -280,53 +200,55 @@ export const SmartSparrow = () => {
             <ProjectSectionContent>
               <ProjectTextRow>
                 <ProjectSectionHeading>
-                  Powerful tools for business growth
+                  Tailored to Your Brand
                 </ProjectSectionHeading>
                 <ProjectSectionText>
-                  Beyond just taking orders, the platform provides businesses with
-                  actionable insights. Merchants can launch promotions, manage customer
-                  loyalty programs, and analyze peak hours to optimize their operations
-                  and increase revenue.
+                  We believe your online presence should be as unique as your physical
+                  store. Our platform provides powerful customization tools that let you
+                  fine-tune every interaction. From dynamic menu structures to personalized
+                  branding, you have the ability to shape the ordering experience to
+                  perfectly match your business's voice.
                 </ProjectSectionText>
               </ProjectTextRow>
             </ProjectSectionContent>
             <div className={styles.sidebarImages}>
               <Image
                 className={styles.sidebarImage}
-                srcSet={
-                  isDark
-                    ? `${imageSprSchema2Dark} 260w, ${imageSprSchema2DarkLarge} 520w`
-                    : `${imageSprSchema2Light} 260w, ${imageSprSchema2LightLarge} 520w`
-                }
-                width={260}
-                height={660}
-                placeholder={
-                  isDark
-                    ? imageSprSchema2DarkPlaceholder
-                    : imageSprSchema2LightPlaceholder
-                }
-                alt="Mobile interface for managing menu items."
-                sizes={`(max-width: ${media.mobile}px) 50vw, 25vw`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={
-                  isDark
-                    ? `${imageSprSchema1Dark} 260w, ${imageSprSchema1DarkLarge} 520w`
-                    : `${imageSprSchema1Light} 260w, ${imageSprSchema1LightLarge} 520w`
-                }
-                width={260}
-                height={660}
-                placeholder={
-                  isDark
-                    ? imageSprSchema1DarkPlaceholder
-                    : imageSprSchema1LightPlaceholder
-                }
-                alt="Mobile analytics dashboard for merchants."
-                sizes={`(max-width: ${media.mobile}px) 50vw, 25vw`}
+                srcSet={`${bizbitCustom} 800w, ${bizbitCustom} 1600w`}
+                width={800}
+                height={640}
+                placeholder={bizbitCustom}
+                alt="Customization interface illustration."
+                sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
               />
             </div>
           </ProjectSectionColumns>
+        </ProjectSection>
+        <ProjectSection>
+          <ProjectSectionContent>
+            <ProjectTextRow center>
+              <ProjectSectionHeading>Limitless Storefront Agility</ProjectSectionHeading>
+              <ProjectSectionText>
+                Adapt to the market in seconds. Our mobile management tools empower
+                merchants to curate their digital storefront on the fly. Whether adding
+                new listings, updating pricing, or managing live inventory, the
+                interface provides comprehensive control with consumer-grade simplicity.
+              </ProjectSectionText>
+            </ProjectTextRow>
+            <div className={styles.phoneFrame}>
+              <div className={styles.phoneContent}>
+                <Image
+                  raised
+                  srcSet={`${bizmobListing} 1280w`}
+                  width={706}
+                  height={1600}
+                  placeholder={bizmobListing}
+                  alt="Mobile business listing management interface illustration."
+                  sizes="320px"
+                />
+              </div>
+            </div>
+          </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
           <ProjectSectionContent>
