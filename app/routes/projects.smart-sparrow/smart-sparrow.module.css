@@ -69,3 +69,110 @@
   height: 100%;
   object-fit: cover;
 }
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  width: 100%;
+  margin-top: 60px;
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.pricingCard {
+  background: var(--surface);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s var(--bezierFastoutSlowin);
+  border: 1px solid color-mix(in lab, var(--text) 10%, transparent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.pricingCard[data-popular='true'] {
+  border-color: var(--accent);
+  background: color-mix(in lab, var(--accent) 5%, var(--surface));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  z-index: 1;
+
+  @media (--mediaTablet) {
+    transform: none;
+  }
+
+  &::before {
+    content: "MOST POPULAR";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--background);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: var(--fontWeightBold);
+    letter-spacing: 0.1em;
+  }
+}
+
+.planName {
+  font-size: 20px;
+  font-weight: var(--fontWeightBold);
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: var(--fontWeightBold);
+  color: var(--textTitle);
+  margin-bottom: 24px;
+}
+
+.price span {
+  font-size: 16px;
+  font-weight: var(--fontWeightMedium);
+  color: var(--textBody);
+  opacity: 0.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--textBody);
+  line-height: 1.4;
+}
+
+.featureItem svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.pricingButton {
+  margin-top: auto;
+  padding-top: 32px;
+}

@@ -19,6 +19,7 @@ export function ProjectHeader({
   url,
   roles,
   className,
+  centered,
 }) {
   return (
     <Section className={classes(styles.header, className)} as="section">
@@ -26,7 +27,7 @@ export function ProjectHeader({
         className={styles.headerContent}
         style={cssProps({ initDelay: numToMs(initDelay) })}
       >
-        <div className={styles.details}>
+        <div className={styles.details} data-centered={centered}>
           <Heading className={styles.title} level={2} as="h1">
             {title}
           </Heading>

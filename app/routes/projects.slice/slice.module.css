@@ -95,20 +95,11 @@
 }
 
 .sidebarImage {
-  &:first-child {
-    grid-column: col 1 / span 4;
-    grid-row: 1;
-    position: relative;
-    top: 5%;
-    opacity: 0.4;
-  }
-
-  &:last-child {
-    grid-column: col 3 / span 4;
-    grid-row: 1;
-    position: relative;
-    top: -5%;
-  }
+  grid-column: col 1 / span 6;
+  grid-row: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .features {

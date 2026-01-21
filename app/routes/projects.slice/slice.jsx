@@ -4,7 +4,9 @@ import sprBackgroundPlaceholder from '~/assets/spr-background-placeholder.jpg';
 import qbotHero from '~/assets/qbot-hero.png';
 import qbotInterface from '~/assets/qbot-interface.png';
 import qbotIntegration from '~/assets/qbot-integration.png';
+import qbotChat from '~/assets/qbot_chat.svg';
 import qbotAnalytics from '~/assets/qbot-analytics.png';
+import qbotAnalyticsSvg from '~/assets/qbot_analytics.svg';
 import qbotTeam from '~/assets/qbot-team.png';
 import { Button } from '~/components/button';
 import { Footer } from '~/components/footer';
@@ -118,21 +120,12 @@ export const Slice = () => {
             <div className={styles.sidebarImages}>
               <Image
                 className={styles.sidebarImage}
-                srcSet={`${qbotIntegration} 350w, ${qbotIntegration} 700w`}
-                width={350}
-                height={750}
-                placeholder={qbotIntegration}
-                alt="QBot integrated with various messaging platforms."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
-              />
-              <Image
-                className={styles.sidebarImage}
-                srcSet={`${qbotInterface} 350w, ${qbotInterface} 700w`}
-                width={350}
-                height={750}
-                placeholder={qbotInterface}
-                alt="The chatbot interface on a mobile device."
-                sizes={`(max-width: ${media.mobile}px) 200px, 343px`}
+                srcSet={`${qbotChat} 800w, ${qbotChat} 1600w`}
+                width={800}
+                height={800}
+                placeholder={qbotChat}
+                alt="QBot chat integration illustration."
+                sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
               />
             </div>
           </ProjectSectionColumns>
@@ -150,10 +143,10 @@ export const Slice = () => {
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
-              srcSet={`${qbotAnalytics} 800w, ${qbotAnalytics} 1920w`}
+              srcSet={`${qbotAnalyticsSvg} 800w, ${qbotAnalyticsSvg} 1920w`}
               width={800}
               height={500}
-              placeholder={qbotAnalytics}
+              placeholder={qbotAnalyticsSvg}
               alt="The QBot analytics dashboard showing user engagement and sentiment metrics."
               sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
             />
@@ -165,10 +158,10 @@ export const Slice = () => {
             <div className={styles.gridImage}>
               <div className={styles.gridBackground}>
                 <Image
-                  srcSet={`${qbotAnalytics} 440w, ${qbotAnalytics} 880w`}
+                  srcSet={`${qbotAnalyticsSvg} 440w, ${qbotAnalyticsSvg} 880w`}
                   width={440}
                   height={790}
-                  placeholder={qbotAnalytics}
+                  placeholder={qbotAnalyticsSvg}
                   alt=""
                   role="presentation"
                   sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
