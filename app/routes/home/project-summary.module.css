@@ -15,12 +15,15 @@
 
   @media (--mediaTablet) {
     height: auto;
-    margin: var(--space3XL) 0;
+    margin-top: var(--space4XL);
+    margin-bottom: var(--space4XL);
+    padding-bottom: 0;
   }
 
   @media (--mediaMobile) {
-    padding-bottom: var(--space4XL);
-    margin-bottom: 0;
+    margin-top: var(--space3XL);
+    margin-bottom: var(--space3XL);
+    padding-bottom: 0;
   }
 
   &[data-first='true'] {
@@ -57,7 +60,7 @@
     }
 
     grid-template-columns: 100%;
-    flex-direction: column-reverse;
+    grid-row-gap: var(--spaceXL);
     height: auto;
   }
 }
@@ -124,7 +127,7 @@
     }
 
     @media (--mediaTablet) {
-      --width: 140%;
+      --width: 120%;
 
       top: 0;
       left: 0;
