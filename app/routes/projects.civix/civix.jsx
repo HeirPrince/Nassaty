@@ -57,6 +57,12 @@ export function Civix() {
         />
         <ProjectSection padding="top">
           <ProjectSectionContent>
+            <div className={styles.valueBar}>
+              <div className={styles.valueItem}>📄 Document Control</div>
+              <div className={styles.valueItem}>🛒 Automated POs</div>
+              <div className={styles.valueItem}>🧾 Easy Invoicing</div>
+              <div className={styles.valueItem}>🏗 Construction Ready</div>
+            </div>
             <ProjectImage
               srcSet={`${civixFinanceDash} 800w, ${civixFinanceDash} 1920w`}
               width={800}

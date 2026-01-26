@@ -176,3 +176,26 @@
   margin-top: auto;
   padding-top: 32px;
 }
+.valueBar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space2XL);
+  padding: var(--spaceXL) 0;
+  border-top: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+  border-bottom: 1px solid color-mix(in lab, var(--text) 20%, transparent);
+  margin-bottom: var(--space2XL);
+
+  @media (--mediaMobile) {
+    gap: var(--spaceL);
+  }
+}
+
+.valueItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceS);
+  font-size: var(--fontSizeBodyM);
+  font-weight: var(--fontWeightMedium);
+  color: var(--colorTextBody);
+}

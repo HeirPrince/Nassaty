@@ -81,13 +81,19 @@ export const SmartSparrow = () => {
           placeholder={happyCustomer}
         />
         <ProjectHeader
-          title={title}
-          description={description}
+          title="Nassaty Ordering System"
+          description="A complete website and mobile ordering platform that helps local businesses showcase their brand, accept orders, and track deliveries—all for a simple monthly fee."
           url="https://nassaty.com"
           centered
         />
         <ProjectSection padding="top">
           <ProjectSectionContent>
+            <div className={styles.valueBar}>
+              <div className={styles.valueItem}>🌐 Branded Website</div>
+              <div className={styles.valueItem}>📱 Mobile Ordering</div>
+              <div className={styles.valueItem}>📍 Real-time Tracking</div>
+              <div className={styles.valueItem}>💳 Secure Payments</div>
+            </div>
             <ProjectImage
               raised
               key={theme}

@@ -50,13 +50,22 @@ export const Slice = () => {
           opacity={0.8}
         />
         <ProjectHeader
-          title={title}
-          description={description}
+          title="Customer Assistance Chatbot"
+          description="Talk to your customers. Take orders. Support them 24/7. A smart chatbot that answers questions, shows services, books orders, and connects to a real person when needed."
           url="https://qbot.nassaty.com"
+          linkLabel="Request a Demo"
           roles={roles}
         />
+
         <ProjectSection padding="top">
           <ProjectSectionContent>
+            <div className={styles.valueBar}>
+              <div className={styles.valueItem}>💬 Chat Support</div>
+              <div className={styles.valueItem}>📞 24/7 Calls</div>
+              <div className={styles.valueItem}>🌍 Multiple Languages</div>
+              <div className={styles.valueItem}>🤝 Human Help</div>
+            </div>
+
             <ProjectImage
               srcSet={`${qbotInterface} 800w, ${qbotInterface} 1920w`}
               width={800}
@@ -71,33 +80,125 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow center noMargin>
-              <ProjectSectionHeading>Core Capabilities</ProjectSectionHeading>
+              <ProjectSectionHeading>Everything Your Business Needs</ProjectSectionHeading>
               <ProjectSectionText>
                 QBot is more than just a chatbot. It's an intelligent extension of your team,
                 capable of handling complex workflows and delivering personalized experiences.
               </ProjectSectionText>
             </ProjectTextRow>
+
             <div className={styles.features}>
               <div className={styles.feature}>
-                <ProjectSectionHeading level={4} className={styles.featureTitle}>24/7 Availability</ProjectSectionHeading>
-                <ProjectSectionText className={styles.featureText}>
-                  Never miss a lead. QBot handles customer queries around the clock,
-                  providing instant responses even when your team is offline.
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>💬</span> Customer Chat Support
+                </h3>
+                <ProjectSectionText>
+                  Answers customer questions instantly, available day and night to help your customers.
                 </ProjectSectionText>
               </div>
               <div className={styles.feature}>
-                <ProjectSectionHeading level={4} className={styles.featureTitle}>Multi-Platform</ProjectSectionHeading>
-                <ProjectSectionText className={styles.featureText}>
-                  Engage customers on their favorite platforms, including WhatsApp,
-                  Telegram, and your own website, with a unified AI brain.
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>📞</span> 24/7 Call Support
+                </h3>
+                <ProjectSectionText>
+                  Answers calls at any time, shares basic information and reduces missed calls.
                 </ProjectSectionText>
               </div>
               <div className={styles.feature}>
-                <ProjectSectionHeading level={4} className={styles.featureTitle}>Smart Learning</ProjectSectionHeading>
-                <ProjectSectionText className={styles.featureText}>
-                  Our NLP engine continuously learns from interactions,
-                  improving its accuracy and helpfulness with every conversation.
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>📋</span> Menu & Services Display
+                </h3>
+                <ProjectSectionText>
+                  Shows menus and services clearly with prices, making it easy for customers to understand.
                 </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>📅</span> Booking & Order Assistance
+                </h3>
+                <ProjectSectionText>
+                  Books appointments and takes orders, confirming details automatically for you.
+                </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>🤝</span> Human Support When Needed
+                </h3>
+                <ProjectSectionText>
+                  Handles simple tasks alone and calls a real person when needed to keep customers satisfied.
+                </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>🏢</span> Built for Many Businesses
+                </h3>
+                <ProjectSectionText>
+                  Customized for Restaurants, Hotels, Shops, and various Service providers.
+                </ProjectSectionText>
+              </div>
+              <div className={styles.feature}>
+                <h3 className={styles.featureTitle}>
+                  <span className={styles.featureIcon}>🌍</span> Multi-Language Support
+                </h3>
+                <ProjectSectionText>
+                  Customers choose their preferred language for clear communication and wider reach.
+                </ProjectSectionText>
+              </div>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+
+        <ProjectSection light>
+          <ProjectSectionContent>
+            <ProjectTextRow center>
+              <ProjectSectionHeading>How It Works</ProjectSectionHeading>
+            </ProjectTextRow>
+            <div className={styles.howItWorks}>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>1</div>
+                <ProjectSectionText>Customer contacts your business</ProjectSectionText>
+              </div>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>2</div>
+                <ProjectSectionText>Chatbot replies and helps</ProjectSectionText>
+              </div>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>3</div>
+                <ProjectSectionText>Human joins if needed</ProjectSectionText>
+              </div>
+              <div className={styles.step}>
+                <div className={styles.stepNumber}>4</div>
+                <ProjectSectionText>Problem is solved</ProjectSectionText>
+              </div>
+            </div>
+          </ProjectSectionContent>
+        </ProjectSection>
+
+        <ProjectSection>
+          <ProjectSectionContent>
+            <ProjectTextRow center>
+              <ProjectSectionHeading>Used By Businesses Like</ProjectSectionHeading>
+            </ProjectTextRow>
+            <div className={styles.industryGrid}>
+              <div className={styles.industryItem}>
+                <span className={styles.industryIcon}>🍽</span>
+                <ProjectSectionText>Restaurants</ProjectSectionText>
+              </div>
+              <div className={styles.industryItem}>
+                <span className={styles.industryIcon}>🏨</span>
+                <ProjectSectionText>Hotels</ProjectSectionText>
+              </div>
+              <div className={styles.industryItem}>
+                <span className={styles.industryIcon}>🛍</span>
+                <ProjectSectionText>Shops</ProjectSectionText>
+              </div>
+              <div className={styles.industryItem}>
+                <span className={styles.industryIcon}>🧘</span>
+                <ProjectSectionText>Services</ProjectSectionText>
+              </div>
+              <div className={styles.industryItem}>
+                <span className={styles.industryIcon}>💼</span>
+                <ProjectSectionText>Online Businesses</ProjectSectionText>
               </div>
             </div>
           </ProjectSectionContent>
@@ -106,118 +207,45 @@ export const Slice = () => {
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Seamless Integration</ProjectSectionHeading>
-              <ProjectSectionText>
-                Businesses often struggle to maintain consistent support across multiple
-                platforms. QBot was designed to bridge this gap, providing a unified
-                AI-driven experience wherever your customers are.
-              </ProjectSectionText>
-              <ProjectSectionText>
-                Our solution uses advanced Natural Language Processing to understand
-                user intent and provide accurate, context-aware responses in real-time.
-              </ProjectSectionText>
+              <ProjectSectionHeading>How This Helps Your Business</ProjectSectionHeading>
+              <div className={styles.benefits}>
+                <div className={styles.benefitItem}>
+                  <span className={styles.benefitCheck}>✓</span> Always available for customers
+                </div>
+                <div className={styles.benefitItem}>
+                  <span className={styles.benefitCheck}>✓</span> Less work for your team
+                </div>
+                <div className={styles.benefitItem}>
+                  <span className={styles.benefitCheck}>✓</span> Faster customer replies
+                </div>
+                <div className={styles.benefitItem}>
+                  <span className={styles.benefitCheck}>✓</span> More bookings and orders
+                </div>
+                <div className={styles.benefitItem}>
+                  <span className={styles.benefitCheck}>✓</span> Better customer experience
+                </div>
+              </div>
             </div>
             <div className={styles.sidebarImages}>
               <Image
                 className={styles.sidebarImage}
-                srcSet={`${qbotChat} 800w, ${qbotChat} 1600w`}
+                srcSet={`${qbotAnalyticsSvg} 800w, ${qbotAnalyticsSvg} 1920w`}
                 width={800}
-                height={800}
-                placeholder={qbotChat}
-                alt="QBot chat integration illustration."
+                height={500}
+                placeholder={qbotAnalyticsSvg}
+                alt="QBot benefits visualization"
                 sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
               />
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
 
-        <ProjectSection light>
-          <ProjectSectionContent>
-            <ProjectTextRow>
-              <ProjectSectionHeading>Continuous Learning</ProjectSectionHeading>
-              <ProjectSectionText>
-                A key challenge was ensuring the bot could handle complex queries and
-                learn from past interactions. We implemented a feedback loop system
-                where the AI identifies unresolved queries and prompts human intervention,
-                learning from the manual responses to improve future performance.
-              </ProjectSectionText>
-            </ProjectTextRow>
-            <Image
-              srcSet={`${qbotAnalyticsSvg} 800w, ${qbotAnalyticsSvg} 1920w`}
-              width={800}
-              height={500}
-              placeholder={qbotAnalyticsSvg}
-              alt="The QBot analytics dashboard showing user engagement and sentiment metrics."
-              sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
-            />
-          </ProjectSectionContent>
-        </ProjectSection>
-
-        <ProjectSection padding="top">
-          <ProjectSectionContent className={styles.grid}>
-            <div className={styles.gridImage}>
-              <div className={styles.gridBackground}>
-                <Image
-                  srcSet={`${qbotAnalyticsSvg} 440w, ${qbotAnalyticsSvg} 880w`}
-                  width={440}
-                  height={790}
-                  placeholder={qbotAnalyticsSvg}
-                  alt=""
-                  role="presentation"
-                  sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
-                />
-              </div>
-              <div className={styles.gridForeground}>
-                <Image
-                  srcSet={`${qbotInterface} 440w, ${qbotInterface} 880w`}
-                  width={440}
-                  height={340}
-                  placeholder={qbotInterface}
-                  alt="A preview of the chatbot's sentiment analysis and response confidence."
-                  sizes={`(max-width: ${media.mobile}px) 584px, (max-width: ${media.tablet}px) 747px, 556px`}
-                />
-              </div>
-            </div>
-            <div className={styles.gridText}>
-              <ProjectSectionHeading>Analytics & Insights</ProjectSectionHeading>
-              <ProjectSectionText>
-                Understanding customer behavior is crucial for business growth. QBot
-                provides a comprehensive dashboard that tracks engagement metrics,
-                frequently asked questions, and user sentiment. These insights help
-                businesses optimize their communication strategies and product offerings.
-              </ProjectSectionText>
-            </div>
-          </ProjectSectionContent>
-        </ProjectSection>
-
-        <ProjectSection>
-          <ProjectSectionContent>
-            <ProjectTextRow>
-              <ProjectSectionHeading>Project outcomes</ProjectSectionHeading>
-              <ProjectSectionText>
-                Since its deployment, QBot has significantly reduced support response
-                times and increased customer satisfaction. Businesses have reported up
-                to a 70% decrease in manual support tickets, allowing their teams to
-                focus on more complex and high-value tasks.
-              </ProjectSectionText>
-            </ProjectTextRow>
-            <Image
-              src={qbotTeam}
-              width={940}
-              height={500}
-              placeholder={qbotTeam}
-              alt="A professional team collaborating with the help of QBot's insights."
-            />
-          </ProjectSectionContent>
-        </ProjectSection>
-
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow center noMargin>
-              <ProjectSectionHeading>Ready to automate your support?</ProjectSectionHeading>
+              <ProjectSectionHeading>Let Your Business Answer Customers 24/7</ProjectSectionHeading>
               <ProjectSectionText>
-                Join hundreds of businesses that use QBot to deliver exceptional
-                customer experiences at scale.
+                The chatbot works for you, even when you are offline. Join hundreds of businesses that use QBot to deliver exceptional customer experiences at scale.
               </ProjectSectionText>
               <Button
                 secondary
@@ -226,7 +254,7 @@ export const Slice = () => {
                 href="https://qbot.nassaty.com"
                 style={{ marginTop: '20px' }}
               >
-                Get Started with QBot
+                Request a Demo
               </Button>
             </ProjectTextRow>
           </ProjectSectionContent>

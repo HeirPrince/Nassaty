@@ -1,6 +1,5 @@
 import { Icon } from '~/components/icon';
-import logoDark from '~/assets/logo_dark.svg';
-import logoLight from '~/assets/logo_light.svg';
+import monogram from '../../assets/monogram.png';
 import { useTheme } from '~/components/theme-provider';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
@@ -151,7 +150,7 @@ export const Navbar = () => {
         onClick={handleMobileNavClick}
       >
         <img
-          src={theme === 'dark' ? logoDark : logoLight}
+          src={monogram}
           alt={config.name}
           width="48"
           height="48"
