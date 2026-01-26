@@ -1,13 +1,11 @@
 import pro2ListTexture from '~/assets/pro2-list.jpeg';
 import pro2Texture from '~/assets/pro2.jpeg';
-import p3Texture from '~/assets/P3_dark.svg';
-import p3LightTexture from '~/assets/P3_light.svg';
 import p1Texture from '~/assets/P1.svg';
 import p1LightTexture from '~/assets/P1_light.svg';
-import civixTexture from '~/assets/civix.png';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
+import civixInvoiceTexture from '~/assets/civix_invoice.svg';
 import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -165,8 +163,8 @@ Reduce paperwork. Improve accuracy. Get paid faster."
           alt: 'App login screen',
           textures: [
             {
-              srcSet: `${isHydrated && theme === 'light' ? p3LightTexture : p3Texture} 800w`,
-              placeholder: isHydrated && theme === 'light' ? p3LightTexture : p3Texture,
+              srcSet: `${civixInvoiceTexture} 800w`,
+              placeholder: civixInvoiceTexture,
             },
           ],
         }}

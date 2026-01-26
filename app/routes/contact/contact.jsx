@@ -73,7 +73,7 @@ export async function action({ context, request }) {
   await ses.send(
     new SendEmailCommand({
       Destination: {
-        ToAddresses: [process.env.EMAIL],
+        ToAddresses: ['nassaty@gmail.com'],
       },
       Message: {
         Body: {
@@ -97,7 +97,7 @@ export const Contact = () => {
   const errorRef = useRef();
   const email = useFormInput('');
   const message = useFormInput('');
-  const initDelay = tokens.base.durationS;
+  const initDelay = tokens.base.durationXS;
   const actionData = useActionData();
   const { state } = useNavigation();
   const sending = state === 'submitting';
@@ -119,7 +119,7 @@ export const Contact = () => {
               as="h1"
               style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
             >
-              <DecoderText text="Say hello" start={status !== 'exited'} delay={300} />
+              <DecoderText text="Say hello" start={status !== 'exited'} delay={0} />
             </Heading>
             <Divider
               className={styles.divider}
