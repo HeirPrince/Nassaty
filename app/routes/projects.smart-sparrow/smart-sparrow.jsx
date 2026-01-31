@@ -33,6 +33,10 @@ import {
 import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import styles from './smart-sparrow.module.css';
+import { useFetcher } from '@remix-run/react';
+import { useState } from 'react';
+import { Input } from '~/components/input';
+import { Icon } from '~/components/icon';
 
 const title = 'All-in-one ordering for your business.';
 const description =
@@ -61,6 +65,69 @@ const CheckIcon = () => (
     />
   </svg>
 );
+
+const PricingCard = ({ title, price, features, buttonText, type, href, popular, actionText }) => {
+  const [showInput, setShowInput] = useState(false);
+  const fetcher = useFetcher();
+  const sending = fetcher.state === 'submitting';
+  const success = fetcher.data?.success;
+
+  return (
+    <div className={styles.pricingCard} data-popular={popular}>
+      <div className={styles.planName}>{title}</div>
+      <div className={styles.price}>
+        {price}<span> /month</span>
+      </div>
+      <ul className={styles.featureList}>
+        {features.map((feature, i) => (
+          <li key={i} className={styles.featureItem}>
+            <CheckIcon />
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <div className={styles.pricingButton}>
+        {type === 'link' && <Button href={href} secondary={!popular}>{buttonText}</Button>}
+        {type === 'email' && !showInput && !success && (
+          <Button secondary={!popular} onClick={(e) => { e.preventDefault(); setShowInput(true); }}>
+            {buttonText}
+          </Button>
+        )}
+        {type === 'email' && showInput && !success && (
+          <fetcher.Form method="post" style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%' }}>
+            <input type="hidden" name="plan" value={title} />
+            <Input
+              label="Phone Number"
+              placeholder="+250 788 123 456"
+              type="tel"
+              name="phone"
+              style={{ '--inputHeight': '48px' }}
+            />
+            <Input
+              required
+              label="Your Email"
+              placeholder="name@example.com"
+              type="email"
+              name="email"
+              style={{ '--inputHeight': '48px' }}
+            />
+            <Button type="submit" loading={sending} secondary={!popular} icon="send">
+              {actionText || 'Send'}
+            </Button>
+          </fetcher.Form>
+        )}
+        {type === 'email' && success && (
+          <div style={{ color: 'var(--textTitle)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Icon icon="check" /> Request Sent
+            </div>
+            <span style={{ fontWeight: 'normal', fontSize: '14px', textAlign: 'center' }}>We'll contact you shortly.</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export const SmartSparrow = () => {
   const { theme, toggleTheme } = useTheme();
@@ -273,79 +340,44 @@ export const SmartSparrow = () => {
               </ProjectSectionText>
             </ProjectTextRow>
             <div className={styles.pricingGrid}>
-              <div className={styles.pricingCard}>
-                <div className={styles.planName}>Essential</div>
-                <div className={styles.price}>
-                  RWF 60,000<span> /month</span>
-                </div>
-                <ul className={styles.featureList}>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Access to branded website
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Access to delivery tracking app
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Basic ordering tools
-                  </li>
-                </ul>
-                <div className={styles.pricingButton}>
-                  <Button secondary href="/contact">Get Started</Button>
-                </div>
-              </div>
-              <div className={styles.pricingCard} data-popular>
-                <div className={styles.planName}>Professional</div>
-                <div className={styles.price}>
-                  RWF 100,000<span> /month</span>
-                </div>
-                <ul className={styles.featureList}>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Everything in Essential
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    24/7 Priority support
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Custom brand integration
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Detailed sales reports
-                  </li>
-                </ul>
-                <div className={styles.pricingButton}>
-                  <Button href="/contact">Select Plan</Button>
-                </div>
-              </div>
-              <div className={styles.pricingCard}>
-                <div className={styles.planName}>Ultimate</div>
-                <div className={styles.price}>
-                  RWF 200,000<span> /month</span>
-                </div>
-                <ul className={styles.featureList}>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    All features available +
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Smart customer help bot
-                  </li>
-                  <li className={styles.featureItem}>
-                    <CheckIcon />
-                    Manage multiple shops
-                  </li>
-                </ul>
-                <div className={styles.pricingButton}>
-                  <Button href="/contact">Contact Sales</Button>
-                </div>
-              </div>
+              <PricingCard
+                title="Essential"
+                price="RWF 60,000"
+                features={[
+                  'Access to branded website',
+                  'Access to delivery tracking app',
+                  'Basic ordering tools',
+                ]}
+                buttonText="Get Started"
+                type="email"
+                actionText="Get Started"
+              />
+              <PricingCard
+                title="Professional"
+                price="RWF 100,000"
+                features={[
+                  'Everything in Essential',
+                  '24/7 Priority support',
+                  'Custom brand integration',
+                  'Detailed sales reports',
+                ]}
+                buttonText="Select Plan"
+                type="link"
+                href="/contact"
+                popular
+              />
+              <PricingCard
+                title="Ultimate"
+                price="RWF 200,000"
+                features={[
+                  'All features available +',
+                  'Smart customer help bot',
+                  'Manage multiple shops',
+                ]}
+                buttonText="Contact Sales"
+                type="email"
+                actionText="Contact Sales"
+              />
             </div>
           </ProjectSectionContent>
         </ProjectSection>

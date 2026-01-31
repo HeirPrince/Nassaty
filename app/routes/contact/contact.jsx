@@ -15,7 +15,7 @@ import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json } from '@remix-run/node';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { Resend } from 'resend';
 import styles from './contact.module.css';
 
 export const meta = () => {
@@ -31,17 +31,12 @@ const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
 export async function action({ context, request }) {
-  const ses = new SESClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const formData = await request.formData();
   const isBot = String(formData.get('name'));
   const email = String(formData.get('email'));
+  const phone = String(formData.get('phone') || 'Not provided');
   const message = String(formData.get('message'));
   const errors = {};
 
@@ -69,26 +64,34 @@ export async function action({ context, request }) {
     return json({ errors });
   }
 
-  // Send email via Amazon SES
-  await ses.send(
-    new SendEmailCommand({
-      Destination: {
-        ToAddresses: ['nassaty@gmail.com'],
+  // Check if Resend API key is set
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Resend API key is not configured.');
+    return json({
+      errors: {
+        message:
+          'Email service is not configured. Please check the server configuration.',
       },
-      Message: {
-        Body: {
-          Text: {
-            Data: `From: ${email}\n\n${message}`,
-          },
-        },
-        Subject: {
-          Data: `Portfolio message from ${email}`,
-        },
+    });
+  }
+
+  // Send email via Resend
+  try {
+    await resend.emails.send({
+      from: `Portfolio <${process.env.FROM_EMAIL}>`,
+      to: ['nassaty@gmail.com'],
+      subject: `Portfolio message from ${email}`,
+      reply_to: email,
+      text: `From: ${email}\nPhone: ${phone}\n\n${message}`,
+    });
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    return json({
+      errors: {
+        message: 'There was an error sending your message. Please try again.',
       },
-      Source: `Portfolio <${process.env.FROM_EMAIL}>`,
-      ReplyToAddresses: [email],
-    })
-  );
+    });
+  }
 
   return json({ success: true });
 }
@@ -144,6 +147,16 @@ export const Contact = () => {
               name="email"
               maxLength={MAX_EMAIL_LENGTH}
               {...email}
+            />
+            <Input
+              className={styles.input}
+              data-status={status}
+              style={getDelay(tokens.base.durationXS, initDelay)}
+              autoComplete="tel"
+              label="Phone number"
+              type="tel"
+              name="phone"
+              maxLength={20}
             />
             <Input
               required
