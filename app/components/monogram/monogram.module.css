@@ -1,31 +1,26 @@
 @layer components {
   .monogram {
-    fill: var(--textTitle);
-    transition: fill var(--durationL) ease;
+    display: flex;
+    position: relative;
+    width: 48px;
+    height: 48px;
   }
 
-  .highlight {
-    fill: var(--accent);
+  .light,
+  .dark {
+    position: absolute;
+    inset: 0;
     opacity: 0;
-    transform: scale3d(1, 0, 1);
-    transform-origin: top;
-    transition: opacity 0.1s ease var(--durationM);
+    transition: opacity var(--durationL) ease;
+  }
 
-    @media (--mediaUseMotion) {
-      transition: transform var(--durationM) var(--bezierFastoutSlowin),
-        opacity 0.1s ease var(--durationM);
-    }
+  [data-theme='light'] .light,
+  :global([data-theme='light']) .light {
+    opacity: 1;
+  }
 
-    :is(a:hover, .monogram:hover) & {
-      opacity: 1;
-      transform: scale3d(1, 1, 1);
-      transform-origin: bottom;
-      transition: opacity 0.1s ease;
-
-      @media (--mediaUseMotion) {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin),
-          opacity 0.1s ease;
-      }
-    }
+  [data-theme='dark'] .dark,
+  :global([data-theme='dark']) .dark {
+    opacity: 1;
   }
 }

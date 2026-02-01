@@ -11,6 +11,10 @@ import qbotTeam from '~/assets/qbot-team.png';
 import { Button } from '~/components/button';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
+import { Input } from '~/components/input';
+import { Icon } from '~/components/icon';
+import { useFetcher } from '@remix-run/react';
+import { useState } from 'react';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -31,10 +35,83 @@ import styles from './slice.module.css';
 const title = 'QBot';
 const description =
   'Automate and enhance your customer interactions with our intelligent AI chatbot, designed to respond, support, and grow your business effortlessly.';
-const roles = ['AI Development', 'UX Design', 'System Architecture'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
+};
+
+const DemoForm = ({ centered }) => {
+  const [showInput, setShowInput] = useState(false);
+  const fetcher = useFetcher();
+  const sending = fetcher.state === 'submitting';
+  const success = fetcher.data?.success;
+
+  if (success) {
+    return (
+      <div style={{
+        color: 'var(--textTitle)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: centered ? 'center' : 'flex-start',
+        gap: '8px',
+        marginTop: '20px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
+          <Icon icon="check" /> Request Sent
+        </div>
+        <span style={{ fontSize: '14px' }}>We'll contact you shortly.</span>
+      </div>
+    );
+  }
+
+  if (showInput) {
+    return (
+      <fetcher.Form
+        method="post"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          width: '100%',
+          maxWidth: '400px',
+          marginTop: '20px',
+          marginRight: centered ? 'auto' : '0',
+          marginLeft: centered ? 'auto' : '0'
+        }}
+      >
+        <Input
+          label="Phone Number"
+          placeholder="+250 788 123 456"
+          type="tel"
+          name="phone"
+          style={{ '--inputHeight': '48px' }}
+        />
+        <Input
+          required
+          label="Your Email"
+          placeholder="name@example.com"
+          type="email"
+          name="email"
+          style={{ '--inputHeight': '48px' }}
+        />
+        <Button type="submit" loading={sending} secondary icon="send">
+          Send Request
+        </Button>
+      </fetcher.Form>
+    );
+  }
+
+  return (
+    <Button
+      secondary
+      iconHoverShift
+      icon="chevron-right"
+      onClick={() => setShowInput(true)}
+      style={{ marginTop: '20px' }}
+    >
+      Request a Demo
+    </Button>
+  );
 };
 
 export const Slice = () => {
@@ -52,10 +129,9 @@ export const Slice = () => {
         <ProjectHeader
           title="Customer Assistance Chatbot"
           description="Talk to your customers. Take orders. Support them 24/7. A smart chatbot that answers questions, shows services, books orders, and connects to a real person when needed."
-          url="https://qbot.nassaty.com"
-          linkLabel="Request a Demo"
-          roles={roles}
-        />
+        >
+          <DemoForm />
+        </ProjectHeader>
 
         <ProjectSection padding="top">
           <ProjectSectionContent>
@@ -247,15 +323,7 @@ export const Slice = () => {
               <ProjectSectionText>
                 The chatbot works for you, even when you are offline. Join hundreds of businesses that use QBot to deliver exceptional customer experiences at scale.
               </ProjectSectionText>
-              <Button
-                secondary
-                iconHoverShift
-                icon="chevron-right"
-                href="https://qbot.nassaty.com"
-                style={{ marginTop: '20px' }}
-              >
-                Request a Demo
-              </Button>
+              <DemoForm centered />
             </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>

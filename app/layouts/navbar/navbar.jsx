@@ -1,5 +1,5 @@
 import { Icon } from '~/components/icon';
-import monogram from '../../assets/monogram.png';
+import { Monogram } from '~/components/monogram';
 import { useTheme } from '~/components/theme-provider';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
@@ -149,12 +149,8 @@ export const Navbar = () => {
         aria-label={`${config.name}, ${config.role}`}
         onClick={handleMobileNavClick}
       >
-        <img
-          src={monogram}
+        <Monogram
           alt={config.name}
-          width="48"
-          height="48"
-          style={{ objectFit: 'contain' }}
         />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />

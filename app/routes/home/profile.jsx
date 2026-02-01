@@ -1,4 +1,5 @@
-import monogram from '../../assets/monogram.png';
+import logoDark from '~/assets/logo_dark.svg';
+import logoLight from '~/assets/logo_light.svg';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -59,7 +60,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 href="/contact"
                 icon="send"
               >
-                Send me a message
+                Send us a message
               </Button>
             </div>
             <div className={styles.column}>
@@ -79,7 +80,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   reveal
                   delay={100}
 
-                  src={monogram}
+                  src={theme === 'dark' ? logoDark : logoLight}
                   width={480}
                   height={480}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}

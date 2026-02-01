@@ -336,7 +336,7 @@ export const SmartSparrow = () => {
               <ProjectSectionHeading>Flexible Payment Plans</ProjectSectionHeading>
               <ProjectSectionText>
                 Choose the plan that best fits your business. All plans include our
-                basic ordering tools, designed to help you grow without the stress.
+                basic all-in-one business platform, designed to help you grow without the stress.
               </ProjectSectionText>
             </ProjectTextRow>
             <div className={styles.pricingGrid}>
@@ -346,7 +346,7 @@ export const SmartSparrow = () => {
                 features={[
                   'Access to branded website',
                   'Access to delivery tracking app',
-                  'Basic ordering tools',
+                  'Basic all-in-one business platform',
                 ]}
                 buttonText="Get Started"
                 type="email"
@@ -361,9 +361,9 @@ export const SmartSparrow = () => {
                   'Custom brand integration',
                   'Detailed sales reports',
                 ]}
-                buttonText="Select Plan"
-                type="link"
-                href="/contact"
+                buttonText="Get Started"
+                type="email"
+                actionText="Get Started"
                 popular
               />
               <PricingCard
@@ -374,9 +374,9 @@ export const SmartSparrow = () => {
                   'Smart customer help bot',
                   'Manage multiple shops',
                 ]}
-                buttonText="Contact Sales"
+                buttonText="Get Started"
                 type="email"
-                actionText="Contact Sales"
+                actionText="Get Started"
               />
             </div>
           </ProjectSectionContent>

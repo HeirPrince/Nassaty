@@ -4,6 +4,11 @@ import civixInvoice from '~/assets/civix_invoice.svg';
 import civixPo from '~/assets/civix_po.svg';
 import civixBg from '~/assets/civix_bg.jpg';
 import { Footer } from '~/components/footer';
+import { Button } from '~/components/button';
+import { Input } from '~/components/input';
+import { Icon } from '~/components/icon';
+import { useFetcher } from '@remix-run/react';
+import { useState } from 'react';
 import {
   ProjectBackground,
   ProjectContainer,
@@ -29,6 +34,80 @@ export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
 };
 
+const DemoForm = ({ centered }) => {
+  const [showInput, setShowInput] = useState(false);
+  const fetcher = useFetcher();
+  const sending = fetcher.state === 'submitting';
+  const success = fetcher.data?.success;
+
+  if (success) {
+    return (
+      <div style={{
+        color: 'var(--textTitle)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: centered ? 'center' : 'flex-start',
+        gap: '8px',
+        marginTop: '20px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
+          <Icon icon="check" /> Request Sent
+        </div>
+        <span style={{ fontSize: '14px' }}>We'll contact you shortly.</span>
+      </div>
+    );
+  }
+
+  if (showInput) {
+    return (
+      <fetcher.Form
+        method="post"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          width: '100%',
+          maxWidth: '400px',
+          marginTop: '20px',
+          marginRight: centered ? 'auto' : '0',
+          marginLeft: centered ? 'auto' : '0'
+        }}
+      >
+        <Input
+          label="Phone Number"
+          placeholder="+250 788 123 456"
+          type="tel"
+          name="phone"
+          style={{ '--inputHeight': '48px' }}
+        />
+        <Input
+          required
+          label="Your Email"
+          placeholder="name@example.com"
+          type="email"
+          name="email"
+          style={{ '--inputHeight': '48px' }}
+        />
+        <Button type="submit" loading={sending} secondary icon="send">
+          Send Request
+        </Button>
+      </fetcher.Form>
+    );
+  }
+
+  return (
+    <Button
+      secondary
+      iconHoverShift
+      icon="chevron-right"
+      onClick={() => setShowInput(true)}
+      style={{ marginTop: '20px' }}
+    >
+      Request a Demo
+    </Button>
+  );
+};
+
 export function Civix() {
   return (
     <Fragment>
@@ -52,9 +131,10 @@ export function Civix() {
               </span>
             </Fragment>
           }
-          url="https://civix.io"
           centered
-        />
+        >
+          <DemoForm centered />
+        </ProjectHeader>
         <ProjectSection padding="top">
           <ProjectSectionContent>
             <div className={styles.valueBar}>
