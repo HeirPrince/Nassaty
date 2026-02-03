@@ -42,7 +42,7 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Nassaty Technologies',
-    description: `Portfolio of ${config.name} — a software company working on web & mobile apps with a focus on development, design, and innovation.`,
+    description: `Portfolio of ${config.name} — an AI company specializing in autonomous agents, intelligent automation, and cutting-edge software solutions.`,
   });
 };
 

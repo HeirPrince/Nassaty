@@ -6,6 +6,7 @@ import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Link as RouterLink } from '@remix-run/react';
+import { Text } from '~/components/text';
 import { useInterval, usePrevious, useScrollToHash } from '~/hooks';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { cssProps } from '~/utils/style';
@@ -35,7 +36,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
       const index = (disciplineIndex + 1) % disciplines.length;
       setDisciplineIndex(index);
     },
-    5000,
+    8000,
     theme
   );
 
@@ -78,6 +79,11 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                 </VisuallyHidden>
 
                 <div className={styles.row}>
+                  <div className={styles.badge}>
+                    <span className={styles.badgeText}>We are here to</span>
+                  </div>
+                </div>
+                <div className={styles.row}>
                   {disciplines.map(item => (
                     <Transition
                       unmount
@@ -100,6 +106,31 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                   ))}
                 </div>
               </Heading>
+              <div className={styles.descriptionContainer}>
+                {config.descriptions.map((description, index) => (
+                  <Transition
+                    unmount
+                    in={index === disciplineIndex}
+                    timeout={{ enter: 1000, exit: 800 }}
+                    key={description}
+                  >
+                    {({ status, nodeRef }) => (
+                      <div
+                        aria-hidden
+                        ref={nodeRef}
+                        className={styles.description}
+                        data-status={status}
+                      >
+                        <DecoderText
+                          text={description}
+                          start={status === 'entered'}
+                          delay={300}
+                        />
+                      </div>
+                    )}
+                  </Transition>
+                ))}
+              </div>
             </header>
             <RouterLink
               to="/#project-1"
