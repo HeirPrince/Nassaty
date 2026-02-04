@@ -191,14 +191,18 @@ export const Earth = ({
     mounted.current = true;
     const { innerWidth, innerHeight } = window;
 
+    // Device-specific optimizations
+    const isMobile = innerWidth <= media.mobile;
+    const pixelRatio = Math.min(window.devicePixelRatio, 2); // Cap at 2 for performance
+
     renderer.current = new WebGLRenderer({
       canvas: canvas.current,
-      antialias: false,
+      antialias: !isMobile, // Disable on mobile for better performance
       alpha: true,
       powerPreference: 'high-performance',
       failIfMajorPerformanceCaveat: true,
     });
-    renderer.current.setPixelRatio(1);
+    renderer.current.setPixelRatio(pixelRatio); // Use adaptive pixel ratio
     renderer.current.outputColorSpace = SRGBColorSpace;
     renderer.current.toneMapping = ACESFilmicToneMapping;
 

@@ -14,20 +14,65 @@ import rehypePrism from '@mapbox/rehype-prism';
 export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
-    assetsInlineLimit: 1024,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ['three', 'three-stdlib'],
-        },
+    assetsInlineLimit: 2048, // Increased from 1024 for better small asset inlining
+    cssCodeSplit: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console.logs in production
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        passes: 2,
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
       },
     },
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Separate vendor chunks for better caching
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('three-stdlib')) {
+              return 'three';
+            }
+            if (id.includes('framer-motion')) {
+              return 'framer-motion';
+            }
+            if (id.includes('@remix-run')) {
+              return 'remix';
+            }
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-vendor';
+            }
+            return 'vendor';
+          }
+        },
+        // Optimize chunk file names for better caching
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+      },
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+      },
+    },
+    // Increase chunk size warning limit for 3D assets
+    chunkSizeWarningLimit: 1000,
   },
   ssr: {
     noExternal: ['three', 'three-stdlib', 'framer-motion'],
   },
   server: {
     port: 7777,
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'framer-motion'],
+    exclude: ['three', 'three-stdlib'],
   },
   plugins: [
     mdx({

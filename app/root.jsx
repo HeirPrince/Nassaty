@@ -29,15 +29,21 @@ export const links = () => [
     href: GothamMedium,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
   {
     rel: 'preload',
     href: GothamBook,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
+  // DNS prefetch for external resources
+  { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
+  { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+  // Preconnect for critical third-party origins
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossOrigin: 'anonymous' },
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.png', type: 'image/png' },
   { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },

@@ -8,10 +8,12 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
+    "build:analyze": "remix vite:build --mode analyze",
     "dev": "node ./scripts/dev.cjs && remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
     "postinstall": "node ./scripts/draco.cjs",
     "deploy": "vercel deploy",
+    "optimize:images": "node ./scripts/optimize-images.js",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },
