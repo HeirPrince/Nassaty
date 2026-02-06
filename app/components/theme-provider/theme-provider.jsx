@@ -177,7 +177,8 @@ export const themeStyles = squish(`
   ${layerStyles}
 
   @layer theme {
-    ${tokenStyles}
     ${fontStyles}
   }
+
+  ${tokenStyles}
 `);

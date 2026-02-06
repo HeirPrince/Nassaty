@@ -13,6 +13,7 @@ import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { useTheme } from '~/components/theme-provider';
 import { Intro } from './intro';
+import { Featured } from './featured';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { useEffect, useRef, useState } from 'react';
@@ -52,13 +53,14 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
+  const featuredProject = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, featuredProject, projectOne, projectTwo, projectThree, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -99,6 +101,11 @@ export const Home = () => {
         id="intro"
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
+      />
+      <Featured
+        id="featured"
+        sectionRef={featuredProject}
+        visible={visibleSections.includes(featuredProject.current)}
       />
       <ProjectSummary
         id="project-1"
