@@ -1,13 +1,11 @@
 import pro2ListTexture from '~/assets/pro2-list.jpeg';
 import pro2Texture from '~/assets/pro2.jpeg';
-import p3Texture from '~/assets/P3_dark.svg';
-import p3LightTexture from '~/assets/P3_light.svg';
 import p1Texture from '~/assets/P1.svg';
 import p1LightTexture from '~/assets/P1_light.svg';
-import civixTexture from '~/assets/civix.png';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
+import civoInvoiceTexture from '~/assets/civo_invoice.svg';
 import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -15,6 +13,7 @@ import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { useTheme } from '~/components/theme-provider';
 import { Intro } from './intro';
+import { Featured } from './featured';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
 import { useEffect, useRef, useState } from 'react';
@@ -44,7 +43,7 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Nassaty Technologies',
-    description: `Portfolio of ${config.name} — a software company working on web & mobile apps with a focus on development, design, and innovation.`,
+    description: `Portfolio of ${config.name} — an AI company specializing in autonomous agents, intelligent automation, and cutting-edge software solutions.`,
   });
 };
 
@@ -54,13 +53,14 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
+  const featuredProject = useRef();
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, featuredProject, projectOne, projectTwo, projectThree, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -102,6 +102,11 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
+      <Featured
+        id="featured"
+        sectionRef={featuredProject}
+        visible={visibleSections.includes(featuredProject.current)}
+      />
       <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
@@ -109,7 +114,7 @@ export const Home = () => {
         index={1}
         title="QBot"
         description="Automate and enhance your customer interactions with our intelligent AI chatbot, designed to respond, support, and grow your business effortlessly."
-        buttonText="Let AI Handle It"
+        buttonText="View More"
         buttonLink="/projects/slice"
         model={{
           type: 'image',
@@ -132,7 +137,7 @@ export const Home = () => {
         description="A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.
 
 From menus and promotions to ordering and delivery tracking, everything your customers need is in one place."
-        buttonText="Go Digital"
+        buttonText="View More"
         buttonLink="/projects/smart-sparrow"
         model={{
           type: 'laptop-flat',
@@ -154,19 +159,19 @@ From menus and promotions to ordering and delivery tracking, everything your cus
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="CIVIX"
+        title="CIVO"
         description="A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system.
 
 Reduce paperwork. Improve accuracy. Get paid faster."
-        buttonText="Request a Demo"
-        buttonLink="/projects/civix"
+        buttonText="View More"
+        buttonLink="/projects/civo"
         model={{
           type: 'image',
           alt: 'App login screen',
           textures: [
             {
-              srcSet: `${isHydrated && theme === 'light' ? p3LightTexture : p3Texture} 800w`,
-              placeholder: isHydrated && theme === 'light' ? p3LightTexture : p3Texture,
+              srcSet: `${civoInvoiceTexture} 800w`,
+              placeholder: civoInvoiceTexture,
             },
           ],
         }}

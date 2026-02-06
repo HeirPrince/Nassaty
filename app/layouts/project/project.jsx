@@ -20,6 +20,7 @@ export function ProjectHeader({
   roles,
   className,
   centered,
+  children,
 }) {
   return (
     <Section className={classes(styles.header, className)} as="section">
@@ -45,6 +46,7 @@ export function ProjectHeader({
               {linkLabel}
             </Button>
           )}
+          {children}
         </div>
         {!!roles?.length && (
           <ul className={styles.meta}>

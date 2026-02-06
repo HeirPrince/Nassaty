@@ -60,7 +60,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 href="/contact"
                 icon="send"
               >
-                Send me a message
+                Send us a message
               </Button>
             </div>
             <div className={styles.column}>

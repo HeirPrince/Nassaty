@@ -51,15 +51,21 @@ export const DisplacementSphere = props => {
   useEffect(() => {
     const { innerWidth, innerHeight } = window;
     mouse.current = new Vector2(0.8, 0.5);
+
+    // Detect device capabilities for adaptive quality
+    const isMobile = innerWidth <= media.mobile;
+    const isTablet = innerWidth <= media.tablet && innerWidth > media.mobile;
+    const pixelRatio = Math.min(window.devicePixelRatio, 2); // Cap at 2 for performance
+
     renderer.current = new WebGLRenderer({
       canvas: canvasRef.current,
-      antialias: false,
+      antialias: !isMobile, // Disable antialiasing on mobile for better performance
       alpha: true,
       powerPreference: 'high-performance',
       failIfMajorPerformanceCaveat: true,
     });
     renderer.current.setSize(innerWidth, innerHeight);
-    renderer.current.setPixelRatio(1);
+    renderer.current.setPixelRatio(pixelRatio); // Use capped pixel ratio
     renderer.current.outputColorSpace = LinearSRGBColorSpace;
 
     camera.current = new PerspectiveCamera(54, innerWidth / innerHeight, 0.1, 100);
@@ -80,7 +86,10 @@ export const DisplacementSphere = props => {
     };
 
     startTransition(() => {
-      geometry.current = new SphereGeometry(32, 128, 128);
+      // Reduced geometry complexity for better performance
+      // Mobile: 32 segments, Tablet: 48, Desktop: 64 (down from 128)
+      const segments = isMobile ? 32 : isTablet ? 48 : 64;
+      geometry.current = new SphereGeometry(32, segments, segments);
       sphere.current = new Mesh(geometry.current, material.current);
       sphere.current.position.z = 0;
       sphere.current.modifier = Math.random();

@@ -1,178 +1,146 @@
-.sidebarImages {
-  display: grid;
-  grid-template-columns: repeat(6, [col] 1fr);
-  align-items: center;
-
-  @media (--mediaTablet) {
-    padding: 0 80px;
-    margin-top: 60px;
-  }
-
-  @media (--mediaMobile) {
-    padding: 0 20px;
-    margin-top: 40px;
-  }
+.valueBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: var(--space2XL);
+    gap: var(--spaceL);
+    flex-wrap: wrap;
 }
 
-.sidebarImage {
-  width: 100%;
-  height: auto;
-  opacity: 1;
-  grid-column: col 1 / span 6;
-  grid-row: 1;
-  position: relative;
-
-  &:first-child:not(:last-child) {
-    grid-column: col 1 / span 4;
-    top: 5%;
-    opacity: 0.4;
-  }
-
-  &:last-child:not(:first-child) {
-    grid-column: col 3 / span 4;
-    top: -5%;
-  }
+.valueItem {
+    font-size: var(--fontSizeBodyM);
+    font-weight: var(--fontWeightMedium);
+    color: var(--textTitle);
+    display: flex;
+    align-items: center;
+    gap: var(--spaceS);
+    padding: var(--spaceS) var(--spaceM);
+    background: var(--surfaceLight);
+    border-radius: var(--spaceS);
+    white-space: nowrap;
 }
 
 .phoneFrame {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  background: var(--surfaceLight);
-  border-radius: 40px;
-  border: 12px solid #111;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.phoneFrame::after {
-  content: "";
-  display: block;
-  padding-bottom: 216.533%;
-  /* 9/19 aspect ratio approx */
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 40px;
+    background: #111;
+    border: 4px solid #333;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
 }
 
 .phoneContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--background);
-  display: grid;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    overflow: hidden;
+    border-radius: 36px;
 }
 
-.phoneContent img,
-.phoneContent video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.sidebarImages {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spaceM);
+}
+
+.sidebarImage {
+    width: 100%;
+    border-radius: var(--spaceS);
+    box-shadow: var(--shadowL);
 }
 
 .pricingGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  width: 100%;
-  margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spaceL);
+    width: 100%;
+    margin-top: var(--space2XL);
 
-  @media (--mediaTablet) {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+    @media (--mediaLaptop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--mediaTablet) {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .pricingCard {
-  background: var(--surface);
-  padding: 40px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.4s var(--bezierFastoutSlowin);
-  border: 1px solid color-mix(in lab, var(--text) 10%, transparent);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  position: relative;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spaceL);
+    background: var(--surfaceLight);
+    border-radius: var(--spaceM);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 
-  &:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-}
+    &[data-popular='true'] {
+        border-color: var(--accent);
+        transform: scale(1.05);
+        z-index: 1;
 
-.pricingCard[data-popular='true'] {
-  border-color: var(--accent);
-  background: color-mix(in lab, var(--accent) 5%, var(--surface));
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-  z-index: 1;
+        @media (--mediaTablet) {
+            transform: none;
+        }
+    }
 
-  @media (--mediaTablet) {
-    transform: none;
-  }
-
-  &::before {
-    content: "MOST POPULAR";
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: var(--background);
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: var(--fontWeightBold);
-    letter-spacing: 0.1em;
-  }
+    &:hover {
+        border-color: var(--accent);
+    }
 }
 
 .planName {
-  font-size: 20px;
-  font-weight: var(--fontWeightBold);
-  color: var(--accent);
-  margin-bottom: 10px;
+    font-size: var(--fontSizeHeading3);
+    font-weight: var(--fontWeightBold);
+    margin-bottom: var(--spaceS);
+    color: var(--textTitle);
 }
 
 .price {
-  font-size: 32px;
-  font-weight: var(--fontWeightBold);
-  color: var(--textTitle);
-  margin-bottom: 24px;
-}
+    font-size: var(--fontSizeHeading2);
+    font-weight: var(--fontWeightBold);
+    color: var(--textTitle);
+    margin-bottom: var(--spaceM);
 
-.price span {
-  font-size: 16px;
-  font-weight: var(--fontWeightMedium);
-  color: var(--textBody);
-  opacity: 0.6;
+    & span {
+        font-size: var(--fontSizeBodyM);
+        font-weight: var(--fontWeightRegular);
+        color: var(--textBody);
+    }
 }
 
 .featureList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spaceXL) 0;
+    flex-grow: 1;
 }
 
 .featureItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 16px;
-  color: var(--textBody);
-  line-height: 1.4;
-}
+    display: flex;
+    align-items: center;
+    gap: var(--spaceS);
+    margin-bottom: var(--spaceS);
+    color: var(--textBody);
+    font-size: var(--fontSizeBodyM);
 
-.featureItem svg {
-  flex-shrink: 0;
-  margin-top: 4px;
+    & svg {
+        color: var(--accent);
+        flex-shrink: 0;
+    }
 }
 
 .pricingButton {
-  margin-top: auto;
-  padding-top: 32px;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

@@ -1,6 +1,5 @@
 import { Icon } from '~/components/icon';
-import logoDark from '~/assets/logo_dark.svg';
-import logoLight from '~/assets/logo_light.svg';
+import { Monogram } from '~/components/monogram';
 import { useTheme } from '~/components/theme-provider';
 import { tokens } from '~/components/theme-provider/theme';
 import { Transition } from '~/components/transition';
@@ -150,12 +149,8 @@ export const Navbar = () => {
         aria-label={`${config.name}, ${config.role}`}
         onClick={handleMobileNavClick}
       >
-        <img
-          src={theme === 'dark' ? logoDark : logoLight}
+        <Monogram
           alt={config.name}
-          width="48"
-          height="48"
-          style={{ objectFit: 'contain' }}
         />
       </RouterLink>
       <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />

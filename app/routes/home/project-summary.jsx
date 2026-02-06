@@ -128,7 +128,7 @@ export function ProjectSummary({
           {description}
         </Text>
         <div className={styles.button} data-visible={visible}>
-          <Button iconHoverShift href={buttonLink} iconEnd="arrow-right">
+          <Button iconHoverShift href={buttonLink} iconEnd="arrow-right" className={styles.actionButton}>
             {buttonText}
           </Button>
         </div>

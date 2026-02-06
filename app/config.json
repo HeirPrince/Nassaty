@@ -1,12 +1,15 @@
 {
   "name": "Nassaty Technologies",
-  "role": "Software",
+  "role": "AI Agents",
   "disciplines": [
-    "Software",
-    "AI Agents",
-    "Business Automation",
-    "Web Development",
-    "Mobile Apps"
+    "Integrate.",
+    "Automate.",
+    "Scale."
+  ],
+  "descriptions": [
+    "Connect AI agents seamlessly with your existing tools and workflows.",
+    "Enable intelligent agents to handle repetitive tasks autonomously.",
+    "Expand your operations effortlessly with adaptive AI solutions."
   ],
   "url": "https://nassaty.com",
   "bluesky": "",

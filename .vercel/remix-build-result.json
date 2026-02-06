@@ -10,19 +10,16 @@
       }
     },
     "routeIdToServerBundleId": {
-      "routes/articles.modern-styling-in-react": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/projects.volkihar-knight": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.smart-sparrow": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/articles.hello-world": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/articles_._index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/portfolio-prince": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects.civix": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.slice": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/api.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/articles": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/contact": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/home": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/uses": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/$": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/home/route": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
+      "routes/$": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
     },
     "routes": {
       "root": {
@@ -30,24 +27,6 @@
         "id": "root",
         "file": "app/root.jsx",
         "config": {}
-      },
-      "routes/articles.modern-styling-in-react": {
-        "file": "app/routes/articles.modern-styling-in-react.mdx",
-        "id": "routes/articles.modern-styling-in-react",
-        "path": "modern-styling-in-react",
-        "parentId": "routes/articles",
-        "config": {
-          "runtime": "nodejs"
-        }
-      },
-      "routes/projects.volkihar-knight": {
-        "file": "app/routes/projects.volkihar-knight/route.js",
-        "id": "routes/projects.volkihar-knight",
-        "path": "projects/volkihar-knight",
-        "parentId": "root",
-        "config": {
-          "runtime": "nodejs"
-        }
       },
       "routes/projects.smart-sparrow": {
         "file": "app/routes/projects.smart-sparrow/route.js",
@@ -58,20 +37,19 @@
           "runtime": "nodejs"
         }
       },
-      "routes/articles.hello-world": {
-        "file": "app/routes/articles.hello-world.mdx",
-        "id": "routes/articles.hello-world",
-        "path": "hello-world",
-        "parentId": "routes/articles",
+      "routes/portfolio-prince": {
+        "file": "app/routes/portfolio-prince/route.jsx",
+        "id": "routes/portfolio-prince",
+        "path": "portfolio-prince",
+        "parentId": "root",
         "config": {
           "runtime": "nodejs"
         }
       },
-      "routes/articles_._index": {
-        "file": "app/routes/articles_._index/route.jsx",
-        "id": "routes/articles_._index",
-        "path": "articles",
-        "index": true,
+      "routes/projects.civix": {
+        "file": "app/routes/projects.civix/route.js",
+        "id": "routes/projects.civix",
+        "path": "projects/civix",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -95,19 +73,19 @@
           "runtime": "nodejs"
         }
       },
-      "routes/articles": {
-        "file": "app/routes/articles/route.jsx",
-        "id": "routes/articles",
-        "path": "articles",
+      "routes/contact": {
+        "file": "app/routes/contact/route.js",
+        "id": "routes/contact",
+        "path": "contact",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
         }
       },
-      "routes/contact": {
-        "file": "app/routes/contact/route.js",
-        "id": "routes/contact",
-        "path": "contact",
+      "routes/_index": {
+        "file": "app/routes/_index.js",
+        "id": "routes/_index",
+        "index": true,
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -139,23 +117,13 @@
         "config": {
           "runtime": "nodejs"
         }
-      },
-      "routes/home/route": {
-        "path": "/",
-        "index": true,
-        "id": "routes/home/route",
-        "parentId": "root",
-        "file": "app/routes/home/route.js",
-        "config": {
-          "runtime": "nodejs"
-        }
       }
     }
   },
   "remixConfig": {
-    "appDirectory": "E:\\CoD3\\Nassaty\\app",
+    "appDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\app",
     "basename": "/",
-    "buildDirectory": "E:\\CoD3\\Nassaty\\build",
+    "buildDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\build",
     "future": {
       "v3_fetcherPersist": false,
       "v3_relativeSplatPath": false,
@@ -173,35 +141,22 @@
         "id": "root",
         "file": "root.jsx"
       },
-      "routes/articles.modern-styling-in-react": {
-        "file": "routes/articles.modern-styling-in-react.mdx",
-        "id": "routes/articles.modern-styling-in-react",
-        "path": "modern-styling-in-react",
-        "parentId": "routes/articles"
-      },
-      "routes/projects.volkihar-knight": {
-        "file": "routes/projects.volkihar-knight/route.js",
-        "id": "routes/projects.volkihar-knight",
-        "path": "projects/volkihar-knight",
-        "parentId": "root"
-      },
       "routes/projects.smart-sparrow": {
         "file": "routes/projects.smart-sparrow/route.js",
         "id": "routes/projects.smart-sparrow",
         "path": "projects/smart-sparrow",
         "parentId": "root"
       },
-      "routes/articles.hello-world": {
-        "file": "routes/articles.hello-world.mdx",
-        "id": "routes/articles.hello-world",
-        "path": "hello-world",
-        "parentId": "routes/articles"
+      "routes/portfolio-prince": {
+        "file": "routes/portfolio-prince/route.jsx",
+        "id": "routes/portfolio-prince",
+        "path": "portfolio-prince",
+        "parentId": "root"
       },
-      "routes/articles_._index": {
-        "file": "routes/articles_._index/route.jsx",
-        "id": "routes/articles_._index",
-        "path": "articles",
-        "index": true,
+      "routes/projects.civix": {
+        "file": "routes/projects.civix/route.js",
+        "id": "routes/projects.civix",
+        "path": "projects/civix",
         "parentId": "root"
       },
       "routes/projects.slice": {
@@ -216,16 +171,16 @@
         "path": "api/set-theme",
         "parentId": "root"
       },
-      "routes/articles": {
-        "file": "routes/articles/route.jsx",
-        "id": "routes/articles",
-        "path": "articles",
-        "parentId": "root"
-      },
       "routes/contact": {
         "file": "routes/contact/route.js",
         "id": "routes/contact",
         "path": "contact",
+        "parentId": "root"
+      },
+      "routes/_index": {
+        "file": "routes/_index.js",
+        "id": "routes/_index",
+        "index": true,
         "parentId": "root"
       },
       "routes/home": {
@@ -245,13 +200,6 @@
         "id": "routes/$",
         "path": "*",
         "parentId": "root"
-      },
-      "routes/home/route": {
-        "path": "/",
-        "index": true,
-        "id": "routes/home/route",
-        "parentId": "root",
-        "file": "routes/home/route.js"
       }
     },
     "serverBuildFile": "index.js",

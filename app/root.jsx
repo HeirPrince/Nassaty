@@ -29,18 +29,23 @@ export const links = () => [
     href: GothamMedium,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
   {
     rel: 'preload',
     href: GothamBook,
     as: 'font',
     type: 'font/woff2',
-    crossOrigin: '',
+    crossOrigin: 'anonymous',
   },
+  // DNS prefetch for external resources
+  { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
+  { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+  // Preconnect for critical third-party origins
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossOrigin: 'anonymous' },
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'manifest', href: '/manifest.json' },
-  { rel: 'icon', href: '/favicon.ico' },
-  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'icon', href: '/favicon.png', type: 'image/png' },
   { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
   { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
@@ -106,7 +111,7 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
-        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
+        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#FFEEDB'} />
         <meta
           name="color-scheme"
           content={theme === 'light' ? 'light dark' : 'dark light'}

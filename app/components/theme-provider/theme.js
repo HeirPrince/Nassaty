@@ -113,7 +113,7 @@ const dark = {
   primary: 'oklch(84.42% 0.19 202.24)',
   accent: 'rgb(237 155 64)',
   error: 'oklch(65.91% 0.249 13.76)',
-  text: 'var(--white)',
+  text: '#FFEEDB',
   textTitle: 'var(--text)',
   textBody: 'color-mix(in lab, var(--text) 80%, transparent)',
   textLight: 'color-mix(in lab, var(--text) 60%, transparent)',
@@ -121,15 +121,15 @@ const dark = {
 };
 
 const light = {
-  background: 'oklch(96.12% 0 0)',
+  background: '#FFEEDB',
   backgroundLight: 'var(--white)',
-  primary: 'var(--black)',
+  primary: '#272727',
   accent: 'rgb(237 155 64)',
   error: 'oklch(63.17% 0.259 25.41)',
-  text: 'var(--black)',
-  textTitle: 'color-mix(in lab, var(--text) 90%, transparent)',
-  textBody: 'color-mix(in lab, var(--text) 75%, transparent)',
-  textLight: 'color-mix(in lab, var(--text) 55%, transparent)',
+  text: '#272727',
+  textTitle: 'var(--text)',
+  textBody: 'color-mix(in lab, var(--text) 80%, transparent)',
+  textLight: 'color-mix(in lab, var(--text) 60%, transparent)',
   surfaceLight: 'var(--white)',
 };
 
