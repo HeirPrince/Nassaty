@@ -204,7 +204,7 @@
 
   &::after {
     content: '';
-    background: rgb(237 155 64);
+    background: var(--accent);
     animation-duration: 1.5s;
     animation-delay: var(--delay);
     animation-fill-mode: forwards;

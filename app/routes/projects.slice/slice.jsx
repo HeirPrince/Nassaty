@@ -1,8 +1,7 @@
 import sprBackground from '~/assets/spr-background.jpg';
 import sprBackgroundLarge from '~/assets/spr-background-large.jpg';
 import sprBackgroundPlaceholder from '~/assets/spr-background-placeholder.jpg';
-import qbotHero from '~/assets/qbot-hero.png';
-import qbotInterface from '~/assets/qbot-interface.png';
+import qbotHeader from '~/assets/qbot header.jpg';
 import qbotIntegration from '~/assets/qbot-integration.png';
 import qbotChat from '~/assets/qbot_chat.svg';
 import qbotAnalytics from '~/assets/qbot-analytics.png';
@@ -119,11 +118,11 @@ export const Slice = () => {
     <Fragment>
       <ProjectContainer className={styles.slice}>
         <ProjectBackground
-          src={qbotHero}
-          srcSet={`${qbotHero} 1280w, ${qbotHero} 2560w`}
+          src={qbotHeader}
+          srcSet={`${qbotHeader} 1280w, ${qbotHeader} 2560w`}
           width={1280}
           height={800}
-          placeholder={qbotHero}
+          placeholder={qbotHeader}
           opacity={0.8}
         />
         <ProjectHeader
@@ -137,19 +136,11 @@ export const Slice = () => {
           <ProjectSectionContent>
             <div className={styles.valueBar}>
               <div className={styles.valueItem}>💬 Chat Support</div>
-              <div className={styles.valueItem}>📞 24/7 Calls</div>
               <div className={styles.valueItem}>🌍 Multiple Languages</div>
               <div className={styles.valueItem}>🤝 Human Help</div>
             </div>
 
-            <ProjectImage
-              srcSet={`${qbotInterface} 800w, ${qbotInterface} 1920w`}
-              width={800}
-              height={500}
-              placeholder={qbotInterface}
-              alt="The QBot AI chatbot interface showing a conversation."
-              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
-            />
+
           </ProjectSectionContent>
         </ProjectSection>
 
@@ -172,14 +163,7 @@ export const Slice = () => {
                   Answers customer questions instantly, available day and night to help your customers.
                 </ProjectSectionText>
               </div>
-              <div className={styles.feature}>
-                <h3 className={styles.featureTitle}>
-                  <span className={styles.featureIcon}>📞</span> 24/7 Call Support
-                </h3>
-                <ProjectSectionText>
-                  Answers calls at any time, shares basic information and reduces missed calls.
-                </ProjectSectionText>
-              </div>
+
               <div className={styles.feature}>
                 <h3 className={styles.featureTitle}>
                   <span className={styles.featureIcon}>📋</span> Menu & Services Display
