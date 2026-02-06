@@ -1,4 +1,4 @@
-export { Civix as default, meta } from './civix';
+export { Civo as default, meta } from './civo';
 import { json } from '@remix-run/node';
 import { Resend } from 'resend';
 
@@ -7,7 +7,7 @@ export async function action({ request }) {
     const formData = await request.formData();
     const email = String(formData.get('email'));
     const phone = String(formData.get('phone') || 'Not provided');
-    const project = 'CIVIX';
+    const project = 'CIVO';
 
     if (!email || !email.includes('@')) {
         return json({ error: 'Invalid email' }, { status: 400 });

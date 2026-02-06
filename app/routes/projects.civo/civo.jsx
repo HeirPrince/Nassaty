@@ -1,8 +1,8 @@
-import civixDocs from '~/assets/civix_docs.svg';
-import civixFinanceDash from '~/assets/civix_finance_dash.svg';
-import civixInvoice from '~/assets/civix_invoice.svg';
-import civixPo from '~/assets/civix_po.svg';
-import civixBg from '~/assets/civix_bg.jpg';
+import civoDocs from '~/assets/civo_docs.svg';
+import civoFinanceDash from '~/assets/civo_finance_dash.svg';
+import civoInvoice from '~/assets/civo_invoice.svg';
+import civoPo from '~/assets/civo_po.svg';
+import civoBg from '~/assets/civo_bg.jpg';
 import { Footer } from '~/components/footer';
 import { Button } from '~/components/button';
 import { Input } from '~/components/input';
@@ -24,9 +24,9 @@ import {
 import { Fragment } from 'react';
 import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
-import styles from './civix.module.css';
+import styles from './civo.module.css';
 
-const title = 'CIVIX';
+const title = 'CIVO';
 const description =
   'A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system. Reduce paperwork. Improve accuracy. Get paid faster.';
 
@@ -108,16 +108,16 @@ const DemoForm = ({ centered }) => {
   );
 };
 
-export function Civix() {
+export function Civo() {
   return (
     <Fragment>
-      <ProjectContainer className="civix">
+      <ProjectContainer className="civo">
         <ProjectBackground
-          src={civixBg}
-          srcSet={`${civixBg} 1280w, ${civixBg} 2560w`}
+          src={civoBg}
+          srcSet={`${civoBg} 1280w, ${civoBg} 2560w`}
           width={1280}
           height={800}
-          placeholder={civixBg}
+          placeholder={civoBg}
           opacity={0.5}
         />
         <ProjectHeader
@@ -144,11 +144,11 @@ export function Civix() {
               <div className={styles.valueItem}>🏗 Construction Ready</div>
             </div>
             <ProjectImage
-              srcSet={`${civixFinanceDash} 800w, ${civixFinanceDash} 1920w`}
+              srcSet={`${civoFinanceDash} 800w, ${civoFinanceDash} 1920w`}
               width={800}
               height={500}
-              placeholder={civixFinanceDash}
-              alt="Civix Finance Dashboard Interface"
+              placeholder={civoFinanceDash}
+              alt="Civo Finance Dashboard Interface"
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
             />
           </ProjectSectionContent>
@@ -158,7 +158,7 @@ export function Civix() {
             <ProjectTextRow center>
               <ProjectSectionHeading>Streamlined Operations</ProjectSectionHeading>
               <ProjectSectionText>
-                Civix transforms how construction businesses handle their daily documentation.
+                Civo transforms how construction businesses handle their daily documentation.
                 By providing a single source of truth for all financial and delivery records,
                 we ensure that every stakeholder stays informed and every project stays on track.
               </ProjectSectionText>
@@ -177,10 +177,10 @@ export function Civix() {
               </ProjectSectionText>
             </div>
             <ProjectImage
-              srcSet={`${civixPo} 800w, ${civixPo} 1600w`}
+              srcSet={`${civoPo} 800w, ${civoPo} 1600w`}
               width={800}
               height={600}
-              placeholder={civixPo}
+              placeholder={civoPo}
               alt="Purchase Order Management Interface"
               sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
             />
@@ -190,17 +190,17 @@ export function Civix() {
         <ProjectSection>
           <ProjectSectionColumns centered>
             <ProjectImage
-              srcSet={`${civixInvoice} 800w, ${civixInvoice} 1600w`}
+              srcSet={`${civoInvoice} 800w, ${civoInvoice} 1600w`}
               width={800}
               height={600}
-              placeholder={civixInvoice}
+              placeholder={civoInvoice}
               alt="Invoice Management Interface"
               sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
             />
             <div className={styles.textSection}>
               <ProjectSectionHeading>Automated Invoicing</ProjectSectionHeading>
               <ProjectSectionText>
-                Turn delivery notes into professional invoices instantly. Civix tracks
+                Turn delivery notes into professional invoices instantly. Civo tracks
                 every item delivered and received, making it simple to get paid
                 accurately and on time.
               </ProjectSectionText>
@@ -214,16 +214,16 @@ export function Civix() {
               <ProjectSectionHeading>Document Centralization</ProjectSectionHeading>
               <ProjectSectionText>
                 All your project documents in one secure place. From compliance forms to
-                site reports, Civix keeps your records organized and accessible from
+                site reports, Civo keeps your records organized and accessible from
                 anywhere, at any time.
               </ProjectSectionText>
             </ProjectTextRow>
             <ProjectImage
-              srcSet={`${civixDocs} 800w, ${civixDocs} 1920w`}
+              srcSet={`${civoDocs} 800w, ${civoDocs} 1920w`}
               width={800}
               height={500}
-              placeholder={civixDocs}
-              alt="Civix Documentation Interface"
+              placeholder={civoDocs}
+              alt="Civo Documentation Interface"
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
             />
           </ProjectSectionContent>

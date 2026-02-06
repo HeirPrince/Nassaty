@@ -5,7 +5,7 @@ import p1LightTexture from '~/assets/P1_light.svg';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
-import civixInvoiceTexture from '~/assets/civix_invoice.svg';
+import civoInvoiceTexture from '~/assets/civo_invoice.svg';
 import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
 import { useHydrated } from '~/hooks/useHydrated';
@@ -159,19 +159,19 @@ From menus and promotions to ordering and delivery tracking, everything your cus
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="CIVIX"
+        title="CIVO"
         description="A centralized platform that helps construction businesses manage proformas, purchase orders, delivery notes, and invoices — all in one secure, easy-to-use system.
 
 Reduce paperwork. Improve accuracy. Get paid faster."
         buttonText="View More"
-        buttonLink="/projects/civix"
+        buttonLink="/projects/civo"
         model={{
           type: 'image',
           alt: 'App login screen',
           textures: [
             {
-              srcSet: `${civixInvoiceTexture} 800w`,
-              placeholder: civixInvoiceTexture,
+              srcSet: `${civoInvoiceTexture} 800w`,
+              placeholder: civoInvoiceTexture,
             },
           ],
         }}

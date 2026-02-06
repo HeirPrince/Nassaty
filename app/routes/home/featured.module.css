@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at 80% 20%, color-mix(in lab, var(--accent) 5%, transparent), transparent 40%),
-              radial-gradient(circle at 20% 80%, color-mix(in lab, var(--accent) 5%, transparent), transparent 40%);
+    radial-gradient(circle at 20% 80%, color-mix(in lab, var(--accent) 5%, transparent), transparent 40%);
 
   @media (--mediaTablet) {
     height: auto;
@@ -53,9 +53,14 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity var(--durationL) var(--bezierFastoutSlowin),
-              transform var(--durationL) var(--bezierFastoutSlowin);
+    transform var(--durationL) var(--bezierFastoutSlowin);
 
   &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (--mediaTablet) {
     opacity: 1;
     transform: translateY(0);
   }
@@ -74,9 +79,14 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.1s,
-              transform var(--durationL) var(--bezierFastoutSlowin) 0.1s;
+    transform var(--durationL) var(--bezierFastoutSlowin) 0.1s;
 
   &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (--mediaTablet) {
     opacity: 1;
     transform: translateY(0);
   }
@@ -90,7 +100,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.2s,
-              transform var(--durationL) var(--bezierFastoutSlowin) 0.2s;
+    transform var(--durationL) var(--bezierFastoutSlowin) 0.2s;
   max-width: 540px;
 
   &[data-visible='true'] {
@@ -99,7 +109,9 @@
   }
 
   @media (--mediaTablet) {
-    max-self: center;
+    opacity: 1;
+    transform: translateY(0);
+    align-self: center;
   }
 }
 
@@ -107,9 +119,14 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.3s,
-              transform var(--durationL) var(--bezierFastoutSlowin) 0.3s;
+    transform var(--durationL) var(--bezierFastoutSlowin) 0.3s;
 
   &[data-visible='true'] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (--mediaTablet) {
     opacity: 1;
     transform: translateY(0);
   }
@@ -136,7 +153,7 @@
   transform: rotateY(-15deg) rotateX(10deg);
   opacity: 0;
   transition: transform 1s var(--bezierFastoutSlowin),
-              opacity 1s var(--bezierFastoutSlowin);
+    opacity 1s var(--bezierFastoutSlowin);
 
   &[data-visible='true'] {
     opacity: 1;
@@ -149,6 +166,8 @@
 
   @media (--mediaTablet) {
     transform: none;
+    opacity: 1;
+
     &[data-visible='true'] {
       transform: none;
     }
@@ -181,6 +200,10 @@
   transition: opacity 2s ease;
 
   &[data-visible='true'] {
+    opacity: 0.3;
+  }
+
+  @media (--mediaTablet) {
     opacity: 0.3;
   }
 }

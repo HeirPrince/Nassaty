@@ -15,7 +15,7 @@ export function Featured({ id, sectionRef, visible, ...rest }) {
 
   useEffect(() => {
     if (!visible) return;
-    
+
     const interval = setInterval(() => {
       setActiveImage(prev => (prev === 2 ? 0 : prev + 1));
     }, 4000);
@@ -34,7 +34,7 @@ export function Featured({ id, sectionRef, visible, ...rest }) {
       <div className={styles.content}>
         <div className={styles.details}>
           <div className={styles.badge} data-visible={visible}>
-            <span className={styles.badgeText}>New Feature</span>
+            <span className={styles.badgeText}>Featured</span>
           </div>
           <Heading level={2} as="h2" className={styles.title} data-visible={visible}>
             Turn Conversations Into Progress
