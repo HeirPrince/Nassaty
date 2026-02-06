@@ -1,9 +1,11 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
     "buildCommand": "npm run build",
     "framework": "remix",
+    "trailingSlash": false,
     "headers": [
         {
-            "source": "/build/(.*)",
+            "source": "/build/:path*",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -12,7 +14,7 @@
             ]
         },
         {
-            "source": "/(.*\\.(js|css|woff2|glb|jpg|png|webp|avif|svg))",
+            "source": "/:path*(.js|.css|.woff2|.glb|.jpg|.png|.webp|.avif|.svg)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -21,7 +23,7 @@
             ]
         },
         {
-            "source": "/(.*)",
+            "source": "/:path*",
             "headers": [
                 {
                     "key": "X-Content-Type-Options",
@@ -44,12 +46,6 @@
                     "value": "camera=(), microphone=(), geolocation=()"
                 }
             ]
-        }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/"
         }
     ]
 }
