@@ -9,7 +9,7 @@ import { Text } from '~/components/text';
 import { Transition } from '~/components/transition';
 import styles from './error.module.css';
 import { Image } from '~/components/image';
-import flatlineSkull from './error-flatline.svg?url';
+import flatlineSkull from './error-flatline.svg';
 
 export function Error({ error }) {
   const flatlined = !error.status;

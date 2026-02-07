@@ -1,6 +1,6 @@
 import { useSpring, useTransform, motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import shield from '~/assets/shield.svg?url';
+import shield from '~/assets/shield.svg';
 import { media } from '~/utils/style';
 import styles from './shield.module.css';
 

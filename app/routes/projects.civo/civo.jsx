@@ -1,7 +1,7 @@
-import civoDocs from '~/assets/civo_docs.svg?url';
-import civoFinanceDash from '~/assets/civo_finance_dash.svg?url';
-import civoInvoice from '~/assets/civo_invoice.svg?url';
-import civoPo from '~/assets/civo_po.svg?url';
+import civoDocs from '~/assets/civo_docs.svg';
+import civoFinanceDash from '~/assets/civo_finance_dash.svg';
+import civoInvoice from '~/assets/civo_invoice.svg';
+import civoPo from '~/assets/civo_po.svg';
 import civoBg from '~/assets/civo_bg.jpg';
 import { Footer } from '~/components/footer';
 import { Button } from '~/components/button';

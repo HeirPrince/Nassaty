@@ -12,10 +12,9 @@ import rehypeSlug from 'rehype-slug';
 import rehypePrism from '@mapbox/rehype-prism';
 
 export default defineConfig({
-  publicDir: 'public',
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
-    assetsInlineLimit: 4096, // Inline small assets, emit larger ones as files
+    assetsInlineLimit: 2048, // Increased from 1024 for better small asset inlining
     cssCodeSplit: true,
     rollupOptions: {
       output: {
