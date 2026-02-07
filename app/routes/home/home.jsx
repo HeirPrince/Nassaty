@@ -1,11 +1,11 @@
 import pro2ListTexture from '~/assets/pro2-list.jpeg';
 import pro2Texture from '~/assets/pro2.jpeg';
-import p1Texture from '~/assets/P1.svg';
-import p1LightTexture from '~/assets/P1_light.svg';
+import p1Texture from '~/assets/P1.svg?url';
+import p1LightTexture from '~/assets/P1_light.svg?url';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
-import civoInvoiceTexture from '~/assets/civo_invoice.svg';
+import civoInvoiceTexture from '~/assets/civo_invoice.svg?url';
 import sprTexture from '~/assets/pr1_drooms.png';
 import sprTexturePlaceholder from '~/assets/pr1_drooms-placeholder.png';
 import { useHydrated } from '~/hooks/useHydrated';

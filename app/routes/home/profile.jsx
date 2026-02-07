@@ -1,5 +1,5 @@
-import logoDark from '~/assets/logo_dark.svg';
-import logoLight from '~/assets/logo_light.svg';
+import logoDark from '~/assets/logo_dark.svg?url';
+import logoLight from '~/assets/logo_light.svg?url';
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';

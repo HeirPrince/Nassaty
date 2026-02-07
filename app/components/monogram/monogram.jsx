@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { classes } from '~/utils/style';
-import logoDark from '~/assets/logo_dark.svg';
-import logoLight from '~/assets/logo_light.svg';
+import logoDark from '~/assets/logo_dark.svg?url';
+import logoLight from '~/assets/logo_light.svg?url';
 import styles from './monogram.module.css';
 
 export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => {
