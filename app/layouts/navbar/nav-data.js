@@ -22,9 +22,9 @@ export const socialLinks = [
     icon: 'bluesky',
   },
   {
-    label: 'Figma',
-    url: `https://www.figma.com/${config.figma}`,
-    icon: 'figma',
+    label: 'TikTok',
+    url: `https://www.tiktok.com/@${config.tiktok}`,
+    icon: 'tiktok',
   },
   {
     label: 'Github',
