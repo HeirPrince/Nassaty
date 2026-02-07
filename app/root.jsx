@@ -51,48 +51,41 @@ export const links = () => [
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
 
-export const loader = async ({ request, context }) => {
+export const loader = async ({ request }) => {
   const { url } = request;
   const { pathname } = new URL(url);
-  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
-  const canonicalUrl = `${config.url}${pathnameSliced}`;
+  const canonicalUrl = `${config.url}${pathname === '/' ? '' : pathname}`;
 
-  try {
-    const { getSession, commitSession } = createCookieSessionStorage({
-      cookie: {
-        name: '__session',
-        httpOnly: true,
-        maxAge: 604_800,
-        path: '/',
-        sameSite: 'lax',
-        secrets: [process.env.SESSION_SECRET || 'fallback-secret-please-change-in-production'],
-        secure: process.env.NODE_ENV === 'production',
+  const { getSession, commitSession } = createCookieSessionStorage({
+    cookie: {
+      name: '__session',
+      httpOnly: true,
+      maxAge: 604_800,
+      path: '/',
+      sameSite: 'lax',
+      secrets: [process.env.SESSION_SECRET || 'secret'],
+      secure: process.env.NODE_ENV === 'production',
+    },
+  });
+
+  const session = await getSession(request.headers.get('Cookie'));
+  const theme = session.get('theme') || 'dark';
+
+  return json(
+    { canonicalUrl, theme },
+    {
+      headers: {
+        'Set-Cookie': await commitSession(session),
       },
-    });
-
-    const session = await getSession(request.headers.get('Cookie'));
-    const theme = session.get('theme') || 'dark';
-
-    return json(
-      { canonicalUrl, theme },
-      {
-        headers: {
-          'Set-Cookie': await commitSession(session),
-        },
-      }
-    );
-  } catch (error) {
-    // Fallback if session handling fails
-    console.error('Session error:', error);
-    return json({ canonicalUrl, theme: 'dark' });
-  }
+    }
+  );
 };
 
 export default function App() {
-  const loaderData = useLoaderData();
-  let { canonicalUrl, theme } = loaderData || { canonicalUrl: config.url, theme: 'dark' };
+  const { canonicalUrl, theme: initialTheme } = useLoaderData();
   const fetcher = useFetcher();
   const { state } = useNavigation();
+  let theme = initialTheme;
 
   if (fetcher.formData?.has('theme')) {
     theme = fetcher.formData.get('theme');
