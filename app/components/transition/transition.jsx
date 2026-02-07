@@ -67,15 +67,22 @@ const TransitionContent = ({
     setStatus('entering');
     onEnter?.();
 
-    // Force reflow
-    nodeRef.current?.offsetHeight;
+    // Use requestAnimationFrame for a smoother state transition
+    const frame = requestAnimationFrame(() => {
+      // Force reflow
+      nodeRef.current?.offsetHeight;
 
-    enterTimeout.current = setTimeout(() => {
-      setStatus('entered');
-      onEntered?.();
-    }, actualTimeout);
+      enterTimeout.current = setTimeout(() => {
+        setStatus('entered');
+        onEntered?.();
+      }, actualTimeout);
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onEnter, onEntered, timeout, status, show]);
+  }, [onEnter, onEntered, timeout, show]);
 
   useEffect(() => {
     if (isPresent && show) return;
