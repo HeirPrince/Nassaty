@@ -117,7 +117,13 @@ const PostImage = ({ src, alt, width, height, ...rest }) => {
 const Embed = ({ src }) => {
   return (
     <div className={styles.embed}>
-      <iframe src={src} loading="lazy" title="Embed" />
+      <iframe 
+        src={src} 
+        loading="lazy" 
+        title="Embed"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      />
     </div>
   );
 };

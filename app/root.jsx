@@ -46,8 +46,8 @@ export const links = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.png', type: 'image/png' },
-  { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
-  { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
+  { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '74x94' },
+  { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '74x94' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
 
