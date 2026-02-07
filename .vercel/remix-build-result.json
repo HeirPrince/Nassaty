@@ -12,9 +12,9 @@
     "routeIdToServerBundleId": {
       "routes/projects.smart-sparrow": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/portfolio-prince": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/projects.civix": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.slice": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/api.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/projects.civo": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/contact": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/home": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
@@ -46,15 +46,6 @@
           "runtime": "nodejs"
         }
       },
-      "routes/projects.civix": {
-        "file": "app/routes/projects.civix/route.js",
-        "id": "routes/projects.civix",
-        "path": "projects/civix",
-        "parentId": "root",
-        "config": {
-          "runtime": "nodejs"
-        }
-      },
       "routes/projects.slice": {
         "file": "app/routes/projects.slice/route.js",
         "id": "routes/projects.slice",
@@ -68,6 +59,15 @@
         "file": "app/routes/api.set-theme.js",
         "id": "routes/api.set-theme",
         "path": "api/set-theme",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/projects.civo": {
+        "file": "app/routes/projects.civo/route.js",
+        "id": "routes/projects.civo",
+        "path": "projects/civo",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -121,9 +121,9 @@
     }
   },
   "remixConfig": {
-    "appDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\app",
+    "appDirectory": "E:\\CoD3\\Nassaty\\app",
     "basename": "/",
-    "buildDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\build",
+    "buildDirectory": "E:\\CoD3\\Nassaty\\build",
     "future": {
       "v3_fetcherPersist": false,
       "v3_relativeSplatPath": false,
@@ -153,12 +153,6 @@
         "path": "portfolio-prince",
         "parentId": "root"
       },
-      "routes/projects.civix": {
-        "file": "routes/projects.civix/route.js",
-        "id": "routes/projects.civix",
-        "path": "projects/civix",
-        "parentId": "root"
-      },
       "routes/projects.slice": {
         "file": "routes/projects.slice/route.js",
         "id": "routes/projects.slice",
@@ -169,6 +163,12 @@
         "file": "routes/api.set-theme.js",
         "id": "routes/api.set-theme",
         "path": "api/set-theme",
+        "parentId": "root"
+      },
+      "routes/projects.civo": {
+        "file": "routes/projects.civo/route.js",
+        "id": "routes/projects.civo",
+        "path": "projects/civo",
         "parentId": "root"
       },
       "routes/contact": {

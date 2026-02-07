@@ -12,41 +12,16 @@ import rehypeSlug from 'rehype-slug';
 import rehypePrism from '@mapbox/rehype-prism';
 
 export default defineConfig({
-  assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
+  assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl', '**/*.svg'],
   build: {
-    assetsInlineLimit: 2048, // Increased from 1024 for better small asset inlining
+    assetsInlineLimit: 4096,
     cssCodeSplit: true,
     rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          // Separate vendor chunks for better caching
-          if (id.includes('node_modules')) {
-            if (id.includes('three') || id.includes('three-stdlib')) {
-              return 'three';
-            }
-            if (id.includes('framer-motion')) {
-              return 'framer-motion';
-            }
-            if (id.includes('@remix-run')) {
-              return 'remix';
-            }
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-vendor';
-            }
-            return 'vendor';
-          }
-        },
-        // Optimize chunk file names for better caching
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
-      },
       treeshake: {
         moduleSideEffects: false,
         propertyReadSideEffects: false,
       },
     },
-    // Increase chunk size warning limit for 3D assets
     chunkSizeWarningLimit: 1000,
   },
   ssr: {
