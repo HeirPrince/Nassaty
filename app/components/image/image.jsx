@@ -20,14 +20,28 @@ export const Image = ({
   ...rest
 }) => {
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   const { theme } = useTheme();
   const containerRef = useRef();
-  const src = baseSrc || srcSet.split(' ')[0];
+  const src = baseSrc || srcSet?.split(' ')[0];
   const inViewport = useInViewport(containerRef, !getIsVideo(src));
 
   const onLoad = useCallback(() => {
     setLoaded(true);
+    setError(false);
   }, []);
+
+  const onError = useCallback(() => {
+    // Retry up to 3 times with exponential backoff
+    if (retryCount < 3) {
+      setTimeout(() => {
+        setRetryCount(prev => prev + 1);
+      }, Math.pow(2, retryCount) * 1000);
+    } else {
+      setError(true);
+    }
+  }, [retryCount]);
 
   return (
     <div
@@ -36,13 +50,17 @@ export const Image = ({
       data-reveal={reveal}
       data-raised={raised}
       data-theme={theme}
+      data-error={error}
       style={cssProps({ delay: numToMs(delay) }, style)}
       ref={containerRef}
     >
       <ImageElements
         delay={delay}
         onLoad={onLoad}
+        onError={onError}
         loaded={loaded}
+        error={error}
+        retryCount={retryCount}
         inViewport={inViewport}
         reveal={reveal}
         src={src}
@@ -56,7 +74,10 @@ export const Image = ({
 
 const ImageElements = ({
   onLoad,
+  onError,
   loaded,
+  error,
+  retryCount,
   inViewport,
   srcSet,
   placeholder,
@@ -170,6 +191,7 @@ const ImageElements = ({
             data-cover={cover}
             autoPlay={!reduceMotion}
             onLoadStart={onLoad}
+            onError={onError}
             src={videoSrc}
             aria-label={alt}
             ref={videoRef}
@@ -185,10 +207,12 @@ const ImageElements = ({
       )}
       {!isVideo && (
         <img
+          key={`image-${retryCount}`}
           className={styles.element}
           data-loaded={loaded}
           data-cover={cover}
           onLoad={onLoad}
+          onError={onError}
           decoding="async"
           loading={inViewport ? 'eager' : 'lazy'}
           fetchpriority={inViewport ? 'high' : 'low'}

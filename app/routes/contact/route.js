@@ -11,8 +11,9 @@ export async function action({ context, request }) {
 
     const formData = await request.formData();
     const isBot = String(formData.get('name'));
+    const firstName = String(formData.get('firstName'));
+    const lastName = String(formData.get('lastName'));
     const email = String(formData.get('email'));
-    const phone = String(formData.get('phone') || 'Not provided');
     const message = String(formData.get('message'));
     const errors = {};
 
@@ -22,6 +23,14 @@ export async function action({ context, request }) {
     // Handle input validation on the server
     if (!email || !EMAIL_PATTERN.test(email)) {
         errors.email = 'Please enter a valid email address.';
+    }
+
+    if (!firstName) {
+        errors.firstName = 'Please enter your first name.';
+    }
+
+    if (!lastName) {
+        errors.lastName = 'Please enter your last name.';
     }
 
     if (!message) {
@@ -56,9 +65,9 @@ export async function action({ context, request }) {
         await resend.emails.send({
             from: `Portfolio <${process.env.FROM_EMAIL}>`,
             to: ['nassaty@gmail.com'],
-            subject: `Portfolio message from ${email}`,
+            subject: `Portfolio message from ${firstName} ${lastName}`,
             reply_to: email,
-            text: `From: ${email}\nPhone: ${phone}\n\n${message}`,
+            text: `From: ${firstName} ${lastName} (${email})\n\n${message}`,
         });
     } catch (error) {
         console.error('Failed to send email:', error);

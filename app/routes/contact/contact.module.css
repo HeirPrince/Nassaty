@@ -1,204 +1,196 @@
 .contact {
   --formHeight: 530px;
-
-  display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: 100%;
-  justify-items: center;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  @media (--mediaMobile) {
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--maxWidthL);
+  gap: var(--space4XL);
+  padding: var(--space2XL) var(--spaceL);
+  margin-top: var(--space2XL);
+
+  @media (--mediaTablet) {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space2XL);
+  }
+}
+
+.details {
+  flex: 1;
+  max-width: 500px;
+  padding-top: var(--space3XL);
+
+  @media (--mediaTablet) {
+    max-width: 100%;
+    padding-right: 0;
     padding-top: 0;
   }
 }
 
+.title {
+  margin-bottom: var(--spaceL);
+  color: var(--colorTextTitle);
+  line-height: var(--lineHeightTitle);
+}
+
+.description {
+  margin-bottom: var(--space4XL);
+  color: var(--colorTextBody);
+}
+
+.contactGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3XL);
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceS);
+}
+
+.contactIcon {
+  color: var(--colorAccent);
+  width: 24px;
+  height: 24px;
+  margin-bottom: var(--spaceS);
+}
+
+.contactTitle {
+  margin-bottom: var(--spaceXS);
+  font-weight: var(--fontWeightBold);
+  color: var(--colorTextTitle);
+}
+
+.contactText {
+  color: var(--colorTextBody);
+}
+
+.contactLink {
+  color: var(--colorTextBody);
+  text-decoration: none;
+  font-weight: var(--fontWeightMedium);
+  transition: color var(--durationM) ease;
+
+  &:hover {
+    color: var(--colorAccent);
+  }
+}
+
 .form {
-  grid-area: 1 / 1;
-  max-width: var(--maxWidthS);
+  flex: 1;
+  background: var(--colorBackgroundLight);
+  padding: var(--space3XL);
+  border-radius: var(--spaceL);
   width: 100%;
-  padding: var(--space2XL) 0;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceXL);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+
+  @media (--mediaTablet) {
+    max-width: 100%;
+  }
 
   @media (--mediaMobile) {
-    padding: var(--space5XL) 0 var(--space2XL);
-    align-self: flex-start;
+    padding: var(--spaceXL);
   }
 }
 
-.title {
-  margin-bottom: var(--space2XL);
-  transition-property: opacity;
-  transition-timing-function: var(--bezierFastoutSlowin);
-  transition-duration: var(--durationM);
-  transition-delay: var(--delay);
-  opacity: 0;
+.formTitle {
+  margin-bottom: var(--spaceL);
+}
 
-  @media (--mediaUseMotion) {
-    transition-property: transform, opacity;
-    transform: translate3d(0, var(--space5XL), 0);
-  }
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceXL);
+  width: 100%;
 
-  &[data-status='entering'],
-  &[data-status='entered'] {
-    transform: none;
-    opacity: 1;
-  }
-
-  &[data-status='exiting'] {
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
+  @media (--mediaTablet) {
+    flex-direction: row;
   }
 }
 
-.divider {
-  margin-bottom: var(--space3XL);
-  transition-property: opacity;
-  transition-timing-function: var(--bezierFastoutSlowin);
-  transition-duration: var(--durationM);
-  transition-delay: var(--delay);
-  opacity: 0;
-
-  @media (--mediaUseMotion) {
-    transition-property: transform, opacity;
-    transform: translate3d(0, var(--space5XL), 0);
-  }
-
-  &[data-status='entering'],
-  &[data-status='entered'] {
-    transform: none;
-    opacity: 1;
-  }
-
-  &[data-hidden='true'] {
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, var(--space5XL), 0);
-    }
-  }
-
-  &[data-status='exiting'] {
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
-  }
+.row .input {
+  width: 100%;
+  flex: 1;
 }
 
 .input {
-  transition-property: opacity;
-  transition-timing-function: var(--bezierFastoutSlowin);
-  transition-duration: var(--durationM);
-  transition-delay: var(--delay);
-  opacity: 0;
-
-  @media (--mediaUseMotion) {
-    transition-property: transform, opacity;
-    transform: translate3d(0, var(--space3XL), 0);
-  }
-
-  +& {
-    margin-top: var(--spaceXL);
-  }
-
-  &[data-status='entering'],
-  &[data-status='entered'] {
-    transform: none;
-    opacity: 1;
-  }
-
-  &[data-hidden='true'] {
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, var(--space3XL), 0);
-      transform: none;
-    }
-  }
-
-  &[data-status='exiting'] {
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
-  }
+  /* Ensure inputs take full width of their container */
+  width: 100%;
 }
 
 .botkiller {
   display: none;
 }
 
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceM);
+  margin-top: var(--spaceS);
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--colorAccent);
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  color: var(--colorTextBody);
+  cursor: pointer;
+}
+
 .button {
-  --buttonLoaderDelay: var(--durationL);
+  margin-top: var(--spaceM);
+  width: 100%;
+}
 
-  margin-top: calc(var(--spaceXL) * 2);
-  transition-delay: var(--delay);
-  transition-duration: var(--durationM);
-  opacity: 0;
-  justify-self: flex-start;
+.formError {
+  color: var(--error);
+  overflow: hidden;
+  height: var(--height);
 
-  &[data-status='exiting'],
-  &[data-status='exited'] {
-    transition-property: opacity;
+  @media (--mediaUseMotion) {
+    transition-property: height;
+    transition-duration: var(--durationM);
     transition-timing-function: var(--bezierFastoutSlowin);
-
-    @media (--mediaUseMotion) {
-      transition-property: transform, opacity;
-      transform: translate3d(0, var(--space3XL), 0);
-    }
   }
+}
 
-  &[data-status='entered'] {
-    transition-delay: 0ms;
-    transition-duration: var(--durationM);
-  }
+.formErrorContent {
+  padding-top: var(--spaceXL);
+}
 
-  &[data-sending='true'] {
-    & svg {
-      transition: transform var(--bezierFastoutSlowin) var(--durationXL),
-        opacity var(--durationS) ease var(--durationS);
-      transform: translate3d(var(--space5XL), 0, 0);
-      opacity: 0;
+.formErrorMessage {
+  display: flex;
+  padding: var(--spaceM);
+  line-height: 24px;
+  background-color: color-mix(in lab, var(--error) 10%, transparent);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  border-radius: var(--spaceXS);
+}
 
-      @media (--mediaReduceMotion) {
-        transition-property: opacity;
-        transform: none;
-      }
-    }
-  }
-
-  &[data-status='entering'],
-  &[data-status='entered'] {
-    opacity: 1;
-  }
-
-  &[data-status='entering']:not(:hover),
-  &[data-status='entering']:hover {
-    transform: none;
-  }
-
-  &[data-status='exiting'] {
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    opacity: 0;
-
-    @media (--mediaUseMotion) {
-      transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    }
-  }
+.formErrorIcon {
+  flex: 0 0 auto;
+  margin-right: var(--spaceS);
 }
 
 .complete {
@@ -276,39 +268,7 @@
   }
 }
 
-.formError {
-  color: var(--error);
-  overflow: hidden;
-  height: var(--height);
-
-  @media (--mediaUseMotion) {
-    transition-property: height;
-    transition-duration: var(--durationM);
-    transition-timing-function: var(--bezierFastoutSlowin);
-  }
-}
-
-.formErrorContent {
-  padding-top: var(--spaceXL);
-}
-
-.formErrorMessage {
-  display: flex;
-  padding: var(--spaceM);
-  line-height: 24px;
-  background-color: color-mix(in lab, var(--error) 10%, transparent);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
-}
-
-.formErrorIcon {
-  flex: 0 0 auto;
-  margin-right: var(--spaceS);
-}
-
 .footer {
-  opacity: 0;
-
-  &:global {
-    animation: fade-in var(--durationL) ease var(--durationXL) forwards;
-  }
+  margin-top: auto;
+  width: 100%;
 }

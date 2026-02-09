@@ -1,6 +1,5 @@
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
-import { Divider } from '~/components/divider';
 import { Footer } from '~/components/footer';
 import { Heading } from '~/components/heading';
 import { Icon } from '~/components/icon';
@@ -34,6 +33,8 @@ const MAX_MESSAGE_LENGTH = 4096;
 export const Contact = () => {
   const errorRef = useRef();
   const email = useFormInput('');
+  const firstName = useFormInput('');
+  const lastName = useFormInput('');
   const message = useFormInput('');
   const initDelay = tokens.base.durationXS;
   const actionData = useActionData();
@@ -44,105 +45,179 @@ export const Contact = () => {
     <Section className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }) => (
-          <Form
-            unstable_viewTransition
-            className={styles.form}
-            method="post"
-            ref={nodeRef}
-          >
-            <Heading
-              className={styles.title}
-              data-status={status}
-              level={3}
-              as="h1"
-              style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
+          <div className={styles.contentContainer} ref={nodeRef}>
+            <div className={styles.details}>
+              <Heading
+                className={styles.title}
+                data-status={status}
+                level={2}
+                as="h1"
+                style={getDelay(tokens.base.durationXS, initDelay, 0.3)}
+              >
+                <DecoderText text="Contact us" start={status !== 'exited'} delay={0} />
+              </Heading>
+              <Text
+                className={styles.description}
+                data-status={status}
+                style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
+              >
+                We’d love to hear from you. Please fill out this form, and we’ll reply soon.
+              </Text>
+              <div className={styles.contactGrid}>
+                <div className={styles.contactItem}>
+                  <Icon className={styles.contactIcon} icon="mail" />
+                  <Heading level={4} as="h3" className={styles.contactTitle}>Email</Heading>
+                  <Text className={styles.contactText}>
+                    Contact us by email, and we will respond shortly.
+                  </Text>
+                  <a className={styles.contactLink} href="mailto:hey@uiblox.com">hey@uiblox.com</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <Icon className={styles.contactIcon} icon="phone" />
+                  <Heading level={4} as="h3" className={styles.contactTitle}>Phone</Heading>
+                  <Text className={styles.contactText}>
+                    Call us on weekdays from 9 AM to 5 PM.
+                  </Text>
+                  <a className={styles.contactLink} href="tel:+1222333444">+1 (222) 333 444</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <Icon className={styles.contactIcon} icon="smartphone" />
+                  <Heading level={4} as="h3" className={styles.contactTitle}>Mobile</Heading>
+                  <Text className={styles.contactText}>
+                    Call us on weekdays from 9 AM to 5 PM.
+                  </Text>
+                  <a className={styles.contactLink} href="tel:+1222333444">+1 (222) 333 444</a>
+                </div>
+                <div className={styles.contactItem}>
+                  <Icon className={styles.contactIcon} icon="location" />
+                  <Heading level={4} as="h3" className={styles.contactTitle}>Office</Heading>
+                  <Text className={styles.contactText}>
+                    Visit us at our headquarters.
+                  </Text>
+                  <Text className={styles.contactText}>
+                    87266 Green Station, Exeless, Oregon
+                    <br />
+                    26759, Canada
+                  </Text>
+                </div>
+              </div>
+            </div>
+            <Form
+              unstable_viewTransition
+              className={styles.form}
+              method="post"
             >
-              <DecoderText text="Reach us" start={status !== 'exited'} delay={0} />
-            </Heading>
-            <Divider
-              className={styles.divider}
-              data-status={status}
-              style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
-            />
-            {/* Hidden honeypot field to identify bots */}
-            <Input
-              className={styles.botkiller}
-              label="Name"
-              name="name"
-              maxLength={MAX_EMAIL_LENGTH}
-            />
-            <Input
-              required
-              className={styles.input}
-              data-status={status}
-              style={getDelay(tokens.base.durationXS, initDelay)}
-              autoComplete="email"
-              label="Your email"
-              type="email"
-              name="email"
-              maxLength={MAX_EMAIL_LENGTH}
-              {...email}
-            />
-            <Input
-              className={styles.input}
-              data-status={status}
-              style={getDelay(tokens.base.durationXS, initDelay)}
-              autoComplete="tel"
-              label="Phone number"
-              type="tel"
-              name="phone"
-              maxLength={20}
-            />
-            <Input
-              required
-              multiline
-              className={styles.input}
-              data-status={status}
-              style={getDelay(tokens.base.durationS, initDelay)}
-              autoComplete="off"
-              label="Message"
-              name="message"
-              maxLength={MAX_MESSAGE_LENGTH}
-              {...message}
-            />
-            <Transition
-              unmount
-              in={!sending && actionData?.errors}
-              timeout={msToNum(tokens.base.durationM)}
-            >
-              {({ status: errorStatus, nodeRef }) => (
-                <div
-                  className={styles.formError}
-                  ref={nodeRef}
-                  data-status={errorStatus}
-                  style={cssProps({
-                    height: errorStatus ? errorRef.current?.offsetHeight : 0,
-                  })}
-                >
-                  <div className={styles.formErrorContent} ref={errorRef}>
-                    <div className={styles.formErrorMessage}>
-                      <Icon className={styles.formErrorIcon} icon="error" />
-                      {actionData?.errors?.email}
-                      {actionData?.errors?.message}
+              <Heading
+                className={styles.formTitle}
+                level={3}
+                as="h2"
+              >
+                Write us a message
+              </Heading>
+
+              {/* Hidden honeypot field to identify bots */}
+              <Input
+                className={styles.botkiller}
+                label="Name"
+                name="name"
+                maxLength={MAX_EMAIL_LENGTH}
+              />
+              <div className={styles.row}>
+                <Input
+                  required
+                  className={styles.input}
+                  data-status={status}
+                  style={getDelay(tokens.base.durationXS, initDelay)}
+                  autoComplete="given-name"
+                  label="First name"
+                  type="text"
+                  name="firstName"
+                  maxLength={MAX_EMAIL_LENGTH}
+                  {...firstName}
+                />
+                <Input
+                  required
+                  className={styles.input}
+                  data-status={status}
+                  style={getDelay(tokens.base.durationXS, initDelay)}
+                  autoComplete="family-name"
+                  label="Last name"
+                  type="text"
+                  name="lastName"
+                  maxLength={MAX_EMAIL_LENGTH}
+                  {...lastName}
+                />
+              </div>
+              <Input
+                required
+                className={styles.input}
+                data-status={status}
+                style={getDelay(tokens.base.durationXS, initDelay)}
+                autoComplete="email"
+                label="Email"
+                type="email"
+                name="email"
+                maxLength={MAX_EMAIL_LENGTH}
+                {...email}
+              />
+              <Input
+                required
+                multiline
+                className={styles.input}
+                data-status={status}
+                style={getDelay(tokens.base.durationS, initDelay)}
+                autoComplete="off"
+                label="Message"
+                name="message"
+                maxLength={MAX_MESSAGE_LENGTH}
+                {...message}
+              />
+              <div className={styles.checkboxContainer}>
+                <input type="checkbox" id="privacy-policy" required className={styles.checkbox} />
+                <label htmlFor="privacy-policy" className={styles.checkboxLabel}>I agree the Privacy Policy</label>
+              </div>
+              <Transition
+                unmount
+                in={!sending && actionData?.errors}
+                timeout={msToNum(tokens.base.durationM)}
+              >
+                {({ status: errorStatus, nodeRef }) => (
+                  <div
+                    className={styles.formError}
+                    ref={nodeRef}
+                    data-status={errorStatus}
+                    style={cssProps({
+                      height: errorStatus ? errorRef.current?.offsetHeight : 0,
+                    })}
+                  >
+                    <div className={styles.formErrorContent} ref={errorRef}>
+                      <div className={styles.formErrorMessage}>
+                        <Icon className={styles.formErrorIcon} icon="error" />
+                        {actionData?.errors?.firstName}
+                        {actionData?.errors?.lastName}
+                        {actionData?.errors?.email}
+                        {actionData?.errors?.message}
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </Transition>
-            <Button
-              className={styles.button}
-              data-status={status}
-              data-sending={sending}
-              style={getDelay(tokens.base.durationM, initDelay)}
-              disabled={sending}
-              loading={sending}
-              loadingText="Sending..."
-              icon="send"
-              type="submit"
-            >
-              Send message
-            </Button>
-          </Form>
+                )}
+              </Transition>
+              <Button
+                className={styles.button}
+                data-status={status}
+                data-sending={sending}
+                style={getDelay(tokens.base.durationM, initDelay)}
+                disabled={sending}
+                loading={sending}
+                loadingText="Sending..."
+                type="submit"
+                icon="send"
+                secondary
+              >
+                Send
+              </Button>
+            </Form>
+          </div>
         )}
       </Transition>
       <Transition unmount in={actionData?.success}>
