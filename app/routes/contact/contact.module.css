@@ -29,69 +29,144 @@
 .details {
   flex: 1;
   max-width: 500px;
-  padding-top: var(--space3XL);
 
   @media (--mediaTablet) {
     max-width: 100%;
     padding-right: 0;
-    padding-top: 0;
   }
 }
 
 .title {
+  margin-top: 0;
   margin-bottom: var(--spaceL);
-  color: var(--colorTextTitle);
+  color: var(--textTitle);
   line-height: var(--lineHeightTitle);
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--space2XL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .description {
   margin-bottom: var(--space4XL);
-  color: var(--colorTextBody);
+  color: var(--textBody);
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--space2XL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .contactGrid {
   display: flex;
   flex-direction: column;
   gap: var(--space3XL);
+  margin-top: var(--space3XL);
 }
 
 .contactItem {
   display: flex;
-  flex-direction: column;
-  gap: var(--spaceS);
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spaceL);
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--space2XL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .contactIcon {
-  color: var(--colorAccent);
+  color: var(--accent);
   width: 24px;
   height: 24px;
-  margin-bottom: var(--spaceS);
+  flex: 0 0 auto;
+  margin-top: calc(var(--spaceXS) / 2);
+  /* Fine-tune to align with text center/top */
+}
+
+.contactItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceS);
+  flex: 1;
 }
 
 .contactTitle {
-  margin-bottom: var(--spaceXS);
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: var(--fontWeightBold);
-  color: var(--colorTextTitle);
+  color: var(--textTitle);
 }
 
 .contactText {
-  color: var(--colorTextBody);
+  color: var(--textBody);
 }
 
 .contactLink {
-  color: var(--colorTextBody);
+  color: var(--textBody);
   text-decoration: none;
   font-weight: var(--fontWeightMedium);
   transition: color var(--durationM) ease;
 
   &:hover {
-    color: var(--colorAccent);
+    color: var(--accent);
   }
+}
+
+.contactLinkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceS);
+}
+
+.contactLinkGroupItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spaceS);
+}
+
+.whatsAppIcon {
+  width: 20px;
+  height: 20px;
+  color: #25d366;
+  /* WhatsApp Green */
 }
 
 .form {
   flex: 1;
-  background: var(--colorBackgroundLight);
+  background: var(--backgroundLight);
   padding: var(--space3XL);
   border-radius: var(--spaceL);
   width: 100%;
@@ -111,7 +186,23 @@
 }
 
 .formTitle {
+  margin-top: 0;
   margin-bottom: var(--spaceL);
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--space2XL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .row {
@@ -133,6 +224,21 @@
 .input {
   /* Ensure inputs take full width of their container */
   width: 100%;
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .botkiller {
@@ -144,23 +250,53 @@
   align-items: center;
   gap: var(--spaceM);
   margin-top: var(--spaceS);
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .checkbox {
   width: 20px;
   height: 20px;
-  accent-color: var(--colorAccent);
+  accent-color: var(--accent);
   cursor: pointer;
 }
 
 .checkboxLabel {
-  color: var(--colorTextBody);
+  color: var(--textBody);
   cursor: pointer;
 }
 
 .button {
   margin-top: var(--spaceM);
   width: 100%;
+  transition-property: transform, opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationM);
+  transition-delay: var(--delay);
+
+  &[data-status='exited'] {
+    opacity: 0;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-status='entering'],
+  &[data-status='entered'] {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .formError {
@@ -271,4 +407,9 @@
 .footer {
   margin-top: auto;
   width: 100%;
+  opacity: 0;
+
+  &:global {
+    animation: fade-in var(--durationL) ease var(--durationXL) forwards;
+  }
 }

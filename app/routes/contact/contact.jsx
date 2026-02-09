@@ -45,7 +45,7 @@ export const Contact = () => {
     <Section className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }) => (
-          <div className={styles.contentContainer} ref={nodeRef}>
+          <div className={styles.contentContainer} ref={nodeRef} data-status={status}>
             <div className={styles.details}>
               <Heading
                 className={styles.title}
@@ -64,41 +64,42 @@ export const Contact = () => {
                 We’d love to hear from you. Please fill out this form, and we’ll reply soon.
               </Text>
               <div className={styles.contactGrid}>
-                <div className={styles.contactItem}>
+                <div
+                  className={styles.contactItem}
+                  data-status={status}
+                  style={getDelay(tokens.base.durationXS, initDelay, 0.5)}
+                >
                   <Icon className={styles.contactIcon} icon="mail" />
-                  <Heading level={4} as="h3" className={styles.contactTitle}>Email</Heading>
-                  <Text className={styles.contactText}>
-                    Contact us by email, and we will respond shortly.
-                  </Text>
-                  <a className={styles.contactLink} href="mailto:hey@uiblox.com">hey@uiblox.com</a>
+                  <div className={styles.contactItemContent}>
+                    <Heading level={4} as="h3" className={styles.contactTitle}>Email</Heading>
+                    <Text className={styles.contactText}>
+                      Contact us by email, and we will respond shortly.
+                    </Text>
+                    <a className={styles.contactLink} href="mailto:nassaty@gmail.com">nassaty@gmail.com</a>
+                  </div>
                 </div>
-                <div className={styles.contactItem}>
+                <div
+                  className={styles.contactItem}
+                  data-status={status}
+                  style={getDelay(tokens.base.durationXS, initDelay, 0.6)}
+                >
                   <Icon className={styles.contactIcon} icon="phone" />
-                  <Heading level={4} as="h3" className={styles.contactTitle}>Phone</Heading>
-                  <Text className={styles.contactText}>
-                    Call us on weekdays from 9 AM to 5 PM.
-                  </Text>
-                  <a className={styles.contactLink} href="tel:+1222333444">+1 (222) 333 444</a>
-                </div>
-                <div className={styles.contactItem}>
-                  <Icon className={styles.contactIcon} icon="smartphone" />
-                  <Heading level={4} as="h3" className={styles.contactTitle}>Mobile</Heading>
-                  <Text className={styles.contactText}>
-                    Call us on weekdays from 9 AM to 5 PM.
-                  </Text>
-                  <a className={styles.contactLink} href="tel:+1222333444">+1 (222) 333 444</a>
-                </div>
-                <div className={styles.contactItem}>
-                  <Icon className={styles.contactIcon} icon="location" />
-                  <Heading level={4} as="h3" className={styles.contactTitle}>Office</Heading>
-                  <Text className={styles.contactText}>
-                    Visit us at our headquarters.
-                  </Text>
-                  <Text className={styles.contactText}>
-                    87266 Green Station, Exeless, Oregon
-                    <br />
-                    26759, Canada
-                  </Text>
+                  <div className={styles.contactItemContent}>
+                    <Heading level={4} as="h3" className={styles.contactTitle}>Phone & WhatsApp</Heading>
+                    <Text className={styles.contactText}>
+                      24/7 😊 💻
+                    </Text>
+                    <div className={styles.contactLinkGroup}>
+                      <div className={styles.contactLinkGroupItem}>
+                        <Icon className={styles.whatsAppIcon} icon="whatsapp" />
+                        <a className={styles.contactLink} href="tel:+250790135718">+250 790 135 718</a>
+                      </div>
+                      <div className={styles.contactLinkGroupItem}>
+                        <Icon className={styles.whatsAppIcon} icon="whatsapp" />
+                        <a className={styles.contactLink} href="tel:+250782085695">+250 782 085 695</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -109,8 +110,10 @@ export const Contact = () => {
             >
               <Heading
                 className={styles.formTitle}
+                data-status={status}
                 level={3}
                 as="h2"
+                style={getDelay(tokens.base.durationXS, initDelay, 0.45)}
               >
                 Write us a message
               </Heading>
@@ -172,7 +175,11 @@ export const Contact = () => {
                 maxLength={MAX_MESSAGE_LENGTH}
                 {...message}
               />
-              <div className={styles.checkboxContainer}>
+              <div
+                className={styles.checkboxContainer}
+                data-status={status}
+                style={getDelay(tokens.base.durationS, initDelay, 0.4)}
+              >
                 <input type="checkbox" id="privacy-policy" required className={styles.checkbox} />
                 <label htmlFor="privacy-policy" className={styles.checkboxLabel}>I agree the Privacy Policy</label>
               </div>

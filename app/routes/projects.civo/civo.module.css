@@ -84,6 +84,7 @@
     font-size: var(--fontSizeBodyS);
   }
 }
+
 .valueBar {
   display: flex;
   justify-content: center;
@@ -105,5 +106,5 @@
   gap: var(--spaceS);
   font-size: var(--fontSizeBodyM);
   font-weight: var(--fontWeightMedium);
-  color: var(--colorTextBody);
+  color: var(--textBody);
 }

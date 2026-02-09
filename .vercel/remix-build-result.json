@@ -121,9 +121,9 @@
     }
   },
   "remixConfig": {
-    "appDirectory": "E:\\CoD3\\Nassaty\\app",
+    "appDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\app",
     "basename": "/",
-    "buildDirectory": "E:\\CoD3\\Nassaty\\build",
+    "buildDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\build",
     "future": {
       "v3_fetcherPersist": false,
       "v3_relativeSplatPath": false,
