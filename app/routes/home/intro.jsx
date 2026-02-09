@@ -62,14 +62,14 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
       {...rest}
     >
       <Transition in key={theme} timeout={3000}>
-        {({ visible, status }) => (
+        {({ visible, status, nodeRef }) => (
           <>
             {isHydrated && (
               <Suspense>
                 <Dots />
               </Suspense>
             )}
-            <header className={styles.text}>
+            <header className={styles.text} ref={nodeRef}>
               <h1 className={styles.name} data-visible={visible} id={titleId}>
                 <DecoderText text={config.name} delay={500} />
               </h1>

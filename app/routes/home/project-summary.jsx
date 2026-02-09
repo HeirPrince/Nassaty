@@ -280,8 +280,8 @@ export function ProjectSummary({
     >
       <div className={styles.content}>
         <Transition in={sectionVisible || focused}>
-          {({ visible }) => (
-            <>
+          {({ visible, nodeRef }) => (
+            <div className={styles.transitionWrapper} ref={nodeRef}>
               {!alternate && !isMobile && (
                 <>
                   {renderDetails(visible)}
@@ -294,7 +294,7 @@ export function ProjectSummary({
                   {renderDetails(visible)}
                 </>
               )}
-            </>
+            </div>
           )}
         </Transition>
       </div>

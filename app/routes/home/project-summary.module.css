@@ -63,6 +63,10 @@
   }
 }
 
+.transitionWrapper {
+  display: contents;
+}
+
 .details {
   z-index: var(--zIndex1);
   position: relative;

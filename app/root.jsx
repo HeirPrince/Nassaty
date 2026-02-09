@@ -46,16 +46,15 @@ export const links = () => [
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'manifest', href: '/manifest.json' },
   { rel: 'icon', href: '/favicon.png', type: 'image/png' },
-  { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
-  { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
+  { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '74x94' },
+  { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '74x94' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
 
-export const loader = async ({ request, context }) => {
+export const loader = async ({ request }) => {
   const { url } = request;
   const { pathname } = new URL(url);
-  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
-  const canonicalUrl = `${config.url}${pathnameSliced}`;
+  const canonicalUrl = `${config.url}${pathname === '/' ? '' : pathname}`;
 
   const { getSession, commitSession } = createCookieSessionStorage({
     cookie: {
@@ -64,8 +63,8 @@ export const loader = async ({ request, context }) => {
       maxAge: 604_800,
       path: '/',
       sameSite: 'lax',
-      secrets: [process.env.SESSION_SECRET || ' '],
-      secure: true,
+      secrets: [process.env.SESSION_SECRET || 'secret'],
+      secure: process.env.NODE_ENV === 'production',
     },
   });
 
@@ -83,9 +82,10 @@ export const loader = async ({ request, context }) => {
 };
 
 export default function App() {
-  let { canonicalUrl, theme } = useLoaderData();
+  const { canonicalUrl, theme: initialTheme } = useLoaderData();
   const fetcher = useFetcher();
   const { state } = useNavigation();
+  let theme = initialTheme;
 
   if (fetcher.formData?.has('theme')) {
     theme = fetcher.formData.get('theme');

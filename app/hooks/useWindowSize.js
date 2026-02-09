@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// Default dimensions for SSR
-const defaultDimensions = { width: 1280, height: 800 };
+// Use undefined for SSR to prevent hydration mismatches
+const defaultDimensions = typeof window !== 'undefined' 
+  ? { width: window.innerWidth, height: window.innerHeight }
+  : { width: 1280, height: 800 };
 
 export function useWindowSize() {
   const dimensions = useRef({ w: 1280, h: 800 });
