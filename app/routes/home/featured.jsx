@@ -73,6 +73,11 @@ export function Featured({ id, sectionRef, visible, ...rest }) {
             />
           </div>
         </div>
+        <div className={styles.mobileActions} data-visible={visible}>
+          <Button iconHoverShift href="/note_app/aether-notes.apk" download="AetherNotes.apk" iconEnd="download">
+            Download App
+          </Button>
+        </div>
       </div>
     </Section>
   );

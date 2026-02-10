@@ -2,13 +2,14 @@ import { Button } from '~/components/button';
 import { Icon } from '~/components/icon';
 import styles from './nav-toggle.module.css';
 
-export const NavToggle = ({ menuOpen, ...rest }) => {
+export const NavToggle = ({ menuOpen, isScrollingDown, ...rest }) => {
   return (
     <Button
       iconOnly
       className={styles.toggle}
       aria-label="Menu"
       aria-expanded={menuOpen}
+      data-scrolling-down={isScrollingDown}
       {...rest}
     >
       <div className={styles.inner}>

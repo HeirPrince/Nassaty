@@ -17,10 +17,12 @@ export const Navbar = () => {
   const [current, setCurrent] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [target, setTarget] = useState();
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
   const { theme } = useTheme();
   const location = useLocation();
   const windowSize = useWindowSize();
   const headerRef = useRef();
+  const lastScrollY = useRef(0);
   const isMobile = windowSize.width <= media.mobile || windowSize.height <= 696;
   const scrollToHash = useScrollToHash();
 
@@ -28,6 +30,38 @@ export const Navbar = () => {
     // Prevent ssr mismatch by storing this in state
     setCurrent(`${location.pathname}${location.hash}`);
   }, [location]);
+
+  // Handle scroll direction for mobile/tablet
+  useEffect(() => {
+    if (!isMobile || menuOpen) {
+      return;
+    }
+
+    lastScrollY.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
+      // Scrolling down: Hide if scrolled down > 15px and not at top
+      if (delta > 15 && currentScrollY > 50) {
+        setIsScrollingDown(true);
+      }
+      // Scrolling up: Show if scrolled up > 5px
+      else if (delta < -5) {
+        setIsScrollingDown(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMobile, menuOpen]);
+
 
   // Handle smooth scroll nav items
   useEffect(() => {
@@ -140,7 +174,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className={styles.navbar} ref={headerRef}>
+    <header className={styles.navbar} ref={headerRef} data-scrolling-down={isScrollingDown}>
       <RouterLink
         prefetch="intent"
         to={location.pathname === '/' ? '/#intro' : '/'}
@@ -153,7 +187,7 @@ export const Navbar = () => {
           alt={config.name}
         />
       </RouterLink>
-      <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
+      <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} isScrollingDown={isScrollingDown} />
       <nav className={styles.nav}>
         <div className={styles.navList}>
           {navLinks.map(({ label, pathname }) => (

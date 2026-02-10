@@ -9,8 +9,18 @@
     z-index: var(--zIndex4);
     display: none;
 
-    @media (--mediaMobile), (--mediaMobileLS) {
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
       display: flex;
+      transition: transform var(--durationM) var(--bezierFastoutSlowin), opacity var(--durationM) var(--bezierFastoutSlowin);
+    }
+
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
+      &[data-scrolling-down='true'] {
+        opacity: 0;
+        transform: translateY(-150%);
+      }
     }
   }
 

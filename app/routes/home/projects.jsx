@@ -91,7 +91,7 @@ export function Projects() {
             color: "rgba(100, 100, 255, 0.05)",
             model: {
                 type: 'image',
-                alt: 'App login screen',
+                alt: 'Civo invoice management dashboard',
                 textures: [
                     {
                         srcSet: `${civoInvoiceTexture} 800w`,

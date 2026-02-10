@@ -22,6 +22,15 @@
     @media (--mediaMobile),
     (--mediaMobileLS) {
       bottom: auto;
+      transition: transform var(--durationM) var(--bezierFastoutSlowin), opacity var(--durationM) var(--bezierFastoutSlowin);
+    }
+
+    @media (--mediaMobile),
+    (--mediaMobileLS) {
+      &[data-scrolling-down='true'] {
+        opacity: 0;
+        transform: translateY(-150%);
+      }
     }
   }
 

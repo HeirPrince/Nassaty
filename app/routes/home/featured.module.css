@@ -127,8 +127,26 @@
   }
 
   @media (--mediaTablet) {
+    display: none;
+  }
+}
+
+.mobileActions {
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--durationL) var(--bezierFastoutSlowin) 0.3s,
+    transform var(--durationL) var(--bezierFastoutSlowin) 0.3s;
+
+  &[data-visible='true'] {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @media (--mediaTablet) {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spaceL);
   }
 }
 
