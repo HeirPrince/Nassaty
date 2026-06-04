@@ -11,6 +11,7 @@
     },
     "routeIdToServerBundleId": {
       "routes/projects.smart-sparrow": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/demo.scroll-pinned": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/portfolio-prince": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.slice": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/api.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
@@ -32,6 +33,15 @@
         "file": "app/routes/projects.smart-sparrow/route.js",
         "id": "routes/projects.smart-sparrow",
         "path": "projects/smart-sparrow",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/demo.scroll-pinned": {
+        "file": "app/routes/demo.scroll-pinned.jsx",
+        "id": "routes/demo.scroll-pinned",
+        "path": "demo/scroll-pinned",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -145,6 +155,12 @@
         "file": "routes/projects.smart-sparrow/route.js",
         "id": "routes/projects.smart-sparrow",
         "path": "projects/smart-sparrow",
+        "parentId": "root"
+      },
+      "routes/demo.scroll-pinned": {
+        "file": "routes/demo.scroll-pinned.jsx",
+        "id": "routes/demo.scroll-pinned",
+        "path": "demo/scroll-pinned",
         "parentId": "root"
       },
       "routes/portfolio-prince": {

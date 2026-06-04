@@ -16,16 +16,16 @@ export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => 
         src={logoLight}
         alt=""
         className={styles.light}
-        width="48"
-        height="48"
+        width="56"
+        height="56"
         style={{ objectFit: 'contain' }}
       />
       <img
         src={logoDark}
         alt=""
         className={styles.dark}
-        width="48"
-        height="48"
+        width="56"
+        height="56"
         style={{ objectFit: 'contain' }}
       />
     </div>

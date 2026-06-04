@@ -3,12 +3,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
-    padding-left: 140px;
+    padding-left: var(--spaceOuter);
 
     @media (--mediaTablet) {
-      padding-top: 80px;
-      padding-bottom: 80px;
-      padding-left: 80px;
+      padding-top: var(--space4XL);
+      padding-bottom: var(--space4XL);
+      padding-left: var(--space4XL);
       grid-template-columns: 100%;
       min-height: 100vh;
       height: auto;
@@ -16,6 +16,8 @@
 
     @media (--mediaMobile) {
       padding-left: 0;
+      padding-top: 0;
+      padding-bottom: var(--space3XL);
     }
   }
 
@@ -24,18 +26,20 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    border: var(--space3XL) solid transparent;
+    border: var(--space2XL) solid transparent;
 
     @media (--mediaLaptop) {
       border-width: var(--spaceL);
     }
 
     @media (--mediaTablet) {
-      border-width: var(--space4XL);
+      border-width: var(--space3XL);
+      height: 400px;
     }
 
     @media (--mediaMobile) {
       min-height: 240px;
+      height: 300px;
       grid-row: 1;
       border-width: var(--spaceOuter);
       border-top: 0;

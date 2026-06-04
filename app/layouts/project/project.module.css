@@ -42,7 +42,7 @@
   }
 
   .sectionInner {
-    --sectionPadding: calc(var(--space5XL) + var(--space3XL));
+    --sectionPadding: var(--space5XL);
 
     grid-area: 1 / 1;
     display: flex;
@@ -72,17 +72,16 @@
     }
 
     @media (--mediaLaptop) {
-      --sectionPadding: var(--space5XL);
+      --sectionPadding: var(--space4XL);
     }
 
     @media (--mediaTablet) {
       --sectionPadding: var(--space3XL);
-
       height: auto;
     }
 
     @media (--mediaMobile) {
-      --sectionPadding: var(--space2XL);
+      --sectionPadding: var(--space3XL);
     }
   }
 
@@ -182,21 +181,21 @@
   }
 
   .header {
-    padding-top: calc(var(--space5XL) + var(--space3XL));
+    padding-top: var(--space5XL);
     padding-bottom: 0;
 
     @media (--mediaLaptop) {
-      padding-top: var(--space5XL);
-      padding-bottom: var(--space2XL);
-    }
-
-    @media (--mediaTablet) {
       padding-top: var(--space4XL);
       padding-bottom: 0;
     }
 
+    @media (--mediaTablet) {
+      padding-top: var(--space3XL);
+      padding-bottom: 0;
+    }
+
     @media (--mediaMobile) {
-      padding-top: var(--space5XL);
+      padding-top: var(--space3XL);
       padding-bottom: var(--spaceXL);
     }
   }
@@ -205,11 +204,12 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 300px;
-    gap: var(--space4XL);
+    gap: var(--space3XL);
     max-width: var(--maxWidthL);
 
     @media (--mediaDesktop) {
       grid-template-columns: 1fr 400px;
+      gap: var(--space4XL);
     }
 
     @media (--mediaLaptop) {
@@ -223,6 +223,10 @@
 
     @media (--mediaTablet) {
       grid-template-columns: 100%;
+      gap: var(--space2XL);
+    }
+
+    @media (--mediaMobile) {
       gap: var(--spaceXL);
     }
   }
@@ -339,10 +343,18 @@
     max-width: var(--maxWidthL);
     width: 100%;
     display: grid;
-    gap: var(--space4XL);
+    gap: var(--space3XL);
 
     @media (--mediaLaptop) {
       gap: var(--space3XL);
+    }
+
+    @media (--mediaTablet) {
+      gap: var(--space2XL);
+    }
+
+    @media (--mediaMobile) {
+      gap: var(--spaceXL);
     }
 
     &[data-width='l'] {
@@ -439,6 +451,11 @@
 
     @media (--mediaTablet) {
       grid-template-columns: 1fr;
+      gap: var(--space2XL);
+    }
+
+    @media (--mediaMobile) {
+      gap: var(--spaceXL);
     }
   }
 }

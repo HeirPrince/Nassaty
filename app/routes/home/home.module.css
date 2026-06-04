@@ -1,3 +1,45 @@
 .home {
-  overflow-x: hidden;
+  width: 100%;
+}
+
+.home > * {
+  scroll-snap-align: start;
+}
+
+.pinnedProject {
+  margin: 0 !important;
+  height: 100vh !important;
+  padding: 0 !important; /* Remove section padding to allow true centering */
+  max-width: 100% !important; /* Allow full width */
+  max-height: none !important;
+  background-color: var(--background);
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden;
+
+  @media (--mediaTablet) {
+    height: auto !important;
+    min-height: 100vh;
+    padding: var(--space3XL) 0 !important;
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--space2XL) 0 !important;
+  }
+}
+
+.scrollPinned {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+  position: relative; 
+  /* Fix overlaps? The scroll pinned container needs to stack above subsequent content until done */
+  z-index: 10; 
+
+  @media (--mediaTablet) {
+    height: auto;
+    min-height: 100vh;
+  }
 }

@@ -46,7 +46,7 @@
   font-size: calc((24 / 16) * 1rem);
   letter-spacing: 0.3em;
   color: var(--textLight);
-  margin-bottom: var(--space2XL);
+  margin-bottom: var(--spaceXL);
   margin-top: 0;
   font-weight: var(--fontWeightMedium);
   line-height: 1;
@@ -60,6 +60,7 @@
 
   @media (--mediaTablet) {
     font-size: calc((18 / 16) * 1rem);
+    margin-bottom: var(--spaceL);
   }
 
   @media (--mediaMobile) {
@@ -71,7 +72,6 @@
 
   @media (max-width: 820px) and (max-height: 420px) {
     margin-bottom: var(--spaceL);
-    margin-bottom: var(--spaceXL);
   }
 
   &[data-visible='true'] {

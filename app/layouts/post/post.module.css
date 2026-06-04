@@ -61,18 +61,24 @@
     justify-content: center;
     flex-direction: column;
     padding-top: var(--space5XL);
-    gap: var(--space2XL);
+    gap: var(--space3XL);
     max-width: 800px;
     grid-column: 3;
+
+    @media (--mediaLaptop) {
+      gap: var(--space2XL);
+    }
 
     @media (--mediaTablet) {
       grid-column: 1;
       gap: var(--spaceXL);
       max-width: none;
+      padding-top: var(--spaceOuter);
     }
 
     @media (--mediaMobile), (--mediaMobileLS) {
-      padding: calc(var(--mobileNavOffset) + var(--spaceL)) 0 0;
+      padding: calc(var(--mobileNavOffset) + var(--spaceXL)) 0 0;
+      gap: var(--spaceL);
     }
   }
 
@@ -149,6 +155,7 @@
 
     @media (--mediaMobile) {
       inset: calc(var(--spaceOuter) * -1);
+      height: 60vh;
     }
 
     &::after {

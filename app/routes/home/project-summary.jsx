@@ -25,6 +25,7 @@ import gng1MobileLight from '~/assets/gng_1_mobile_light.svg';
 import gng2MobileLight from '~/assets/gng_2_mobile_light.svg';
 import gng3MobileLight from '~/assets/gng_3_mobile_light.svg';
 import styles from './project-summary.module.css';
+import artworkStyles from './project-summary-artwork.module.css';
 
 const Model = lazy(() =>
   import('~/components/model').then(module => ({ default: module.Model }))
@@ -83,21 +84,19 @@ export function ProjectSummary({
     }
 
     return (
-      <>
+      <div className={artworkStyles.artwork} data-visible={visible && modelLoaded} data-device={device}>
         <div
-          className={styles.svgGlow}
+          className={artworkStyles.svgGlow}
           data-device={device}
-          data-visible={visible && modelLoaded}
         />
         <img
           src={svgSrc}
-          alt="gng"
+          alt=""
           data-device={device}
-          data-visible={visible && modelLoaded}
           style={cssProps({ opacity: svgOpacity })}
-          className={styles.svg}
+          className={artworkStyles.svg}
         />
-      </>
+      </div>
     );
   }
 

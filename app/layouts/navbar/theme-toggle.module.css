@@ -17,7 +17,7 @@
 
     &[data-mobile='true'] {
       --offset: var(--spaceXS);
-      --inset: calc(var(--spaceXL) - var(--offset));
+      --inset: calc(var(--spaceOuter) - var(--offset));
 
       top: unset;
       bottom: var(--inset);
