@@ -1,0 +1,124 @@
+/* Artwork Wrapper */
+.artwork {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* Sit behind content (preview/details z-index 10) but above backdrop */
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Entry State */
+  opacity: 0;
+  transform: translate3d(20px, 0, 0) scale(1.05); /* Subtle drift entry */
+  transition: opacity 1.2s ease, transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.artwork[data-visible='true'] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Exit State - explicitly handle if 'false' class is applied, but default transition handles it */
+
+/* SVG Image - Breathing Animation */
+.svg {
+  width: 100%; /* Adapts to container */
+  max-width: 120%; /* Overflow slightly allowed */
+  height: auto;
+  opacity: 0.6; /* Base opacity */
+  
+  /* Continuous Motion */
+  animation: breathe 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: scale(1.03) translateY(-10px);
+  }
+}
+
+/* Device Specific Positioning Overrides on Wrapper or Inner */
+/* We keep original positioning logic but apply it to wrapper where possible or inner if needed */
+
+/* Laptop Position */
+.artwork[data-device='laptop'],
+.artwork[data-device='laptop-flat'] {
+  justify-content: flex-end;
+  padding-right: 10%;
+
+  @media (--mediaTablet) {
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+.artwork[data-device='laptop'] .svg,
+.artwork[data-device='laptop-flat'] .svg {
+  width: 85%;
+  max-width: none;
+  transform-origin: center right;
+
+  @media (--mediaTablet) {
+    width: 75%;
+    transform-origin: center;
+  }
+}
+
+/* Phone Position */
+.artwork[data-device='phone'],
+.artwork[data-device='image'] {
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork[data-device='phone'] .svg,
+.artwork[data-device='image'] .svg {
+  width: 85%;
+  max-width: none;
+
+  @media (--mediaTablet) {
+    width: 75%;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .artwork {
+    transition: opacity 0.5s ease;
+    transform: none !important;
+  }
+  .svg {
+    animation: none !important;
+  }
+}
+
+/* Glow Effect */
+.svgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle closest-side, var(--accent), transparent);
+  opacity: 0;
+  filter: blur(80px);
+  z-index: -1;
+  transition: opacity 1.5s ease 0.5s; /* Delay glow entry */
+}
+
+.artwork[data-visible='true'] .svgGlow {
+  opacity: 0.3;
+  animation: pulseGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+}
