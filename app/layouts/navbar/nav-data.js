@@ -16,19 +16,19 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
-  {
+  config.bluesky && {
     label: 'Bluesky',
     url: `https://bsky.app/profile/${config.bluesky}`,
     icon: 'bluesky',
   },
-  {
+  config.tiktok && {
     label: 'TikTok',
     url: `https://www.tiktok.com/@${config.tiktok}`,
     icon: 'tiktok',
   },
-  {
+  config.github && {
     label: 'Github',
-    url: config.github ? `https://github.com/${config.github}` : 'https://github.com',
+    url: `https://github.com/${config.github}`,
     icon: 'github',
   },
-];
+].filter(Boolean);

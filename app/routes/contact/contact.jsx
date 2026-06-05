@@ -137,6 +137,7 @@ export const Contact = () => {
                   name="firstName"
                   maxLength={MAX_EMAIL_LENGTH}
                   {...firstName}
+                  error={actionData?.errors?.firstName || firstName.error}
                 />
                 <Input
                   required
@@ -149,6 +150,7 @@ export const Contact = () => {
                   name="lastName"
                   maxLength={MAX_EMAIL_LENGTH}
                   {...lastName}
+                  error={actionData?.errors?.lastName || lastName.error}
                 />
               </div>
               <Input
@@ -162,6 +164,7 @@ export const Contact = () => {
                 name="email"
                 maxLength={MAX_EMAIL_LENGTH}
                 {...email}
+                error={actionData?.errors?.email || email.error}
               />
               <Input
                 required
@@ -174,6 +177,7 @@ export const Contact = () => {
                 name="message"
                 maxLength={MAX_MESSAGE_LENGTH}
                 {...message}
+                error={actionData?.errors?.message || message.error}
               />
               <div
                 className={styles.checkboxContainer}
@@ -181,7 +185,9 @@ export const Contact = () => {
                 style={getDelay(tokens.base.durationS, initDelay, 0.4)}
               >
                 <input type="checkbox" id="privacy-policy" required className={styles.checkbox} />
-                <label htmlFor="privacy-policy" className={styles.checkboxLabel}>I agree the Privacy Policy</label>
+                <label htmlFor="privacy-policy" className={styles.checkboxLabel}>
+                  I agree to the Privacy Policy
+                </label>
               </div>
               <Transition
                 unmount
@@ -192,6 +198,7 @@ export const Contact = () => {
                   <div
                     className={styles.formError}
                     ref={nodeRef}
+                    aria-live="polite"
                     data-status={errorStatus}
                     style={cssProps({
                       height: errorStatus ? errorRef.current?.offsetHeight : 0,

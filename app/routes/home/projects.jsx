@@ -64,7 +64,7 @@ export function Projects() {
             title: "Digital Commerce Platform",
             description: `A complete website and mobile ordering system that helps businesses showcase their brand, accept orders, and track them in real time — all for a simple monthly fee.\n\nFrom menus and promotions to ordering and delivery tracking, everything your customers need is in one place.`,
             buttonText: "View More",
-            buttonLink: "/projects/smart-sparrow",
+            buttonLink: "/projects/business-management-platform",
             color: "rgba(237, 155, 64, 0.05)",
             model: {
                 type: 'laptop-flat',

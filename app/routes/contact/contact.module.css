@@ -168,7 +168,7 @@
   flex: 1;
   background: var(--backgroundLight);
   padding: var(--space3XL);
-  border-radius: var(--spaceL);
+  border-radius: 0;
   width: 100%;
   max-width: 600px;
   display: flex;

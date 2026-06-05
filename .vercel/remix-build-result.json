@@ -10,8 +10,8 @@
       }
     },
     "routeIdToServerBundleId": {
+      "routes/projects.business-management-platform": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.smart-sparrow": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
-      "routes/demo.scroll-pinned": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/portfolio-prince": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/projects.slice": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
       "routes/api.set-theme": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
@@ -29,19 +29,19 @@
         "file": "app/root.jsx",
         "config": {}
       },
-      "routes/projects.smart-sparrow": {
-        "file": "app/routes/projects.smart-sparrow/route.js",
-        "id": "routes/projects.smart-sparrow",
-        "path": "projects/smart-sparrow",
+      "routes/projects.business-management-platform": {
+        "file": "app/routes/projects.business-management-platform/route.js",
+        "id": "routes/projects.business-management-platform",
+        "path": "projects/business-management-platform",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
         }
       },
-      "routes/demo.scroll-pinned": {
-        "file": "app/routes/demo.scroll-pinned.jsx",
-        "id": "routes/demo.scroll-pinned",
-        "path": "demo/scroll-pinned",
+      "routes/projects.smart-sparrow": {
+        "file": "app/routes/projects.smart-sparrow/route.js",
+        "id": "routes/projects.smart-sparrow",
+        "path": "projects/smart-sparrow",
         "parentId": "root",
         "config": {
           "runtime": "nodejs"
@@ -131,9 +131,9 @@
     }
   },
   "remixConfig": {
-    "appDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\app",
+    "appDirectory": "E:\\CoD3\\Nassaty\\app",
     "basename": "/",
-    "buildDirectory": "C:\\Users\\KGLZH-CARD01\\Pictures\\Pjt\\Nassaty\\build",
+    "buildDirectory": "E:\\CoD3\\Nassaty\\build",
     "future": {
       "v3_fetcherPersist": false,
       "v3_relativeSplatPath": false,
@@ -151,16 +151,16 @@
         "id": "root",
         "file": "root.jsx"
       },
+      "routes/projects.business-management-platform": {
+        "file": "routes/projects.business-management-platform/route.js",
+        "id": "routes/projects.business-management-platform",
+        "path": "projects/business-management-platform",
+        "parentId": "root"
+      },
       "routes/projects.smart-sparrow": {
         "file": "routes/projects.smart-sparrow/route.js",
         "id": "routes/projects.smart-sparrow",
         "path": "projects/smart-sparrow",
-        "parentId": "root"
-      },
-      "routes/demo.scroll-pinned": {
-        "file": "routes/demo.scroll-pinned.jsx",
-        "id": "routes/demo.scroll-pinned",
-        "path": "demo/scroll-pinned",
         "parentId": "root"
       },
       "routes/portfolio-prince": {
